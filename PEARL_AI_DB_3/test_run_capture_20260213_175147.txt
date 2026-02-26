@@ -1,0 +1,90 @@
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 8
+[DEBUG] db_dir: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\cli\..\core\database\databases
+[DEBUG] db_files: ['PEARL_AI_DB.sqlite', 'test_pearl_id.sqlite']
+
+Select a Database:
+------------------
+1. PEARL_AI_DB.sqlite
+2. test_pearl_id.sqlite
+3. Create New Database
+------------------
+Enter the number of the database, type its name, or choose to create a new one:
+[MOCK_INPUT] Prompt: '> (e.g., '1', 'my_new_db.db', or 'Create')' | Returned: '1' | Remaining inputs: 7
+Database set to: PEARL_AI_DB.sqlite
+DEBUG: AgentPearl initialized with pearl_client: <App.src.core.database.pearl_qlite.pearl_qlite.PearlClient object at 0x00000177F8EB3AA0>
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '2' | Remaining inputs: 6
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 5
+[CLEAR_SCREEN_SIMULATED]
+Load Existing Vault
+-------------------
+[MOCK_INPUT] Prompt: 'Enter Vault Door password:' | Returned: 'newtestpassword' | Remaining inputs: 4
+[MOCK_INPUT] Prompt: 'Enter Identity password:' | Returned: 'newtestpassword' | Remaining inputs: 3
+[MOCK_INPUT] Prompt: 'Enter Metadata password:' | Returned: '{"test_key": "test_value", "vault_purpose": "test_report"}' | Remaining inputs: 2
+[DEBUG] Derived key length: 32 bytes
+An unexpected error occurred during vault loading: 
+[PAUSE SKIPPED (test mode)]
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '6' | Remaining inputs: 1
+Invalid choice. Please try again.
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '4' | Remaining inputs: 0
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Using real input for prompt: '>'
+> 

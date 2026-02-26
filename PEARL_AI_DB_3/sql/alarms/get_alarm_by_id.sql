@@ -1,0 +1,1 @@
+SELECT * FROM Alarms WHERE alarm_id = ?;

@@ -1,0 +1,1 @@
+ python -m streamlit run App\src\ui\main_app.py

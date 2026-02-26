@@ -1,0 +1,2781 @@
+[
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "generate_seed",
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "isExtraImport": true,
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "seed_to_pearl_id",
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "isExtraImport": true,
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "pearl_id_to_vector",
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "isExtraImport": true,
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "seed_to_pearl_id",
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "isExtraImport": true,
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "seed_to_pearl_id",
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "isExtraImport": true,
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "builtins",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "builtins",
+        "description": "builtins",
+        "detail": "builtins",
+        "documentation": {}
+    },
+    {
+        "label": "textwrap",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "dedent",
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "isExtraImport": true,
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "dedent",
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "isExtraImport": true,
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "dedent",
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "isExtraImport": true,
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.agent.semantic",
+        "description": "App.src.agent.semantic",
+        "isExtraImport": true,
+        "detail": "App.src.agent.semantic",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "importPath": "App.src.agent_pearl.agent_pearl",
+        "description": "App.src.agent_pearl.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "importPath": "App.src.agent_pearl.agent_pearl",
+        "description": "App.src.agent_pearl.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "importPath": "App.src.agent_pearl.agent_pearl",
+        "description": "App.src.agent_pearl.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "importPath": "App.src.agent_pearl.agent_pearl",
+        "description": "App.src.agent_pearl.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "import_or_update_table_from_csv",
+        "importPath": "App.src.admin_tools.csv_importer",
+        "description": "App.src.admin_tools.csv_importer",
+        "isExtraImport": true,
+        "detail": "App.src.admin_tools.csv_importer",
+        "documentation": {}
+    },
+    {
+        "label": "clear",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "pause",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "_test_context",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mock_input",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_vault_management",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_select_database",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "clear",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_input",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "print_menu",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "clear",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "pause",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "_test_context",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mock_input",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_select_database",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_vault_management",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_transaction_management",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "_test_context",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "_test_context",
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "isExtraImport": true,
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "TextToSQL",
+        "importPath": "ai_text_to_sql",
+        "description": "ai_text_to_sql",
+        "isExtraImport": true,
+        "detail": "ai_text_to_sql",
+        "documentation": {}
+    },
+    {
+        "label": "SQLiteConnector",
+        "importPath": "ai_text_to_sql.data_connectors",
+        "description": "ai_text_to_sql.data_connectors",
+        "isExtraImport": true,
+        "detail": "ai_text_to_sql.data_connectors",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAIConnector",
+        "importPath": "ai_text_to_sql.llm_connectors",
+        "description": "ai_text_to_sql.llm_connectors",
+        "isExtraImport": true,
+        "detail": "ai_text_to_sql.llm_connectors",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "query_builder_menu",
+        "importPath": "App.src.cli.menus.query_builder_menu",
+        "description": "App.src.cli.menus.query_builder_menu",
+        "isExtraImport": true,
+        "detail": "App.src.cli.menus.query_builder_menu",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "SQL_CATEGORIES",
+        "importPath": "App.config.sql_categories",
+        "description": "App.config.sql_categories",
+        "isExtraImport": true,
+        "detail": "App.config.sql_categories",
+        "documentation": {}
+    },
+    {
+        "label": "SQL_CATEGORIES",
+        "importPath": "App.config.sql_categories",
+        "description": "App.config.sql_categories",
+        "isExtraImport": true,
+        "detail": "App.config.sql_categories",
+        "documentation": {}
+    },
+    {
+        "label": "SQL_CATEGORIES",
+        "importPath": "App.config.sql_categories",
+        "description": "App.config.sql_categories",
+        "isExtraImport": true,
+        "detail": "App.config.sql_categories",
+        "documentation": {}
+    },
+    {
+        "label": "SQL_CATEGORIES",
+        "importPath": "App.config.sql_categories",
+        "description": "App.config.sql_categories",
+        "isExtraImport": true,
+        "detail": "App.config.sql_categories",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "hashes",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "padding",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "PBKDF2HMAC",
+        "importPath": "cryptography.hazmat.primitives.kdf.pbkdf2",
+        "description": "cryptography.hazmat.primitives.kdf.pbkdf2",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.kdf.pbkdf2",
+        "documentation": {}
+    },
+    {
+        "label": "default_backend",
+        "importPath": "cryptography.hazmat.backends",
+        "description": "cryptography.hazmat.backends",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.backends",
+        "documentation": {}
+    },
+    {
+        "label": "default_backend",
+        "importPath": "cryptography.hazmat.backends",
+        "description": "cryptography.hazmat.backends",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.backends",
+        "documentation": {}
+    },
+    {
+        "label": "Cipher",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "algorithms",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "modes",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "Cipher",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "algorithms",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "modes",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "low_level",
+        "importPath": "argon2",
+        "description": "argon2",
+        "isExtraImport": true,
+        "detail": "argon2",
+        "documentation": {}
+    },
+    {
+        "label": "VerifyMismatchError",
+        "importPath": "argon2.exceptions",
+        "description": "argon2.exceptions",
+        "isExtraImport": true,
+        "detail": "argon2.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_table_names_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_distinct_pearl_ids_from_all_tables_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_pearl_id_groups_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_pearl_ids_in_group_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_pearl_ids_in_active_group_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_pearl_client_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_access_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_agent_pearl_cached",
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "StringIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "Vault",
+        "importPath": "App.src.core.security.vault",
+        "description": "App.src.core.security.vault",
+        "isExtraImport": true,
+        "detail": "App.src.core.security.vault",
+        "documentation": {}
+    },
+    {
+        "label": "agent_pearl",
+        "importPath": "App.src.agent_pearl",
+        "description": "App.src.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "agent_pearl",
+        "importPath": "App.src.agent_pearl",
+        "description": "App.src.agent_pearl",
+        "isExtraImport": true,
+        "detail": "App.src.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "render_csv_import_page",
+        "importPath": "App.src.ui.pages.csv_import",
+        "description": "App.src.ui.pages.csv_import",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.csv_import",
+        "documentation": {}
+    },
+    {
+        "label": "export_user_data_to_new_db",
+        "importPath": "App.src.ui.db_management_utils",
+        "description": "App.src.ui.db_management_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.db_management_utils",
+        "documentation": {}
+    },
+    {
+        "label": "verify_exported_db",
+        "importPath": "App.src.ui.db_management_utils",
+        "description": "App.src.ui.db_management_utils",
+        "isExtraImport": true,
+        "detail": "App.src.ui.db_management_utils",
+        "documentation": {}
+    },
+    {
+        "label": "render_common_page",
+        "importPath": "App.src.ui.pages.common",
+        "description": "App.src.ui.pages.common",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.common",
+        "documentation": {}
+    },
+    {
+        "label": "render_home_page",
+        "importPath": "App.src.ui.pages.home",
+        "description": "App.src.ui.pages.home",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.home",
+        "documentation": {}
+    },
+    {
+        "label": "render_job_costing_page",
+        "importPath": "App.src.ui.pages.job_costing",
+        "description": "App.src.ui.pages.job_costing",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.job_costing",
+        "documentation": {}
+    },
+    {
+        "label": "render_contacts_page",
+        "importPath": "App.src.ui.pages.contacts",
+        "description": "App.src.ui.pages.contacts",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.contacts",
+        "documentation": {}
+    },
+    {
+        "label": "render_contacts_page",
+        "importPath": "App.src.ui.pages.contacts",
+        "description": "App.src.ui.pages.contacts",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.contacts",
+        "documentation": {}
+    },
+    {
+        "label": "render_accounting_page",
+        "importPath": "App.src.ui.pages.accounting",
+        "description": "App.src.ui.pages.accounting",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.accounting",
+        "documentation": {}
+    },
+    {
+        "label": "render_reports_page",
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_query_builder_page",
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "isExtraImport": true,
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "data_access",
+        "importPath": "App.src.core.database",
+        "description": "App.src.core.database",
+        "isExtraImport": true,
+        "detail": "App.src.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "main_menu",
+        "importPath": "App.src.cli.main_cli_menu",
+        "description": "App.src.cli.main_cli_menu",
+        "isExtraImport": true,
+        "detail": "App.src.cli.main_cli_menu",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "MagicMock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "MoltbotAPI",
+        "importPath": "App.src.agent.moltbot_api",
+        "description": "App.src.agent.moltbot_api",
+        "isExtraImport": true,
+        "detail": "App.src.agent.moltbot_api",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "importPath": "src.core.database.data_access",
+        "description": "src.core.database.data_access",
+        "isExtraImport": true,
+        "detail": "src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "importPath": "src.core.database.pearl_qlite.pearl_qlite",
+        "description": "src.core.database.pearl_qlite.pearl_qlite",
+        "isExtraImport": true,
+        "detail": "src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "SqlCategory",
+        "kind": 6,
+        "importPath": "App.config.sql_categories",
+        "description": "App.config.sql_categories",
+        "peekOfCode": "class SqlCategory:\n    \"\"\"\n    Represents a category of SQL queries, mapping to a directory in the App/sql/ structure.\n    \"\"\"\n    name: str          # User-friendly name, e.g., \"Job Management\"\n    directory: str     # The actual subdirectory name, e.g., \"jobs\"\n    description: str   # A brief description of what this category covers\n    sql_files: frozenset[tuple[str, str]] = field(default_factory=frozenset) # frozenset of (name, path) tuples\nSQL_CATEGORIES: List[SqlCategory] = [\n    SqlCategory(name=\"Common Utilities\", directory=\"common\", description=\"General purpose SQL queries that are not specific to any module.\", sql_files=frozenset([",
+        "detail": "App.config.sql_categories",
+        "documentation": {}
+    },
+    {
+        "label": "import_or_update_table_from_csv",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.csv_importer",
+        "description": "App.src.admin_tools.csv_importer",
+        "peekOfCode": "def import_or_update_table_from_csv(file_path: str, client: PearlClient, table_name: str):\n    \"\"\"\n    Imports or updates data from a CSV or TXT file into a specified table.\n    It attempts to use INSERT OR REPLACE to handle both new records and updates.\n    If the table does not exist, it attempts to create it based on CSV headers\n    and inferred column types.\n    Args:\n        file_path (str): The path to the CSV or TXT file.\n        client (PearlClient): An instance of the PearlClient for database interaction.\n        table_name (str): The name of the table to import data into.",
+        "detail": "App.src.admin_tools.csv_importer",
+        "documentation": {}
+    },
+    {
+        "label": "generate_csv_template",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.csv_importer",
+        "description": "App.src.admin_tools.csv_importer",
+        "peekOfCode": "def generate_csv_template(client: PearlClient, table_name: str, output_path: str):\n    \"\"\"\n    Generates an empty CSV file with headers based on the specified table's columns.\n    Args:\n        client (PearlClient): An instance of the PearlClient for database interaction.\n        table_name (str): The name of the table to generate the template for.\n        output_path (str): The full path where the CSV template file should be saved.\n    \"\"\"\n    try:\n        table_columns = client.get_table_columns(table_name)",
+        "detail": "App.src.admin_tools.csv_importer",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_database_clients",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def initialize_database_clients(db_name: str):\n    \"\"\"\n    Initializes and returns PearlClient and AgentPearl instances for a given database.\n    \"\"\"\n    client = PearlClient(db_name)\n    agent_pearl = AgentPearl(db_name)\n    return client, agent_pearl\n# -------------------------------------------------------------------\n# Utility Functions (mock_input and pause)\n# -------------------------------------------------------------------",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "mock_input",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def mock_input(prompt=\"\"):\n    if test_inputs_queue:\n        value = test_inputs_queue.pop(0)\n        # Enhanced debug output with queue status\n        print(f\"[MOCK_INPUT] Prompt: '{prompt.strip()}' | Returned: '{value}' | Remaining inputs: {len(test_inputs_queue)}\", file=sys.stderr)\n        return value\n    else:\n        # Debug output for real user input\n        print(f\"[MOCK_INPUT] Using real input for prompt: '{prompt.strip()}'\", file=sys.stderr)\n        return original_input(prompt)",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "view_agent_state",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def view_agent_state(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Allows the user to view the state of an agent by its PEARL_ID.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"View Agent State\")\n    print(\"----------------\")\n    pearl_id = input(\"Enter PEARL_ID of the agent to view (e.g., '00000000-0000-4000-8000-000000000000'): \").strip()\n    if not pearl_id:\n        print(\"PEARL_ID cannot be empty.\")",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_pearl_ids",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def list_all_pearl_ids(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Displays a list of all PEARL IDs and their associated entity types and attributes.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"List All PEARL IDs\")\n    print(\"------------------\")\n    try:\n        pearl_ids = agent_pearl.get_all_pearl_ids()\n        if pearl_ids:",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_tables",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def list_all_tables(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Displays a list of all tables in the database.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"List All Tables\")\n    print(\"---------------\")\n    try:\n        tables = agent_pearl.pearl_client.get_all_table_names()\n        if tables:",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "export_query_results_menu",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def export_query_results_menu(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Menu for exporting query results to various formats.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"Export Query Results\")\n    print(\"--------------------\")\n    print(\"1. Default Export: All PEARL IDs (SELECT id, entity_type, attributes FROM pearl_ids;)\")\n    print(\"2. Custom SQL Query\")\n    export_type_choice = input(\"Select export type (1 or 2, e.g., '1'): \").strip()",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "import_csv_menu",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def import_csv_menu(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Menu for importing data from a CSV file into a database table.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"Import CSV to Table\")\n    print(\"-------------------\")\n    csv_file_path = input(\"Enter the path to the CSV file (e.g., 'data.csv'): \").strip()\n    table_name = input(\"Enter the target table name (e.g., 'agents'): \").strip()\n    if not csv_file_path or not table_name:",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "interpret_pearl_id_menu",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def interpret_pearl_id_menu(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Menu for interpreting a PEARL ID.\n    \"\"\"\n    clear(test_mode=test_mode)\n    print(\"Interpret PEARL ID\")\n    print(\"------------------\")\n    pearl_id = input(\"Enter PEARL ID to interpret (e.g., '00000000-0000-4000-8000-000000000000'): \").strip()\n    if not pearl_id:\n        print(\"PEARL ID cannot be empty.\")",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "menu_admin_tools",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def menu_admin_tools(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Displays a sub-menu for Agent-PEARL Debug Tools and handles user input.\n    \"\"\"\n    while True:\n        clear(test_mode=test_mode)\n        print(dedent(\"\"\"\n        Agent-PEARL Debug Tools\n        -----------------------\n        1. View Agent State",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "main_menu",
+        "kind": 2,
+        "importPath": "App.src.admin_tools.PEARL_Admin",
+        "description": "App.src.admin_tools.PEARL_Admin",
+        "peekOfCode": "def main_menu(args, test_mode: bool = False):\n    client, agent_pearl = None, None\n    current_db = None\n    while True:\n        clear()\n        print(dedent(f\"\"\"\n        PEARL Admin Console\n        -------------------\n        Current DB: {current_db if current_db else \"Not Selected\"}\n        Vault Status: {\"Loaded\" if agent_pearl and not agent_pearl.vault.is_locked() else \"Locked/Not Loaded\"}",
+        "detail": "App.src.admin_tools.PEARL_Admin",
+        "documentation": {}
+    },
+    {
+        "label": "ContractExecutor",
+        "kind": 6,
+        "importPath": "App.src.agent.contracts",
+        "description": "App.src.agent.contracts",
+        "peekOfCode": "class ContractExecutor:\n    def __init__(self, client: PearlClient, default_audit: str | None = None):\n        self.client = client\n        self.default_audit = default_audit\n        # Initialize MoltbotAPI client\n        moltbot_base_url = os.getenv(\"MOLTBOT_BASE_URL\")\n        moltbot_api_key = os.getenv(\"MOLTBOT_API_KEY\")\n        if moltbot_base_url and moltbot_api_key:\n            self.moltbot_api = MoltbotAPI(moltbot_base_url, moltbot_api_key)\n        else:",
+        "detail": "App.src.agent.contracts",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "kind": 6,
+        "importPath": "App.src.agent.core_loop",
+        "description": "App.src.agent.core_loop",
+        "peekOfCode": "class AgentPearl:\n    def __init__(self, llm, config: dict):\n        self.client = PearlClient(**config[\"pearlqlite\"])\n        self.memory = PearlMemory(\n            self.client,\n            crdt_table=config[\"memory\"][\"crdt_table\"],\n            log_table=config[\"memory\"][\"log_table\"],\n        )\n        self.contracts = ContractExecutor(\n            self.client,",
+        "detail": "App.src.agent.core_loop",
+        "documentation": {}
+    },
+    {
+        "label": "AgentLogger",
+        "kind": 6,
+        "importPath": "App.src.agent.logging",
+        "description": "App.src.agent.logging",
+        "peekOfCode": "class AgentLogger:\n    def __init__(self):\n        self.log = logging.getLogger(\"agent-pearl\")\n        if not self.log.handlers:\n            handler = logging.StreamHandler()\n            formatter = logging.Formatter(\n                \"[%(asctime)s] %(levelname)s: %(message)s\"\n            )\n            handler.setFormatter(formatter)\n            self.log.addHandler(handler)",
+        "detail": "App.src.agent.logging",
+        "documentation": {}
+    },
+    {
+        "label": "PearlMemory",
+        "kind": 6,
+        "importPath": "App.src.agent.memory",
+        "description": "App.src.agent.memory",
+        "peekOfCode": "class PearlMemory:\n    def __init__(self, client: PearlClient, crdt_table: str, log_table: str):\n        self.client = client\n        self.crdt_table = crdt_table\n        self.log_table = log_table\n    def append_thought(self, thought: str):\n        sql = f\"\"\"\n        UPDATE {self.crdt_table}\n        SET log = CRDT_APPEND(\n          log,",
+        "detail": "App.src.agent.memory",
+        "documentation": {}
+    },
+    {
+        "label": "MoltbotAPI",
+        "kind": 6,
+        "importPath": "App.src.agent.moltbot_api",
+        "description": "App.src.agent.moltbot_api",
+        "peekOfCode": "class MoltbotAPI:\n    \"\"\"\n    A utility class for interacting with the Moltbot outbound messaging API.\n    \"\"\"\n    def __init__(self, base_url: str, api_key: str):\n        \"\"\"\n        Initializes the MoltbotAPI client.\n        Args:\n            base_url (str): The base URL of the Moltbot API.\n            api_key (str): The API key for authentication with Moltbot.",
+        "detail": "App.src.agent.moltbot_api",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "kind": 6,
+        "importPath": "App.src.agent.semantic",
+        "description": "App.src.agent.semantic",
+        "peekOfCode": "class PearlClient:\n    def __init__(self, base_url: str, timeout_ms: int = 5000):\n        self.base_url = base_url.rstrip(\"/\")\n        self.timeout = timeout_ms / 1000.0\n    def query(self, sql: str):\n        resp = requests.post(\n            f\"{self.base_url}/query\",\n            json={\"query\": sql},\n            timeout=self.timeout,\n        )",
+        "detail": "App.src.agent.semantic",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "kind": 6,
+        "importPath": "App.src.agent_pearl.agent_pearl",
+        "description": "App.src.agent_pearl.agent_pearl",
+        "peekOfCode": "class AgentPearl:\n    \"\"\"Orchestration agent for PEARL_AI_DB operations.\"\"\"\n    def __init__(self, db_name: str = \"core/database/databases/project_mgmt_acct.db\", vault_path: str = \"core/security/vault.vault\", pearl_client: Optional[PearlClient] = None):\n        if pearl_client:\n            self.pearl_client = pearl_client\n        else:\n            self.pearl_client = PearlClient(default_db=db_name)\n        print(f\"DEBUG: AgentPearl initialized with pearl_client: {self.pearl_client}\")\n        self.vault = Vault(vault_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), vault_path))\n        self.limited_access_key_store: Optional[LimitedAccessKeyStore] = None",
+        "detail": "App.src.agent_pearl.agent_pearl",
+        "documentation": {}
+    },
+    {
+        "label": "query_builder_menu",
+        "kind": 2,
+        "importPath": "App.src.cli.menus.query_builder_menu",
+        "description": "App.src.cli.menus.query_builder_menu",
+        "peekOfCode": "def query_builder_menu(agent: AgentPearl):\n    \"\"\"\n    Provides a menu-driven interface for building and executing SQL queries.\n    \"\"\"\n    while True:\n        clear()\n        print_menu(\"Query Builder\", [\n            \"Build SELECT Query\",\n            \"Build INSERT Query\",\n            \"Build UPDATE Query\",",
+        "detail": "App.src.cli.menus.query_builder_menu",
+        "documentation": {}
+    },
+    {
+        "label": "TestContext",
+        "kind": 6,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "class TestContext:\n    \"\"\"\n    Manages the mocking of builtins.input for testing purposes.\n    \"\"\"\n    def __init__(self):\n        self.test_inputs_queue = []\n        self.original_input = builtins.input\n        self.test_mode = False\n    def mock_input(self, prompt=\"\"):\n        if self.test_inputs_queue:",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "pause",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def pause():\n    \"\"\"\n    Pauses the execution, waiting for user input, unless in test mode.\n    \"\"\"\n    if _test_context.test_mode:\n        print(\"[PAUSE SKIPPED (test mode)]\", file=sys.stderr)\n    else:\n        builtins.input(\"Press ENTER to continue...\")\ndef clear(test_mode: bool = False):\n    \"\"\"",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "clear",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def clear(test_mode: bool = False):\n    \"\"\"\n    Clears the terminal screen.\n    \"\"\"\n    if test_mode:\n        print(\"[CLEAR_SCREEN_SIMULATED]\", file=sys.stderr)\n    else:\n        if os.name == 'nt':\n            _ = os.system('cls')\n        else:",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_input",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def get_user_input(prompt: str) -> str:\n    \"\"\"\n    Gets user input, handling test mode automatically.\n    \"\"\"\n    return input(prompt + \"> \").strip()\ndef print_menu(title: str, options: list[str]):\n    \"\"\"\n    Prints a formatted menu with a title and numbered options.\n    \"\"\"\n    print(f\"\\n--- {title} ---\")",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "print_menu",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def print_menu(title: str, options: list[str]):\n    \"\"\"\n    Prints a formatted menu with a title and numbered options.\n    \"\"\"\n    print(f\"\\n--- {title} ---\")\n    for i, option in enumerate(options):\n        print(f\"{i + 1}. {option}\")\n    print(\"------------------\")\ndef menu_select_database(test_mode: bool = False):\n    \"\"\"",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_select_database",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def menu_select_database(test_mode: bool = False):\n    \"\"\"\n    Allows the user to select a database file from the 'databases' directory.\n    Returns the selected database file name (e.g., \"pearl.db\").\n    \"\"\"\n    db_dir = os.path.join(os.path.dirname(__file__), '..', 'core', 'database', 'databases')\n    print(f\"[DEBUG] db_dir: {db_dir}\") # Debug print\n    db_files = sorted([f for f in os.listdir(db_dir) if f.endswith('.sqlite')])\n    print(f\"[DEBUG] db_files: {db_files}\") # Debug print\n    if not db_files:",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_vault_management",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def menu_vault_management(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Manages vault operations like unlocking, locking, and creating new vaults.\n    \"\"\"\n    active_pearl_id = None # To store the currently selected PEARL ID for transactions\n    while True:\n        clear(test_mode=test_mode)\n        print(\"Vault Management\")\n        print(\"----------------\")\n        print(\"1. Unlock Vault\")",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "menu_transaction_management",
+        "kind": 2,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "def menu_transaction_management(agent_pearl, test_mode: bool = False):\n    \"\"\"\n    Manages job creation, selection, and transaction recording.\n    \"\"\"\n    active_job_pearl_id = None\n    while True:\n        clear(test_mode=test_mode)\n        print(\"Transaction Management\")\n        print(\"----------------------\")\n        print(\"1. Create New Job\")",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "_test_context",
+        "kind": 5,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "_test_context = TestContext()\nmock_input = _test_context.mock_input\ndef pause():\n    \"\"\"\n    Pauses the execution, waiting for user input, unless in test mode.\n    \"\"\"\n    if _test_context.test_mode:\n        print(\"[PAUSE SKIPPED (test mode)]\", file=sys.stderr)\n    else:\n        builtins.input(\"Press ENTER to continue...\")",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mock_input",
+        "kind": 5,
+        "importPath": "App.src.cli.cli_utils",
+        "description": "App.src.cli.cli_utils",
+        "peekOfCode": "mock_input = _test_context.mock_input\ndef pause():\n    \"\"\"\n    Pauses the execution, waiting for user input, unless in test mode.\n    \"\"\"\n    if _test_context.test_mode:\n        print(\"[PAUSE SKIPPED (test mode)]\", file=sys.stderr)\n    else:\n        builtins.input(\"Press ENTER to continue...\")\ndef clear(test_mode: bool = False):",
+        "detail": "App.src.cli.cli_utils",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_database_clients",
+        "kind": 2,
+        "importPath": "App.src.cli.main_cli_menu",
+        "description": "App.src.cli.main_cli_menu",
+        "peekOfCode": "def initialize_database_clients(db_name: str):\n    \"\"\"\n    Initializes and returns PearlClient and AgentPearl instances for a given database.\n    \"\"\"\n    client = PearlClient(db_name)\n    agent_pearl = AgentPearl(db_name)\n    return client, agent_pearl\ndef main_menu(test_mode: bool = False, mock_inputs: list = None):\n    \"\"\"\n    Displays the main menu and handles user input for navigation.",
+        "detail": "App.src.cli.main_cli_menu",
+        "documentation": {}
+    },
+    {
+        "label": "main_menu",
+        "kind": 2,
+        "importPath": "App.src.cli.main_cli_menu",
+        "description": "App.src.cli.main_cli_menu",
+        "peekOfCode": "def main_menu(test_mode: bool = False, mock_inputs: list = None):\n    \"\"\"\n    Displays the main menu and handles user input for navigation.\n    \"\"\"\n    if test_mode:\n        _test_context.inputs = mock_inputs\n        _test_context.current_input_index = 0\n        global input\n        input = mock_input\n    db_name = \"PEARL_AI_DB.sqlite\" # Default database name",
+        "detail": "App.src.cli.main_cli_menu",
+        "documentation": {}
+    },
+    {
+        "label": "__all__",
+        "kind": 5,
+        "importPath": "App.src.cli.main_cli_menu",
+        "description": "App.src.cli.main_cli_menu",
+        "peekOfCode": "__all__ = [\"main_menu\", \"mock_input\", \"_test_context\", \"pause\"]\ndef initialize_database_clients(db_name: str):\n    \"\"\"\n    Initializes and returns PearlClient and AgentPearl instances for a given database.\n    \"\"\"\n    client = PearlClient(db_name)\n    agent_pearl = AgentPearl(db_name)\n    return client, agent_pearl\ndef main_menu(test_mode: bool = False, mock_inputs: list = None):\n    \"\"\"",
+        "detail": "App.src.cli.main_cli_menu",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "kind": 6,
+        "importPath": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "description": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "peekOfCode": "class PearlClient:\n    \"\"\"SQLite-backed client for PEARLqlite-style operations.\"\"\"\n    def __hash__(self):\n        return hash(self.active_db)\n    def __eq__(self, other):\n        if not isinstance(other, PearlClient):\n            return NotImplemented\n        return self.active_db == other.active_db\n    def __init__(self, default_db: str = \"project_mgmt_acct.db\"):\n        DB_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), \"databases\")",
+        "detail": "App.src.core.database.pearl_qlite.pearl_qlite",
+        "documentation": {}
+    },
+    {
+        "label": "DataAccess",
+        "kind": 6,
+        "importPath": "App.src.core.database.data_access",
+        "description": "App.src.core.database.data_access",
+        "peekOfCode": "class DataAccess:\n    \"\"\"\n    A Data Access Layer (DAL) for interacting with the SQLite database.\n    This class handles loading SQL queries from external files, managing PEARL_ID context,\n    and executing parameterized queries to ensure data isolation and security.\n    \"\"\"\n    def __hash__(self):\n        return hash((self.db_path, self.sql_dir, self.pearl_client))\n    def __eq__(self, other):\n        if not isinstance(other, DataAccess):",
+        "detail": "App.src.core.database.data_access",
+        "documentation": {}
+    },
+    {
+        "label": "QueryBuilder",
+        "kind": 6,
+        "importPath": "App.src.core.database.query_builder",
+        "description": "App.src.core.database.query_builder",
+        "peekOfCode": "class QueryBuilder:\n    \"\"\"\n    A Python-based SQL Query Builder for constructing dynamic SQL queries.\n    Supports SELECT, FROM, JOIN, WHERE, GROUP BY, ORDER BY, LIMIT, and OFFSET clauses.\n    \"\"\"\n    def __init__(self):\n        self._select_columns: List[str] = []\n        self._from_table: str = \"\"\n        self._joins: List[str] = []\n        self._where_conditions: List[str] = []",
+        "detail": "App.src.core.database.query_builder",
+        "documentation": {}
+    },
+    {
+        "label": "LimitedAccessKeyStore",
+        "kind": 6,
+        "importPath": "App.src.core.security.limited_access_key_store",
+        "description": "App.src.core.security.limited_access_key_store",
+        "peekOfCode": "class LimitedAccessKeyStore:\n    \"\"\"\n    Manages the storage, encryption, and decryption of limited access keys\n    in an external file. Each entry in the store allows for read-only access\n    to a main vault file using a master_pearl_id and a limited_access_seed.\n    \"\"\"\n    def __init__(self, store_file_path: str):\n        self.store_file_path = store_file_path\n        self._store_data: Dict[str, Any] = {}\n        self._is_loaded = False",
+        "detail": "App.src.core.security.limited_access_key_store",
+        "documentation": {}
+    },
+    {
+        "label": "VaultDecryptionError",
+        "kind": 6,
+        "importPath": "App.src.core.security.vault",
+        "description": "App.src.core.security.vault",
+        "peekOfCode": "class VaultDecryptionError(Exception):\n    \"\"\"Custom exception for vault decryption failures.\"\"\"\n    pass\nclass Vault:\n    \"\"\"\n    Manages the encryption, decryption, and storage of sensitive identity components.\n    The vault is protected by a password and contains a seed, salt, and optional metadata.\n    \"\"\"\n    def __init__(self, vault_path: str):\n        \"\"\"",
+        "detail": "App.src.core.security.vault",
+        "documentation": {}
+    },
+    {
+        "label": "Vault",
+        "kind": 6,
+        "importPath": "App.src.core.security.vault",
+        "description": "App.src.core.security.vault",
+        "peekOfCode": "class Vault:\n    \"\"\"\n    Manages the encryption, decryption, and storage of sensitive identity components.\n    The vault is protected by a password and contains a seed, salt, and optional metadata.\n    \"\"\"\n    def __init__(self, vault_path: str):\n        \"\"\"\n        Initializes the Vault with a specified file path.\n        Args:\n            vault_path (str): The absolute path to the vault file.",
+        "detail": "App.src.core.security.vault",
+        "documentation": {}
+    },
+    {
+        "label": "PearlIdentity",
+        "kind": 6,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "class PearlIdentity:\n    seed: str\n    pearl_id: str\n    vector: Tuple[float, float, float]\ndef normalize_seed(seed: str) -> str:\n    \"\"\"\n    Normalize a seed string (simple, deterministic).\n    \"\"\"\n    return \":\".join(part.strip() for part in seed.split(\":\") if part.strip())\ndef seed_to_pearl_id(seed: str, prefix: str = \"pearl\") -> str:",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_seed",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def normalize_seed(seed: str) -> str:\n    \"\"\"\n    Normalize a seed string (simple, deterministic).\n    \"\"\"\n    return \":\".join(part.strip() for part in seed.split(\":\") if part.strip())\ndef seed_to_pearl_id(seed: str, prefix: str = \"pearl\") -> str:\n    \"\"\"\n    Deterministically map a seed to a PEARL_ID using SHA-256.\n    \"\"\"\n    normalized = normalize_seed(seed)",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "seed_to_pearl_id",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def seed_to_pearl_id(seed: str, prefix: str = \"pearl\") -> str:\n    \"\"\"\n    Deterministically map a seed to a PEARL_ID using SHA-256.\n    \"\"\"\n    normalized = normalize_seed(seed)\n    h = hashlib.sha256(normalized.encode(\"utf-8\")).hexdigest()\n    # Shorten for readability; in production you might keep more bits.\n    short = h[:12]\n    return f\"{prefix}_{short}\"\ndef pearl_id_to_vector(pearl_id: str) -> Tuple[float, float, float]:",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "pearl_id_to_vector",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def pearl_id_to_vector(pearl_id: str) -> Tuple[float, float, float]:\n    \"\"\"\n    Deterministically map a PEARL_ID to a point on the unit sphere.\n    Uses hash -> (theta, phi) -> (x, y, z).\n    \"\"\"\n    h = hashlib.sha256(pearl_id.encode(\"utf-8\")).hexdigest()\n    # Use first 16 hex chars for theta, next 16 for phi\n    theta_raw = int(h[:16], 16) / (16**16 - 1)\n    phi_raw = int(h[16:32], 16) / (16**16 - 1)\n    # theta in [0, 2π), phi in [0, π]",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "make_identity",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def make_identity(seed: str, prefix: str = \"pearl\") -> PearlIdentity:\n    \"\"\"\n    Convenience: from seed -> PearlIdentity (seed, id, vector).\n    \"\"\"\n    normalized = normalize_seed(seed)\n    pid = seed_to_pearl_id(normalized, prefix=prefix)\n    vec = pearl_id_to_vector(pid)\n    return PearlIdentity(seed=normalized, pearl_id=pid, vector=vec)\ndef generate_seed() -> str:\n    \"\"\"",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "generate_seed",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def generate_seed() -> str:\n    \"\"\"\n    Generates a random, structured seed string.\n    \"\"\"\n    return f\"tenant:{uuid.uuid4().hex}:project:{uuid.uuid4().hex}\"\n# ---------- Example builders from the whitepaper ----------\ndef example1_parent_child() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 1 — Parent → Child Anchoring\n    \"\"\"",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "example1_parent_child",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def example1_parent_child() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 1 — Parent → Child Anchoring\n    \"\"\"\n    parent_seed = \"tenant:acme:project:harbor:job:foundation:task:excavation\"\n    parent = make_identity(parent_seed, prefix=\"pearl_task\")\n    child_seed = f\"parent:{parent.pearl_id}:subtask:haul-off\"\n    child = make_identity(child_seed, prefix=\"pearl_task\")\n    return {\n        \"parent\": parent,",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "example2_task_tag_link",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def example2_task_tag_link() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 2 — Cross-Entity Linking (Task ↔ Tag)\n    \"\"\"\n    task_seed = \"tenant:acme:project:harbor:job:foundation:task:formwork\"\n    task = make_identity(task_seed, prefix=\"pearl_task\")\n    tag_seed = \"tag:safety-required\"\n    tag = make_identity(tag_seed, prefix=\"pearl_tag\")\n    link_seed = f\"task:{task.pearl_id}:tag:{tag.pearl_id}\"\n    link = make_identity(link_seed, prefix=\"pearl_link\")",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "example3_versioning",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def example3_versioning() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 3 — Versioning / Lineage\n    \"\"\"\n    doc_seed = \"doc:soil-report-phase1\"\n    doc = make_identity(doc_seed, prefix=\"pearl_doc\")\n    v2_seed = f\"revision-of:{doc.pearl_id}:version:2\"\n    v2 = make_identity(v2_seed, prefix=\"pearl_doc\")\n    return {\n        \"original\": doc,",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "example4_semantic_compression",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def example4_semantic_compression() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 4 — Semantic Compression\n    \"\"\"\n    full_seed = (\n        \"tenant:acme:project:harbor:job:foundation:task:excavation:\"\n        \"phase:2:crew:A:priority:3:soil:clay:weather:rainy\"\n    )\n    context = make_identity(full_seed, prefix=\"pearl_context\")\n    compressed_seed = f\"context:{context.pearl_id}:subtask:haul-off\"",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "example5_multi_agent",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def example5_multi_agent() -> Dict[str, PearlIdentity]:\n    \"\"\"\n    Example 5 — Multi-Agent Identity Passing\n    \"\"\"\n    agent_a_seed = \"agent:A:task:soil-sample\"\n    agent_a_task = make_identity(agent_a_seed, prefix=\"pearl_agentA_task\")\n    agent_b_seed = f\"agent:B:response-to:{agent_a_task.pearl_id}\"\n    agent_b_response = make_identity(agent_b_seed, prefix=\"pearl_agentB_resp\")\n    return {\n        \"agentA_task\": agent_a_task,",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "parse_master_pearl_id_seed",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def parse_master_pearl_id_seed(master_seed: str) -> Dict[str, str]:\n    \"\"\"\n    Parses a Master PEARL ID seed string to extract embedded passwords.\n    Expected format: \"key1:value1;key2:value2;...\"\n    \"\"\"\n    passwords = {}\n    parts = master_seed.split(';')\n    for part in parts:\n        if ':' in part:\n            key, value = part.split(':', 1)",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "all_examples",
+        "kind": 2,
+        "importPath": "App.src.core.seedtools.seedtools",
+        "description": "App.src.core.seedtools.seedtools",
+        "peekOfCode": "def all_examples() -> Dict[str, Dict[str, PearlIdentity]]:\n    \"\"\"\n    Convenience: return all examples in a single structure.\n    \"\"\"\n    return {\n        \"example1_parent_child\": example1_parent_child(),\n        \"example2_task_tag_link\": example2_task_tag_link(),\n        \"example3_versioning\": example3_versioning(),\n        \"example4_semantic_compression\": example4_semantic_compression(),\n        \"example5_multi_agent\": example5_multi_agent(),",
+        "detail": "App.src.core.seedtools.seedtools",
+        "documentation": {}
+    },
+    {
+        "label": "DAVISIdentityEngine",
+        "kind": 6,
+        "importPath": "App.src.identity_engine.davis_identity_engine",
+        "description": "App.src.identity_engine.davis_identity_engine",
+        "peekOfCode": "class DAVISIdentityEngine:\n    \"\"\"DAVIS Identity Engine for managing identity metrics across three lanes.\"\"\"\n    def __init__(self):\n        self.geometric_lane = {}\n        self.semantic_lane = {}\n        self.procedural_lane = {}\n    def update_geometric_metrics(self, pearl_id: str, metrics: dict):\n        \"\"\"Updates geometric identity metrics for a given PEARL_ID.\"\"\"\n        self.geometric_lane[pearl_id] = {**self.geometric_lane.get(pearl_id, {}), **metrics}\n        print(f\"Updated geometric metrics for {pearl_id}: {metrics}\")",
+        "detail": "App.src.identity_engine.davis_identity_engine",
+        "documentation": {}
+    },
+    {
+        "label": "render_accounting_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.accounting",
+        "description": "App.src.ui.pages.accounting",
+        "peekOfCode": "def render_accounting_page(dal):\n    \"\"\"\n    Renders the Accounting management page with full CRUD capabilities.\n    \"\"\"\n    st.title(\"Accounting Management\")\n    if st.session_state.pearl_id is None:\n        st.warning(\"Please select an active PEARL ID in the PEARL ID Management section to manage accounting entries.\")\n        return\n    dal.set_pearl_id(st.session_state.pearl_id)\n    # --- Create New Entry ---",
+        "detail": "App.src.ui.pages.accounting",
+        "documentation": {}
+    },
+    {
+        "label": "render_common_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.common",
+        "description": "App.src.ui.pages.common",
+        "peekOfCode": "def render_common_page(dal):\n    \"\"\"\n    Renders the Common Utilities page, displaying general system information\n    and the currently active PEARL ID.\n    \"\"\" \n    st.title(\"Common Utilities\")\n    st.write(\"This module provides general application utilities and information.\")\n    st.subheader(\"Current PEARL ID\")\n    if 'pearl_id' in st.session_state:\n        st.info(f\"Active PEARL ID: {st.session_state.pearl_id}\")",
+        "detail": "App.src.ui.pages.common",
+        "documentation": {}
+    },
+    {
+        "label": "render_contacts_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.contacts",
+        "description": "App.src.ui.pages.contacts",
+        "peekOfCode": "def render_contacts_page(dal: DataAccess):\n    \"\"\"\n    Renders the Contact Management page in the Streamlit application.\n    Allows users to create, view, and edit contact records.\n    \"\"\"\n    st.header(\"Contact Management\")\n    if not st.session_state.pearl_id:\n        st.warning(\"Please set a PEARL ID in the sidebar to manage contacts.\")\n        return\n    st.subheader(\"Create New Contact\")",
+        "detail": "App.src.ui.pages.contacts",
+        "documentation": {}
+    },
+    {
+        "label": "render_contact_management_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.contact_management",
+        "description": "App.src.ui.pages.contact_management",
+        "peekOfCode": "def render_contact_management_page(dal: DataAccess, pearl_id: str):\n    dal.set_pearl_id(pearl_id)\n    \"\"\"\n    Renders the Contact Management page, allowing users to create, view, update, and delete contacts.\n    Args:\n        dal (DataAccess): The DataAccess object for database interactions.\n        pearl_id (str): The PEARL ID of the current user session.\n    \"\"\"\n    st.header(\"Contact Management\")\n    # Create New Contact Form",
+        "detail": "App.src.ui.pages.contact_management",
+        "documentation": {}
+    },
+    {
+        "label": "render_csv_import_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.csv_import",
+        "description": "App.src.ui.pages.csv_import",
+        "peekOfCode": "def render_csv_import_page():\n    \"\"\"\n    Renders the CSV import page in the Streamlit application.\n    \"\"\"\n    st.title(\"CSV Import for PEARL IDs\")\n    st.write(\"Upload a CSV file to generate and manage PEARL IDs for your data.\")\n    # File uploader widget\n    uploaded_file = st.file_uploader(\"Choose a CSV file\", type=\"csv\")\n    if uploaded_file is not None:\n        st.success(\"File uploaded successfully!\")",
+        "detail": "App.src.ui.pages.csv_import",
+        "documentation": {}
+    },
+    {
+        "label": "render_home_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.home",
+        "description": "App.src.ui.pages.home",
+        "peekOfCode": "def render_home_page(dal: DataAccess):\n    \"\"\"\n    Renders the home page of the application.\n    Args:\n        dal (DataAccess): The DataAccess object for database operations.\n    \"\"\"\n    st.title(\"Welcome to PEARL AI DB!\")\n    st.write(\"Your Personal Enterprise AI Resource Library Database.\")\n    st.markdown(\"\"\"\n    This application helps you manage various aspects of your business, including:",
+        "detail": "App.src.ui.pages.home",
+        "documentation": {}
+    },
+    {
+        "label": "render_job_costing_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.job_costing",
+        "description": "App.src.ui.pages.job_costing",
+        "peekOfCode": "def render_job_costing_page(dal: DataAccess):\n    \"\"\"\n    Renders the Job Cost Tracking page in the Streamlit application.\n    Allows users to create, view, and edit job records.\n    \"\"\"\n    st.header(\"Job Cost Tracking\")\n    if not st.session_state.pearl_id:\n        st.warning(\"Please set a PEARL ID in the sidebar to manage jobs.\")\n        return\n    selected_job = None # Initialize selected_job to None",
+        "detail": "App.src.ui.pages.job_costing",
+        "documentation": {}
+    },
+    {
+        "label": "render_query_builder_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "peekOfCode": "def render_query_builder_page(agent: AgentPearl, sql_dir: str):\n    st.title(\"SQL Query Builder\")\n    st.write(\"Build and execute SQL queries against the active database.\")\n    query_type = st.radio(\n        \"Select Query Type:\",\n        (\"SELECT\", \"INSERT\", \"UPDATE\", \"DELETE\"),\n        key=\"query_type_radio\"\n    )\n    st.markdown(\"--- \")\n    tables = get_all_table_names_cached(db_path=agent.pearl_client.active_db, sql_dir=sql_dir)",
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "render_select_query_builder",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "peekOfCode": "def render_select_query_builder(agent: AgentPearl, table_name: str):\n    st.subheader(f\"Build SELECT Query for {table_name}\")\n    columns = agent.pearl_client.get_table_columns(table_name)\n    if not columns:\n        st.warning(f\"No columns found for table '{table_name}'.\")\n        return\n    all_columns_option = [\"* (All Columns)\"] + columns\n    column_options = [f\"{i+1}. {col}\" for i, col in enumerate(all_columns_option)]\n    selected_column_options = st.multiselect(\n        \"Select columns to display:\",",
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "render_insert_query_builder",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "peekOfCode": "def render_insert_query_builder(agent: AgentPearl, table_name: str):\n    st.subheader(f\"Build INSERT Query for {table_name}\")\n    columns = agent.pearl_client.get_table_columns(table_name)\n    if not columns:\n        st.warning(f\"No columns found for table '{table_name}'.\")\n        return\n    st.write(\"Select columns to insert into and enter values:\")\n    column_options = [f\"{i+1}. {col}\" for i, col in enumerate(columns)]\n    selected_insert_column_options = st.multiselect(\n        \"Select columns for insertion:\",",
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "render_update_query_builder",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "peekOfCode": "def render_update_query_builder(agent: AgentPearl, table_name: str):\n    st.subheader(f\"Build UPDATE Query for {table_name}\")\n    columns = agent.pearl_client.get_table_columns(table_name)\n    if not columns:\n        st.warning(f\"No columns found for table '{table_name}'.\")\n        return\n    st.write(\"Select columns to update and enter new values:\")\n    column_options = [f\"{i+1}. {col}\" for i, col in enumerate(columns)]\n    selected_update_column_options = st.multiselect(\n        \"Select columns to update:\",",
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "render_delete_query_builder",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.query_builder_page",
+        "description": "App.src.ui.pages.query_builder_page",
+        "peekOfCode": "def render_delete_query_builder(agent: AgentPearl, table_name: str):\n    st.subheader(f\"Build DELETE Query for {table_name}\")\n    columns = agent.pearl_client.get_table_columns(table_name)\n    if not columns:\n        st.warning(f\"No columns found for table '{table_name}'.\")\n        return\n    st.write(\"Build WHERE clause (optional):\")\n    column_options = [f\"{i+1}. {col}\" for i, col in enumerate(columns)]\n    selected_where_column_option = st.selectbox(\n        \"Select a column for the WHERE clause (optional):\",",
+        "detail": "App.src.ui.pages.query_builder_page",
+        "documentation": {}
+    },
+    {
+        "label": "render_reports_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_reports_page(dal):\n    \"\"\"\n    Renders the Reports management page.\n    \"\"\"\n    st.title(\"Reports & Analytics\")\n    st.write(\"Welcome to the Reports module. Here you can generate various business reports.\")\n    # --- Report Selection ---\n    report_type = st.selectbox(\"Select Report Type\", [\n        \"Job Cost Summary\",\n        \"Tasks by Job\",",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_job_cost_report",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_job_cost_report(dal):\n    try:\n        qb = QueryBuilder().from_table(\"Jobs\").select([\"job_name\", \"description\", \"budget\", \"start_date\"])\n        sql, params = qb.where(\"pearl_id = :pearl_id\", {\"pearl_id\": st.session_state.pearl_id}).build()\n        jobs = dal._fetch_raw_sql(sql, params)\n        if jobs:\n            df = pd.DataFrame(jobs, columns=[\"job_name\", \"description\", \"budget\", \"start_date\"])\n            _display_dataframe_and_download_csv(df, \"Job Cost Summary\")\n            # Add DB export option\n            if st.button(\"Export Job Cost Summary to DB\"):",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_contact_directory_report",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_contact_directory_report(dal):\n    try:\n        qb = QueryBuilder().from_table(\"Contacts\").select([\"first_name\", \"last_name\", \"email\", \"phone\", \"city\"])\n        sql, params = qb.where(\"pearl_id = :pearl_id\", {\"pearl_id\": st.session_state.pearl_id}).build()\n        contacts = dal._fetch_raw_sql(sql, params)\n        if contacts:\n            df = pd.DataFrame(contacts, columns=[\"first_name\", \"last_name\", \"email\", \"phone\", \"city\"])\n            _display_dataframe_and_download_csv(df, \"Contact Directory\")\n            # Add DB export option\n            if st.button(\"Export Contact Directory to DB\"):",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_financial_log_report",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_financial_log_report(dal):\n    try:\n        qb = QueryBuilder().from_table(\"Accounting\").select([\"transaction_date\", \"description\", \"amount\", \"type\"])\n        sql, params = qb.where(\"pearl_id = :pearl_id\", {\"pearl_id\": st.session_state.pearl_id}).build()\n        entries = dal._fetch_raw_sql(sql, params)\n        if entries:\n            df = pd.DataFrame(entries, columns=[\"transaction_date\", \"description\", \"amount\", \"type\"])\n            _display_dataframe_and_download_csv(df, \"Financial Transaction Log\")\n            # Add DB export option\n            if st.button(\"Export Financial Transaction Log to DB\"):",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_csv_import_page",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_csv_import_page(dal):\n    \"\"\"\n    Renders the CSV import page, allowing users to upload a CSV file\n    and select a target table for data import.\n    \"\"\"\n    st.subheader(\"CSV Data Import\")\n    st.write(\"Upload a CSV file to import data into your database.\")\n    uploaded_file = st.file_uploader(\"Choose a CSV file\", type=\"csv\")\n    if uploaded_file is not None:\n        try:",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_folder_structure_report",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_folder_structure_report(dal):\n    \"\"\"\n    Renders the folder structure report, showing PEARL IDs, their tables, and row counts.\n    \"\"\"\n    st.markdown(\"## Folder Structure Report\")\n    st.write(\"This report visualizes the hierarchical structure of PEARL IDs and their associated tables.\")\n    if st.session_state.pearl_id:\n        st.info(f\"Displaying structure for active PEARL ID: {st.session_state.pearl_id}\")\n        try:\n            # Assuming dal.pearl_client is an instance of PearlClient",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "render_tasks_by_job_report",
+        "kind": 2,
+        "importPath": "App.src.ui.pages.reports",
+        "description": "App.src.ui.pages.reports",
+        "peekOfCode": "def render_tasks_by_job_report(dal):\n    \"\"\"\n    Renders the Tasks by Job report, allowing users to select a job\n    and view all associated tasks.\n    \"\"\"\n    st.subheader(\"Report: Tasks by Job\")\n    if not st.session_state.pearl_id:\n        st.warning(\"Please set a PEARL ID in the sidebar to view tasks by job.\")\n        return\n    try:",
+        "detail": "App.src.ui.pages.reports",
+        "documentation": {}
+    },
+    {
+        "label": "export_user_data_to_new_db",
+        "kind": 2,
+        "importPath": "App.src.ui.db_management_utils",
+        "description": "App.src.ui.db_management_utils",
+        "peekOfCode": "def export_user_data_to_new_db(pearl_id: str, main_db_path: str, export_db_full_path: str):\n    \"\"\"\n    Exports all data for a given PEARL_ID from the main database to a new database file.\n    Args:\n        pearl_id (str): The PEARL_ID of the user whose data is to be exported.\n        main_db_path (str): The path to the main database file.\n        export_db_full_path (str): The full path where the new database file will be created.\n    \"\"\"\n    if os.path.exists(export_db_full_path):\n        os.remove(export_db_full_path)",
+        "detail": "App.src.ui.db_management_utils",
+        "documentation": {}
+    },
+    {
+        "label": "verify_exported_db",
+        "kind": 2,
+        "importPath": "App.src.ui.db_management_utils",
+        "description": "App.src.ui.db_management_utils",
+        "peekOfCode": "def verify_exported_db(uploaded_file) -> bool:\n    \"\"\"\n    Verifies if an uploaded database file is a valid SQLite database and contains tables.\n    Args:\n        uploaded_file: The file-like object from st.file_uploader.\n    Returns:\n        bool: True if the database is valid, False otherwise.\n    \"\"\"\n    if uploaded_file is None:\n        return False",
+        "detail": "App.src.ui.db_management_utils",
+        "documentation": {}
+    },
+    {
+        "label": "render_database_selection_ui",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def render_database_selection_ui(db_dir: str):\n    \"\"\"\n    Renders the UI for selecting an existing database or creating a new one.\n    \"\"\"\n    st.subheader(\"Database Selection\")\n    os.makedirs(db_dir, exist_ok=True) # Ensure the directory exists\n    db_files = sorted([f for f in os.listdir(db_dir) if f.endswith(('.db', '.sqlite'))])\n    current_db_path = st.session_state.get(\"db_path\", \"pearl_database.db\")\n    current_db_name = os.path.basename(current_db_path)\n    # Option to select an existing database",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_access",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def get_data_access(db_path: str) -> DataAccess:\n    \"\"\"\n    Returns a DataAccess instance, ensuring the database is initialized.\n    \"\"\"\n    # Ensure the database is initialized before getting cached instances\n    # Check if pearl_ids table exists, if not, initialize the database\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT name FROM sqlite_master WHERE type='table' AND name='pearl_ids';\")\n    table_exists = cursor.fetchone()",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "render_vault_management_ui",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def render_vault_management_ui(dal: DataAccess):\n    \"\"\"\n    Renders the UI for vault management, including unlocking, locking, and credential updates.\n    \"\"\"\n    st.subheader(\"Vault Management\")\n    vault_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'core', 'security', 'vault.vault'))\n    vault_exists = os.path.exists(vault_file_path)\n    # Create New Vault Section - Always visible in Vault Management\n    with st.expander(\"Create New Vault\"):\n        st.info(\"Create a new vault file. This will overwrite an existing vault if one is present.\")",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "full_session_reset",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def full_session_reset(clear_db_path: bool = False):\n    \"\"\"\n    Performs a hard reset of the Streamlit session state and all related caches.\n    If clear_db_path is True, st.session_state.db_path will be cleared.\n    \"\"\"\n    keys_to_delete = list(st.session_state.keys())\n    if not clear_db_path and \"db_path\" in keys_to_delete:\n        keys_to_delete.remove(\"db_path\")\n    for key in keys_to_delete:\n        del st.session_state[key]",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_database_change",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def handle_database_change():\n    \"\"\"\n    Renders the database selection UI and handles changes.\n    If a change is detected (upload, selection, creation), it resets the session and reruns.\n    This function must be called at the very top of the main app logic.\n    \"\"\"\n    st.sidebar.subheader(\"Database Selection\")\n    db_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'core', 'database', 'databases'))\n    os.makedirs(db_dir, exist_ok=True)\n    st.sidebar.warning(f\"DEBUG: handle_database_change start - st.session_state.db_path: `{st.session_state.get('db_path')}`\")",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "def main():\n    st.set_page_config(layout=\"wide\")\n    st.title(\"PEARL AI Database Interface\")\n    # --- PROTOCOL DEBUGGING ---\n    st.sidebar.warning(f\"DEBUG: Main start - st.session_state.db_path: `{st.session_state.get('db_path')}`\")\n    # --- END DEBUGGING ---\n    # This function now handles all DB state changes and will rerun the app if a change occurs.\n    # It must be the first thing to run.\n    current_db_path = handle_database_change()\n    # If the app continues past this point, the DB state is stable for this run.",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "db_dir",
+        "kind": 5,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "db_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'core', 'database', 'databases'))\n# Define the absolute path to the default database\ndefault_db_path = os.path.join(db_dir, \"pearl_database.db\")\n# Initialize session state variables if they don't exist\nif \"pearl_id\" not in st.session_state:\n    st.session_state.pearl_id = None\nif \"active_group_id\" not in st.session_state:\n    st.session_state.active_group_id = None\nif \"vault_unlocked\" not in st.session_state:\n    st.session_state.vault_unlocked = False",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "default_db_path",
+        "kind": 5,
+        "importPath": "App.src.ui.main_app",
+        "description": "App.src.ui.main_app",
+        "peekOfCode": "default_db_path = os.path.join(db_dir, \"pearl_database.db\")\n# Initialize session state variables if they don't exist\nif \"pearl_id\" not in st.session_state:\n    st.session_state.pearl_id = None\nif \"active_group_id\" not in st.session_state:\n    st.session_state.active_group_id = None\nif \"vault_unlocked\" not in st.session_state:\n    st.session_state.vault_unlocked = False\nif \"vault_manager\" not in st.session_state:\n    st.session_state.vault_manager = None",
+        "detail": "App.src.ui.main_app",
+        "documentation": {}
+    },
+    {
+        "label": "get_pearl_client_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_pearl_client_cached(db_path: str) -> PearlClient:\n    \"\"\"\n    Caches and returns a PearlClient instance.\n    This ensures the PearlClient is a singleton across Streamlit reruns.\n    \"\"\"\n    print(f\"DEBUG: get_pearl_client_cached received db_path: {db_path}\")\n    return PearlClient(default_db=db_path)\n@st.cache_resource(ttl=3600)\ndef get_data_access_cached(db_path: str, sql_dir: str) -> data_access.DataAccess:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_access_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_data_access_cached(db_path: str, sql_dir: str) -> data_access.DataAccess:\n    \"\"\"\n    Caches and returns a DataAccess instance.\n    This ensures the DataAccess object is a singleton across Streamlit reruns,\n    and uses the cached PearlClient.\n    \"\"\"\n    pearl_client = get_pearl_client_cached(db_path)\n    return data_access.DataAccess(db_path=db_path, sql_dir=sql_dir, pearl_client=pearl_client)\n@st.cache_data(ttl=300)\ndef get_all_distinct_pearl_ids_from_all_tables_cached(db_path: str, sql_dir: str) -> list[str]:",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_distinct_pearl_ids_from_all_tables_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_all_distinct_pearl_ids_from_all_tables_cached(db_path: str, sql_dir: str) -> list[str]:\n    \"\"\"\n    Retrieves all distinct PEARL IDs from all tables, cached for performance.\n    Uses a cached DataAccess instance.\n    \"\"\"\n    dal = get_data_access_cached(db_path, sql_dir)\n    return dal.get_all_distinct_pearl_ids_from_all_tables()\n@st.cache_data(ttl=300)\ndef get_all_table_names_cached(db_path: str, sql_dir: str) -> list[str]:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_table_names_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_all_table_names_cached(db_path: str, sql_dir: str) -> list[str]:\n    \"\"\"\n    Retrieves all table names in the database, cached for performance.\n    Uses a cached DataAccess instance.\n    \"\"\"\n    dal = get_data_access_cached(db_path, sql_dir)\n    return dal.get_all_table_names()\n@st.cache_data(ttl=300)\ndef get_all_pearl_id_groups_cached(db_path: str, sql_dir: str) -> list[dict]:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_pearl_id_groups_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_all_pearl_id_groups_cached(db_path: str, sql_dir: str) -> list[dict]:\n    \"\"\"\n    Retrieves all PEARL ID groups, cached for performance.\n    Uses a cached DataAccess instance.\n    \"\"\"\n    dal = get_data_access_cached(db_path, sql_dir)\n    return dal.get_all_pearl_id_groups()\n@st.cache_data(ttl=300)\ndef get_pearl_ids_in_group_cached(db_path: str, sql_dir: str, group_id: str) -> list[dict]:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_pearl_ids_in_group_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_pearl_ids_in_group_cached(db_path: str, sql_dir: str, group_id: str) -> list[dict]:\n    \"\"\"\n    Retrieves PEARL IDs belonging to a specific group, cached for performance.\n    Uses a cached DataAccess instance.\n    \"\"\"\n    dal = get_data_access_cached(db_path, sql_dir)\n    return dal.get_pearl_ids_in_group(group_id)\n@st.cache_data(ttl=300)\ndef get_all_pearl_ids_in_active_group_cached(db_path: str, sql_dir: str) -> list[str]:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_pearl_ids_in_active_group_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_all_pearl_ids_in_active_group_cached(db_path: str, sql_dir: str) -> list[str]:\n    \"\"\"\n    Retrieves all PEARL IDs in the currently active group, cached for performance.\n    Uses a cached DataAccess instance.\n    \"\"\"\n    dal = get_data_access_cached(db_path, sql_dir)\n    return dal.get_all_pearl_ids_in_active_group()\n@st.cache_resource(ttl=3600)\ndef get_agent_pearl_cached(db_name: str, vault_path: str) -> agent_pearl.AgentPearl:\n    \"\"\"",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_agent_pearl_cached",
+        "kind": 2,
+        "importPath": "App.src.ui.streamlit_cache_utils",
+        "description": "App.src.ui.streamlit_cache_utils",
+        "peekOfCode": "def get_agent_pearl_cached(db_name: str, vault_path: str) -> agent_pearl.AgentPearl:\n    \"\"\"\n    Caches and returns an AgentPearl instance.\n    \"\"\"\n    # Inside this cached function, get the PearlClient\n    pearl_client = get_pearl_client_cached(db_name) # Use the cached PearlClient\n    return agent_pearl.AgentPearl(db_name=db_name, vault_path=vault_path, pearl_client=pearl_client)",
+        "detail": "App.src.ui.streamlit_cache_utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_vault_report",
+        "kind": 2,
+        "importPath": "App.src.utils.report_generator",
+        "description": "App.src.utils.report_generator",
+        "peekOfCode": "def generate_vault_report(\n    vault_name: str,\n    password: str,\n    metadata: dict,\n    report_dir: str = \"reports\"\n) -> str:\n    \"\"\"\n    Generates a comprehensive report for a newly created vault.\n    The report includes the vault name, master password, and any associated metadata.\n    It is saved as a JSON file in the specified report directory.",
+        "detail": "App.src.utils.report_generator",
+        "documentation": {}
+    },
+    {
+        "label": "parse_hierarchical_seed",
+        "kind": 2,
+        "importPath": "App.src.utils.seed_parser",
+        "description": "App.src.utils.seed_parser",
+        "peekOfCode": "def parse_hierarchical_seed(seed_string: str) -> dict:\n    \"\"\"\n    Parses a hierarchical seed string into a dictionary of key-value pairs.\n    The seed string is expected to be a comma-separated list of 'key:value' pairs.\n    Example: \"industry:health,discipline:heart,task:diagnosis,user:jane_smith\"\n    Args:\n        seed_string: The hierarchical seed string to parse.\n    Returns:\n        A dictionary where keys are the component types and values are their identifiers.\n        Returns an empty dictionary if the input string is empty or cannot be parsed.",
+        "detail": "App.src.utils.seed_parser",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "App.src.main",
+        "description": "App.src.main",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(description=\"PEARL AI Application\")\n    parser.add_argument('--test', nargs='?', const='test_inputs.txt', help='Run in test mode, optionally specifying an input file.')\n    args = parser.parse_args()\n    print(f\"[DEBUG] args.test: {args.test}\", file=sys.__stderr__)\n    test_mode = False\n    test_file_path = None\n    if args.test:\n        test_mode = True\n        test_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', args.test))",
+        "detail": "App.src.main",
+        "documentation": {}
+    },
+    {
+        "label": "ContractExecutor",
+        "kind": 6,
+        "importPath": "deleted_files.contract_executor",
+        "description": "deleted_files.contract_executor",
+        "peekOfCode": "class ContractExecutor:\n    \"\"\"Mocks external integrations and contract executions.\"\"\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")\n    def execute(self, contract_name: str, payload: dict):\n        \"\"\"Executes a mocked contract based on its name.\"\"\"\n        print(f\"Executing mocked contract: {contract_name} with payload: {payload}\")\n        if contract_name == \"RTM_Integration\":\n            return self._mock_rtm_integration(payload)\n        elif contract_name == \"CSV_Import\":",
+        "detail": "deleted_files.contract_executor",
+        "documentation": {}
+    },
+    {
+        "label": "PearlClient",
+        "kind": 6,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "class PearlClient:\n    \\\"\\\"\\\"SQLite-backed client for PEARLqlite-style operations.\\\"\\\"\\\"\n    def __init__(self, default_db: str = \"project_mgmt_acct.db\"):\n        DB_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), \"databases\")\n        os.makedirs(DB_DIR, exist_ok=True)\n        self.active_db = os.path.join(DB_DIR, default_db)\n        self._ensure_db_and_tables()\n    def _get_connection(self):\n        return sqlite3.connect(self.active_db)\n    def _ensure_db_and_tables(self):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AgentPearl",
+        "kind": 6,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "class AgentPearl:\n    \\\"\\\"\\\"Orchestration agent for PEARL_AI_DB operations.\\\"\\\"\\\"\n    def __init__(self, db_name: str = \"project_mgmt_acct.db\"):\n        self.pearl_client = PearlClient(default_db=db_name)\n        # self.contract_executor = ContractExecutor() # Uncomment when ContractExecutor is ready\n    def create_entity(self, entity_type: str, attributes: dict = None) -> str:\n        \\\"\\\"\\\"Creates a new entity and returns its PEARL_ID.\\\"\\\"\\\"\n        pearl_id = self.pearl_client.create_pearl_id(entity_type, attributes)\n        print(f\"Created {entity_type} with PEARL_ID: {pearl_id}\")\n        return pearl_id",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVISIdentityEngine",
+        "kind": 6,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "class DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):\n        self.geometric_lane = {}\n        self.semantic_lane = {}\n        self.procedural_lane = {}\n    def update_geometric_metrics(self, pearl_id: str, metrics: dict):\n        \\\"\\\"\\\"Updates geometric identity metrics for a given PEARL_ID.\\\"\\\"\\\"\n        self.geometric_lane[pearl_id] = {**self.geometric_lane.get(pearl_id, {}), **metrics}\n        print(f\"Updated geometric metrics for {pearl_id}: {metrics}\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "ContractExecutor",
+        "kind": 6,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "class ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")\n    def execute(self, contract_name: str, payload: dict):\n        \\\"\\\"\\\"Executes a mocked contract based on its name.\\\"\\\"\\\"\n        print(f\"Executing mocked contract: {contract_name} with payload: {payload}\")\n        if contract_name == \"RTM_Integration\":\n            return self._mock_rtm_integration(payload)\n        elif contract_name == \"CSV_Import\":",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "write_file",
+        "kind": 2,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "def write_file(path: str, content: str):\n    os.makedirs(os.path.dirname(path), exist_ok=True)\n    with open(path, \"w\", encoding=\"utf-8\") as f:\n        f.write(textwrap.dedent(content).lstrip() + \"\\n\")\n# Define file paths\nSCRIPT_DIR = os.path.dirname(__file__)\nPROJECT_ROOT = os.path.dirname(SCRIPT_DIR)\nPEARL_AI_DB_ROOT = os.path.join(PROJECT_ROOT, \"PEARL_AI_DB\")\n# --- REQUIREMENTS.TXT ---\nREQUIREMENTS_TXT = os.path.join(PROJECT_ROOT, \"requirements.txt\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "def main():\n    print(\"PEARL AI Database project initialized.\")\n    print(\"You can start building your application here.\")\nif __name__ == \"__main__\":\n    main()\n\"\"\"\n# --- PEARL_QLITE ---\nPEARLQLITE_DIR = os.path.join(PEARL_AI_DB_ROOT, \"pearl_qlite\")\nPEARLQLITE_INIT = os.path.join(PEARLQLITE_DIR, \"__init__.py\")\nPEARLQLITE_FILE = os.path.join(PEARLQLITE_DIR, \"pearl_qlite.py\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "bootstrap_project",
+        "kind": 2,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "def bootstrap_project():\n    print(\"Bootstrapping PEARL AI Database project structure...\")\n    # Create PEARL_AI_DB root directory\n    os.makedirs(PEARL_AI_DB_ROOT, exist_ok=True)\n    # Write core project files\n    write_file(REQUIREMENTS_TXT, REQUIREMENTS_CONTENT)\n    write_file(ENV_FILE, ENV_CONTENT)\n    write_file(DOCKER_COMPOSE_FILE, DOCKER_COMPOSE_CONTENT)\n    write_file(README_MD, README_CONTENT)\n    write_file(MAIN_PY, MAIN_CONTENT)",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "SCRIPT_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "SCRIPT_DIR = os.path.dirname(__file__)\nPROJECT_ROOT = os.path.dirname(SCRIPT_DIR)\nPEARL_AI_DB_ROOT = os.path.join(PROJECT_ROOT, \"PEARL_AI_DB\")\n# --- REQUIREMENTS.TXT ---\nREQUIREMENTS_TXT = os.path.join(PROJECT_ROOT, \"requirements.txt\")\nREQUIREMENTS_CONTENT = \"\"\"\npython-dotenv\n\"\"\"\n# --- .ENV ---\nENV_FILE = os.path.join(PROJECT_ROOT, \".env\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)\nPEARL_AI_DB_ROOT = os.path.join(PROJECT_ROOT, \"PEARL_AI_DB\")\n# --- REQUIREMENTS.TXT ---\nREQUIREMENTS_TXT = os.path.join(PROJECT_ROOT, \"requirements.txt\")\nREQUIREMENTS_CONTENT = \"\"\"\npython-dotenv\n\"\"\"\n# --- .ENV ---\nENV_FILE = os.path.join(PROJECT_ROOT, \".env\")\nENV_CONTENT = \"\"\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARL_AI_DB_ROOT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARL_AI_DB_ROOT = os.path.join(PROJECT_ROOT, \"PEARL_AI_DB\")\n# --- REQUIREMENTS.TXT ---\nREQUIREMENTS_TXT = os.path.join(PROJECT_ROOT, \"requirements.txt\")\nREQUIREMENTS_CONTENT = \"\"\"\npython-dotenv\n\"\"\"\n# --- .ENV ---\nENV_FILE = os.path.join(PROJECT_ROOT, \".env\")\nENV_CONTENT = \"\"\"\n# .env",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "REQUIREMENTS_TXT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "REQUIREMENTS_TXT = os.path.join(PROJECT_ROOT, \"requirements.txt\")\nREQUIREMENTS_CONTENT = \"\"\"\npython-dotenv\n\"\"\"\n# --- .ENV ---\nENV_FILE = os.path.join(PROJECT_ROOT, \".env\")\nENV_CONTENT = \"\"\"\n# .env\n# Environment variables for PEARL_AI_DB\n# Example:",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "REQUIREMENTS_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "REQUIREMENTS_CONTENT = \"\"\"\npython-dotenv\n\"\"\"\n# --- .ENV ---\nENV_FILE = os.path.join(PROJECT_ROOT, \".env\")\nENV_CONTENT = \"\"\"\n# .env\n# Environment variables for PEARL_AI_DB\n# Example:\n# DATABASE_URL=\"sqlite:///./sql_app.db\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "ENV_FILE = os.path.join(PROJECT_ROOT, \".env\")\nENV_CONTENT = \"\"\"\n# .env\n# Environment variables for PEARL_AI_DB\n# Example:\n# DATABASE_URL=\"sqlite:///./sql_app.db\"\n\"\"\"\n# --- DOCKER-COMPOSE.YAML ---\nDOCKER_COMPOSE_FILE = os.path.join(PROJECT_ROOT, \"docker-compose.yaml\")\nDOCKER_COMPOSE_CONTENT = \"\"\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "ENV_CONTENT = \"\"\"\n# .env\n# Environment variables for PEARL_AI_DB\n# Example:\n# DATABASE_URL=\"sqlite:///./sql_app.db\"\n\"\"\"\n# --- DOCKER-COMPOSE.YAML ---\nDOCKER_COMPOSE_FILE = os.path.join(PROJECT_ROOT, \"docker-compose.yaml\")\nDOCKER_COMPOSE_CONTENT = \"\"\"\nversion: '3.8'",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DOCKER_COMPOSE_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DOCKER_COMPOSE_FILE = os.path.join(PROJECT_ROOT, \"docker-compose.yaml\")\nDOCKER_COMPOSE_CONTENT = \"\"\"\nversion: '3.8'\nservices:\n  pearl-ai-db:\n    build: .\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - .:/app",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DOCKER_COMPOSE_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DOCKER_COMPOSE_CONTENT = \"\"\"\nversion: '3.8'\nservices:\n  pearl-ai-db:\n    build: .\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - .:/app\n    environment:",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "README_MD",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "README_MD = os.path.join(PROJECT_ROOT, \"README.md\")\nREADME_CONTENT = \"\"\"\n# PEARL AI Database\nThis repository contains the core components for the PEARL AI Database, including:\n- **PEARLqlite**: A semantic SQL engine built on SQLite.\n- **Agent-PEARL**: An orchestration agent for database interactions.\n- **DAVIS Identity Engine**: For managing identity metrics.\n## Setup\n1.  **Clone the repository:**\n    ```bash",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "README_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "README_CONTENT = \"\"\"\n# PEARL AI Database\nThis repository contains the core components for the PEARL AI Database, including:\n- **PEARLqlite**: A semantic SQL engine built on SQLite.\n- **Agent-PEARL**: An orchestration agent for database interactions.\n- **DAVIS Identity Engine**: For managing identity metrics.\n## Setup\n1.  **Clone the repository:**\n    ```bash\n    git clone [repository_url]",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "MAIN_PY",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "MAIN_PY = os.path.join(PEARL_AI_DB_ROOT, \"main.py\")\nMAIN_CONTENT = \"\"\"\nimport os\nfrom dotenv import load_dotenv\n# Load environment variables from .env file\nload_dotenv()\n# Example usage of environment variables\n# database_url = os.getenv(\"DATABASE_URL\")\n# print(f\"Database URL: {database_url}\")\ndef main():",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "MAIN_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "MAIN_CONTENT = \"\"\"\nimport os\nfrom dotenv import load_dotenv\n# Load environment variables from .env file\nload_dotenv()\n# Example usage of environment variables\n# database_url = os.getenv(\"DATABASE_URL\")\n# print(f\"Database URL: {database_url}\")\ndef main():\n    print(\"PEARL AI Database project initialized.\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARLQLITE_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARLQLITE_DIR = os.path.join(PEARL_AI_DB_ROOT, \"pearl_qlite\")\nPEARLQLITE_INIT = os.path.join(PEARLQLITE_DIR, \"__init__.py\")\nPEARLQLITE_FILE = os.path.join(PEARLQLITE_DIR, \"pearl_qlite.py\")\nPEARLQLITE_INIT_CONTENT = \"\"\"\nfrom .pearl_qlite import PearlClient\n\"\"\"\nPEARLQLITE_CLIENT_CONTENT = \"\"\"\nimport os\nimport sqlite3\nimport json",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARLQLITE_INIT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARLQLITE_INIT = os.path.join(PEARLQLITE_DIR, \"__init__.py\")\nPEARLQLITE_FILE = os.path.join(PEARLQLITE_DIR, \"pearl_qlite.py\")\nPEARLQLITE_INIT_CONTENT = \"\"\"\nfrom .pearl_qlite import PearlClient\n\"\"\"\nPEARLQLITE_CLIENT_CONTENT = \"\"\"\nimport os\nimport sqlite3\nimport json\nclass PearlClient:",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARLQLITE_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARLQLITE_FILE = os.path.join(PEARLQLITE_DIR, \"pearl_qlite.py\")\nPEARLQLITE_INIT_CONTENT = \"\"\"\nfrom .pearl_qlite import PearlClient\n\"\"\"\nPEARLQLITE_CLIENT_CONTENT = \"\"\"\nimport os\nimport sqlite3\nimport json\nclass PearlClient:\n    \\\"\\\"\\\"SQLite-backed client for PEARLqlite-style operations.\\\"\\\"\\\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARLQLITE_INIT_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARLQLITE_INIT_CONTENT = \"\"\"\nfrom .pearl_qlite import PearlClient\n\"\"\"\nPEARLQLITE_CLIENT_CONTENT = \"\"\"\nimport os\nimport sqlite3\nimport json\nclass PearlClient:\n    \\\"\\\"\\\"SQLite-backed client for PEARLqlite-style operations.\\\"\\\"\\\"\n    def __init__(self, default_db: str = \"project_mgmt_acct.db\"):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PEARLQLITE_CLIENT_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PEARLQLITE_CLIENT_CONTENT = \"\"\"\nimport os\nimport sqlite3\nimport json\nclass PearlClient:\n    \\\"\\\"\\\"SQLite-backed client for PEARLqlite-style operations.\\\"\\\"\\\"\n    def __init__(self, default_db: str = \"project_mgmt_acct.db\"):\n        DB_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), \"databases\")\n        os.makedirs(DB_DIR, exist_ok=True)\n        self.active_db = os.path.join(DB_DIR, default_db)",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT_PEARL_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "AGENT_PEARL_DIR = os.path.join(PEARL_AI_DB_ROOT, \"agent_pearl\")\nAGENT_PEARL_INIT = os.path.join(AGENT_PEARL_DIR, \"__init__.py\")\nAGENT_PEARL_FILE = os.path.join(AGENT_PEARL_DIR, \"agent_pearl.py\")\nAGENT_PEARL_INIT_CONTENT = \"\"\"\nfrom .agent_pearl import AgentPearl\n\"\"\"\nAGENT_PEARL_CONTENT = \"\"\"\nfrom ..pearl_qlite import PearlClient\n# from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready\nclass AgentPearl:",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT_PEARL_INIT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "AGENT_PEARL_INIT = os.path.join(AGENT_PEARL_DIR, \"__init__.py\")\nAGENT_PEARL_FILE = os.path.join(AGENT_PEARL_DIR, \"agent_pearl.py\")\nAGENT_PEARL_INIT_CONTENT = \"\"\"\nfrom .agent_pearl import AgentPearl\n\"\"\"\nAGENT_PEARL_CONTENT = \"\"\"\nfrom ..pearl_qlite import PearlClient\n# from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready\nclass AgentPearl:\n    \\\"\\\"\\\"Orchestration agent for PEARL_AI_DB operations.\\\"\\\"\\\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT_PEARL_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "AGENT_PEARL_FILE = os.path.join(AGENT_PEARL_DIR, \"agent_pearl.py\")\nAGENT_PEARL_INIT_CONTENT = \"\"\"\nfrom .agent_pearl import AgentPearl\n\"\"\"\nAGENT_PEARL_CONTENT = \"\"\"\nfrom ..pearl_qlite import PearlClient\n# from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready\nclass AgentPearl:\n    \\\"\\\"\\\"Orchestration agent for PEARL_AI_DB operations.\\\"\\\"\\\"\n    def __init__(self, db_name: str = \"project_mgmt_acct.db\"):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT_PEARL_INIT_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "AGENT_PEARL_INIT_CONTENT = \"\"\"\nfrom .agent_pearl import AgentPearl\n\"\"\"\nAGENT_PEARL_CONTENT = \"\"\"\nfrom ..pearl_qlite import PearlClient\n# from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready\nclass AgentPearl:\n    \\\"\\\"\\\"Orchestration agent for PEARL_AI_DB operations.\\\"\\\"\\\"\n    def __init__(self, db_name: str = \"project_mgmt_acct.db\"):\n        self.pearl_client = PearlClient(default_db=db_name)",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT_PEARL_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "AGENT_PEARL_CONTENT = \"\"\"\nfrom ..pearl_qlite import PearlClient\n# from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready\nclass AgentPearl:\n    \\\"\\\"\\\"Orchestration agent for PEARL_AI_DB operations.\\\"\\\"\\\"\n    def __init__(self, db_name: str = \"project_mgmt_acct.db\"):\n        self.pearl_client = PearlClient(default_db=db_name)\n        # self.contract_executor = ContractExecutor() # Uncomment when ContractExecutor is ready\n    def create_entity(self, entity_type: str, attributes: dict = None) -> str:\n        \\\"\\\"\\\"Creates a new entity and returns its PEARL_ID.\\\"\\\"\\\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVIS_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DAVIS_DIR = os.path.join(PEARL_AI_DB_ROOT, \"davis_identity_engine\")\nDAVIS_INIT = os.path.join(DAVIS_DIR, \"__init__.py\")\nDAVIS_FILE = os.path.join(DAVIS_DIR, \"davis_identity_engine.py\")\nDAVIS_INIT_CONTENT = \"\"\"\nfrom .davis_identity_engine import DAVISIdentityEngine\n\"\"\"\nDAVIS_CONTENT = \"\"\"\nclass DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVIS_INIT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DAVIS_INIT = os.path.join(DAVIS_DIR, \"__init__.py\")\nDAVIS_FILE = os.path.join(DAVIS_DIR, \"davis_identity_engine.py\")\nDAVIS_INIT_CONTENT = \"\"\"\nfrom .davis_identity_engine import DAVISIdentityEngine\n\"\"\"\nDAVIS_CONTENT = \"\"\"\nclass DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):\n        self.geometric_lane = {}",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVIS_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DAVIS_FILE = os.path.join(DAVIS_DIR, \"davis_identity_engine.py\")\nDAVIS_INIT_CONTENT = \"\"\"\nfrom .davis_identity_engine import DAVISIdentityEngine\n\"\"\"\nDAVIS_CONTENT = \"\"\"\nclass DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):\n        self.geometric_lane = {}\n        self.semantic_lane = {}",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVIS_INIT_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DAVIS_INIT_CONTENT = \"\"\"\nfrom .davis_identity_engine import DAVISIdentityEngine\n\"\"\"\nDAVIS_CONTENT = \"\"\"\nclass DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):\n        self.geometric_lane = {}\n        self.semantic_lane = {}\n        self.procedural_lane = {}",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DAVIS_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DAVIS_CONTENT = \"\"\"\nclass DAVISIdentityEngine:\n    \\\"\\\"\\\"DAVIS Identity Engine for managing identity metrics across three lanes.\\\"\\\"\\\"\n    def __init__(self):\n        self.geometric_lane = {}\n        self.semantic_lane = {}\n        self.procedural_lane = {}\n    def update_geometric_metrics(self, pearl_id: str, metrics: dict):\n        \\\"\\\"\\\"Updates geometric identity metrics for a given PEARL_ID.\\\"\\\"\\\"\n        self.geometric_lane[pearl_id] = {**self.geometric_lane.get(pearl_id, {}), **metrics}",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "CONTRACT_EXECUTOR_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "CONTRACT_EXECUTOR_DIR = os.path.join(PEARL_AI_DB_ROOT, \"contract_executor\")\nCONTRACT_EXECUTOR_INIT = os.path.join(CONTRACT_EXECUTOR_DIR, \"__init__.py\")\nCONTRACT_EXECUTOR_FILE = os.path.join(CONTRACT_EXECUTOR_DIR, \"contract_executor.py\")\nCONTRACT_EXECUTOR_INIT_CONTENT = \"\"\"\nfrom .contract_executor import ContractExecutor\n\"\"\"\nCONTRACT_EXECUTOR_CONTENT = \"\"\"\nclass ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "CONTRACT_EXECUTOR_INIT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "CONTRACT_EXECUTOR_INIT = os.path.join(CONTRACT_EXECUTOR_DIR, \"__init__.py\")\nCONTRACT_EXECUTOR_FILE = os.path.join(CONTRACT_EXECUTOR_DIR, \"contract_executor.py\")\nCONTRACT_EXECUTOR_INIT_CONTENT = \"\"\"\nfrom .contract_executor import ContractExecutor\n\"\"\"\nCONTRACT_EXECUTOR_CONTENT = \"\"\"\nclass ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "CONTRACT_EXECUTOR_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "CONTRACT_EXECUTOR_FILE = os.path.join(CONTRACT_EXECUTOR_DIR, \"contract_executor.py\")\nCONTRACT_EXECUTOR_INIT_CONTENT = \"\"\"\nfrom .contract_executor import ContractExecutor\n\"\"\"\nCONTRACT_EXECUTOR_CONTENT = \"\"\"\nclass ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")\n    def execute(self, contract_name: str, payload: dict):",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "CONTRACT_EXECUTOR_INIT_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "CONTRACT_EXECUTOR_INIT_CONTENT = \"\"\"\nfrom .contract_executor import ContractExecutor\n\"\"\"\nCONTRACT_EXECUTOR_CONTENT = \"\"\"\nclass ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")\n    def execute(self, contract_name: str, payload: dict):\n        \\\"\\\"\\\"Executes a mocked contract based on its name.\\\"\\\"\\\"",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "CONTRACT_EXECUTOR_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "CONTRACT_EXECUTOR_CONTENT = \"\"\"\nclass ContractExecutor:\n    \\\"\\\"\\\"Mocks external integrations and contract executions.\\\"\\\"\\\"\n    def __init__(self):\n        print(\"ContractExecutor initialized (mocking external integrations).\")\n    def execute(self, contract_name: str, payload: dict):\n        \\\"\\\"\\\"Executes a mocked contract based on its name.\\\"\\\"\\\"\n        print(f\"Executing mocked contract: {contract_name} with payload: {payload}\")\n        if contract_name == \"RTM_Integration\":\n            return self._mock_rtm_integration(payload)",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DOCS_DIR",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DOCS_DIR = os.path.join(PEARL_AI_DB_ROOT, \"docs\")\nPRD_TEMPLATE_FILE = os.path.join(DOCS_DIR, \"PRD_Template.md\")\nDOCS_README = os.path.join(DOCS_DIR, \"README.md\")\nPRD_TEMPLATE_CONTENT = \"\"\"\n# Product Requirements Document (PRD) Template\n## 1. Introduction\n### 1.1. Document Purpose\nThis document outlines the requirements for [Feature/Module Name]. It serves as a guide for the development team and stakeholders.\n### 1.2. Scope\nDescribe what is included and excluded from this feature/module.",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PRD_TEMPLATE_FILE",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PRD_TEMPLATE_FILE = os.path.join(DOCS_DIR, \"PRD_Template.md\")\nDOCS_README = os.path.join(DOCS_DIR, \"README.md\")\nPRD_TEMPLATE_CONTENT = \"\"\"\n# Product Requirements Document (PRD) Template\n## 1. Introduction\n### 1.1. Document Purpose\nThis document outlines the requirements for [Feature/Module Name]. It serves as a guide for the development team and stakeholders.\n### 1.2. Scope\nDescribe what is included and excluded from this feature/module.\n## 2. Goals",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DOCS_README",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DOCS_README = os.path.join(DOCS_DIR, \"README.md\")\nPRD_TEMPLATE_CONTENT = \"\"\"\n# Product Requirements Document (PRD) Template\n## 1. Introduction\n### 1.1. Document Purpose\nThis document outlines the requirements for [Feature/Module Name]. It serves as a guide for the development team and stakeholders.\n### 1.2. Scope\nDescribe what is included and excluded from this feature/module.\n## 2. Goals\n### 2.1. Business Goals",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "PRD_TEMPLATE_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "PRD_TEMPLATE_CONTENT = \"\"\"\n# Product Requirements Document (PRD) Template\n## 1. Introduction\n### 1.1. Document Purpose\nThis document outlines the requirements for [Feature/Module Name]. It serves as a guide for the development team and stakeholders.\n### 1.2. Scope\nDescribe what is included and excluded from this feature/module.\n## 2. Goals\n### 2.1. Business Goals\nWhat business objectives does this feature/module aim to achieve?",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "DOCS_README_CONTENT",
+        "kind": 5,
+        "importPath": "Script_Setup.bootstrap_pearl_platform",
+        "description": "Script_Setup.bootstrap_pearl_platform",
+        "peekOfCode": "DOCS_README_CONTENT = \"\"\"\n# Documentation for PEARL AI Database\nThis directory contains documentation for the PEARL AI Database project.\n## Contents:\n-   `PRD_Template.md`: A template for Product Requirements Documents.\n-   Other documentation files will be added here as the project evolves.\n\"\"\"\ndef bootstrap_project():\n    print(\"Bootstrapping PEARL AI Database project structure...\")\n    # Create PEARL_AI_DB root directory",
+        "detail": "Script_Setup.bootstrap_pearl_platform",
+        "documentation": {}
+    },
+    {
+        "label": "MockPearlClient",
+        "kind": 6,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "class MockPearlClient:\n    def __init__(self, db_path):\n        self.db_path = db_path\n    def get_connection(self):\n        return sqlite3.connect(self.db_path)\n@pytest.fixture\ndef dal():\n    # Create a temporary file for the SQLite database\n    with tempfile.NamedTemporaryFile(suffix=\".db\", delete=False) as tmp_db_file:\n        db_path = tmp_db_file.name",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "dal",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def dal():\n    # Create a temporary file for the SQLite database\n    with tempfile.NamedTemporaryFile(suffix=\".db\", delete=False) as tmp_db_file:\n        db_path = tmp_db_file.name\n    mock_pearl_client = MockPearlClient(db_path)\n    data_access = DataAccess(db_path, \"\", mock_pearl_client) # sql_dir not needed for raw sql\n    # Manually create the alarms table for testing\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute(\"\"\"",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_once",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_once(dal):\n    # Insert a 'once' alarm\n    alarm_time = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm1\", \"pearl1\", \"job1\", \"task1\", \"Once alarm\", alarm_time, \"once\", \"2023-01-01\", None, 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    due_alarms = dal.get_due_alarms(current_time)\n    assert len(due_alarms) == 1",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_daily",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_daily(dal):\n    # Insert a 'daily' alarm set for 10 minutes ago, starting yesterday, ending tomorrow\n    alarm_time_str = (datetime.now() - timedelta(minutes=10)).strftime(\"%H:%M:%S\")\n    alarm_datetime_str = (datetime.now().replace(hour=int(alarm_time_str[:2]), minute=int(alarm_time_str[3:5]), second=int(alarm_time_str[6:]))).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm2\", \"pearl2\", \"job2\", \"task2\", \"Daily alarm\", alarm_datetime_str, \"daily\", (datetime.now() - timedelta(days=1)).strftime(\"%Y-%m-%d\"), (datetime.now() + timedelta(days=1)).strftime(\"%Y-%m-%d\"), 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    # Current time is after the alarm time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_weekly",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_weekly(dal):\n    # Insert a 'weekly' alarm for today's day of the week, 10 minutes ago\n    alarm_time_dt = datetime.now() - timedelta(minutes=10)\n    alarm_time_str = alarm_time_dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm3\", \"pearl3\", \"job3\", \"task3\", \"Weekly alarm\", alarm_time_str, \"weekly\", (datetime.now() - timedelta(days=7)).strftime(\"%Y-%m-%d\"), (datetime.now() + timedelta(days=7)).strftime(\"%Y-%m-%d\"), 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    # Current time is after the alarm time on the correct day\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_monthly",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_monthly(dal):\n    # Insert a 'monthly' alarm for today's day of the month, 10 minutes ago\n    alarm_time_dt = datetime.now() - timedelta(minutes=10)\n    alarm_time_str = alarm_time_dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm4\", \"pearl4\", \"job4\", \"task4\", \"Monthly alarm\", alarm_time_str, \"monthly\", (datetime.now() - timedelta(days=30)).strftime(\"%Y-%m-%d\"), (datetime.now() + timedelta(days=30)).strftime(\"%Y-%m-%d\"), 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    # Current time is after the alarm time on the correct day of the month\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_inactive",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_inactive(dal):\n    # Insert an inactive alarm\n    alarm_time = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm5\", \"pearl5\", \"job5\", \"task5\", \"Inactive alarm\", alarm_time, \"once\", \"2023-01-01\", None, 0, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    due_alarms = dal.get_due_alarms(current_time)\n    assert len(due_alarms) == 0",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_snooze_alarm",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_snooze_alarm(dal):\n    # Insert an alarm\n    initial_alarm_time = datetime.now()\n    initial_alarm_time_str = initial_alarm_time.strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm10\", \"pearl10\", \"job10\", \"task10\", \"Snooze alarm\", initial_alarm_time_str, \"once\", \"2023-01-01\", None, 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    # Snooze the alarm for 15 minutes\n    snooze_duration = 15",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_dismiss_alarm",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_dismiss_alarm(dal):\n    # Insert an alarm\n    alarm_time = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm9\", \"pearl9\", \"job9\", \"task9\", \"Dismissible alarm\", alarm_time, \"once\", \"2023-01-01\", None, 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    # Dismiss the alarm\n    dal.dismiss_alarm(\"alarm9\")\n    # Check if it's no longer active",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_outside_date_range",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_outside_date_range(dal):\n    # Insert an alarm that is active but outside its date range\n    alarm_time = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm6\", \"pearl6\", \"job6\", \"task6\", \"Outside date range alarm\", alarm_time, \"once\", (datetime.now() + timedelta(days=1)).strftime(\"%Y-%m-%d\"), (datetime.now() + timedelta(days=2)).strftime(\"%Y-%m-%d\"), 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    due_alarms = dal.get_due_alarms(current_time)\n    assert len(due_alarms) == 0",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_multiple_due",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_multiple_due(dal):\n    # Insert multiple alarms that should be due\n    alarm_time_once = (datetime.now() - timedelta(minutes=10)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    alarm_time_daily = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    alarm_datetime_daily_str = (datetime.now().replace(hour=int(alarm_time_daily[11:13]), minute=int(alarm_time_daily[14:16]), second=int(alarm_time_daily[17:19]))).strftime(\"%Y-%m-%d %H:%M:%S\")\n    dal._execute_raw_sql(\n        \"INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\",\n        (\"alarm7\", \"pearl7\", \"job7\", \"task7\", \"Multiple alarm 1\", alarm_time_once, \"once\", \"2023-01-01\", None, 1, datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"))\n    )\n    dal._execute_raw_sql(",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_due_alarms_no_alarms",
+        "kind": 2,
+        "importPath": "tests.test_alarms",
+        "description": "tests.test_alarms",
+        "peekOfCode": "def test_get_due_alarms_no_alarms(dal):\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    due_alarms = dal.get_due_alarms(current_time)\n    assert len(due_alarms) == 0",
+        "detail": "tests.test_alarms",
+        "documentation": {}
+    },
+    {
+        "label": "TestCRDT",
+        "kind": 6,
+        "importPath": "tests.test_crdt",
+        "description": "tests.test_crdt",
+        "peekOfCode": "class TestCRDT(unittest.TestCase):\n    def setUp(self):\n        db_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'App', 'src', 'core', 'database', 'databases')\n        os.makedirs(db_dir, exist_ok=True)\n        self.test_db_name = \"test_crdt.db\"\n        self.full_test_db_path = os.path.join(db_dir, self.test_db_name)\n        # Ensure any previous test database is removed before starting\n        if os.path.exists(self.full_test_db_path):\n            try:\n                os.remove(self.full_test_db_path)",
+        "detail": "tests.test_crdt",
+        "documentation": {}
+    },
+    {
+        "label": "TestMoltbotIntegration",
+        "kind": 6,
+        "importPath": "tests.test_moltbot_integration",
+        "description": "tests.test_moltbot_integration",
+        "peekOfCode": "class TestMoltbotIntegration(unittest.TestCase):\n    def setUp(self):\n        \"\"\"Set up environment variables and mock objects before each test.\"\"\"\n        os.environ[\"MOLTBOT_BASE_URL\"] = \"http://mock-moltbot-api.com\"\n        os.environ[\"MOLTBOT_API_KEY\"] = \"mock_api_key\"\n        # Mock PearlClient for ContractExecutor\n        # self.mock_pearl_client = MagicMock(spec=PearlClient)\n        # Patch the MoltbotAPI constructor within the contracts module\n        # This ensures that when ContractExecutor creates a MoltbotAPI, it gets our mock\n        # self.patcher_moltbot_api_constructor = patch('agent.contracts.MoltbotAPI')",
+        "detail": "tests.test_moltbot_integration",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_database",
+        "kind": 2,
+        "importPath": "generate_pearl_id_csv",
+        "description": "generate_pearl_id_csv",
+        "peekOfCode": "def initialize_database(db_path: str):\n    \"\"\"\n    Initializes the SQLite database by creating tables based on SQL scripts.\n    \"\"\"\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    for category_obj in SQL_CATEGORIES:\n        sql_base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'App', 'sql'))\n        create_table_scripts = []\n        other_scripts = []",
+        "detail": "generate_pearl_id_csv",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pearl_id_csv",
+        "kind": 2,
+        "importPath": "generate_pearl_id_csv",
+        "description": "generate_pearl_id_csv",
+        "peekOfCode": "def generate_pearl_id_csv(db_path: str, output_filename: str = \"PEARL_ID_Import.csv\"):\n    \"\"\"\n    Generates a CSV file containing all distinct PEARL IDs from the database.\n    \"\"\"\n    sql_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'App', 'sql'))\n    # Ensure the database is initialized (handled by PearlClient internally)\n    # Instantiate PearlClient and DataAccess\n    pearl_client = PearlClient(db_path)\n    dal = DataAccess(db_path, sql_dir, pearl_client)\n    try:",
+        "detail": "generate_pearl_id_csv",
+        "documentation": {}
+    },
+    {
+        "label": "run_streamlit_app",
+        "kind": 2,
+        "importPath": "launcher",
+        "description": "launcher",
+        "peekOfCode": "def run_streamlit_app():\n    \"\"\"Launches the Streamlit application.\"\"\"\n    print(\"Launching Streamlit application...\")\n    streamlit_path = os.path.join(PROJECT_ROOT, \"App\", \"src\", \"ui\", \"main_app.py\")\n    env = os.environ.copy()\n    env[\"PYTHONPATH\"] = PROJECT_ROOT\n    try:\n        subprocess.run([sys.executable, \"-m\", \"streamlit\", \"run\", streamlit_path], env=env, check=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error launching Streamlit: {e}\")",
+        "detail": "launcher",
+        "documentation": {}
+    },
+    {
+        "label": "run_cli_app",
+        "kind": 2,
+        "importPath": "launcher",
+        "description": "launcher",
+        "peekOfCode": "def run_cli_app(test_inputs: list[str] = None):\n    \"\"\"Launches the CLI application.\"\"\"\n    print(\"Launching CLI application...\")\n    from App.src.cli.main_cli_menu import main_menu as cli_main_menu\n    if test_inputs:\n        _test_context.activate_test_mode(test_inputs)\n    try:\n        cli_main_menu(test_mode=bool(test_inputs))\n    except Exception as e:\n        with open(\"full_cli_traceback.log\", \"w\") as f:",
+        "detail": "launcher",
+        "documentation": {}
+    },
+    {
+        "label": "main_menu",
+        "kind": 2,
+        "importPath": "launcher",
+        "description": "launcher",
+        "peekOfCode": "def main_menu():\n    \"\"\"Displays the main menu and handles user input.\"\"\"\n    while True:\n        print(\"\\n--- PEARL AI Launcher ---\")\n        print(\"1. Launch Streamlit Application\")\n        print(\"2. Launch CLI Application\")\n        print(\"3. Exit\")\n        choice = input(\"Enter your choice (1-3): \")\n        if choice == '1':\n            run_streamlit_app()",
+        "detail": "launcher",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "launcher",
+        "description": "launcher",
+        "peekOfCode": "PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))\ndef run_streamlit_app():\n    \"\"\"Launches the Streamlit application.\"\"\"\n    print(\"Launching Streamlit application...\")\n    streamlit_path = os.path.join(PROJECT_ROOT, \"App\", \"src\", \"ui\", \"main_app.py\")\n    env = os.environ.copy()\n    env[\"PYTHONPATH\"] = PROJECT_ROOT\n    try:\n        subprocess.run([sys.executable, \"-m\", \"streamlit\", \"run\", streamlit_path], env=env, check=True)\n    except subprocess.CalledProcessError as e:",
+        "detail": "launcher",
+        "documentation": {}
+    },
+    {
+        "label": "run_cli",
+        "kind": 2,
+        "importPath": "run_app",
+        "description": "run_app",
+        "peekOfCode": "def run_cli():\n    \"\"\"\n    Launches the CLI application.\n    \"\"\"\n    print(\"Launching CLI Menu...\")\n    cli_path = os.path.join(\"App\", \"src\", \"main.py\")\n    subprocess.run([\"python\", cli_path])\ndef run_streamlit():\n    \"\"\"\n    Launches the Streamlit UI.",
+        "detail": "run_app",
+        "documentation": {}
+    },
+    {
+        "label": "run_streamlit",
+        "kind": 2,
+        "importPath": "run_app",
+        "description": "run_app",
+        "peekOfCode": "def run_streamlit():\n    \"\"\"\n    Launches the Streamlit UI.\n    \"\"\"\n    print(\"Launching Streamlit UI...\")\n    streamlit_path = os.path.join(\"App\", \"src\", \"ui\", \"main_app.py\")\n    subprocess.run([\"streamlit\", \"run\", streamlit_path])\ndef main():\n    \"\"\"\n    Presents a menu to the user to choose between CLI and Streamlit.",
+        "detail": "run_app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "run_app",
+        "description": "run_app",
+        "peekOfCode": "def main():\n    \"\"\"\n    Presents a menu to the user to choose between CLI and Streamlit.\n    \"\"\"\n    while True:\n        print(\"\\nSelect an option to launch:\")\n        print(\"1. Launch CLI Menu\")\n        print(\"2. Launch Streamlit UI\")\n        print(\"3. Exit\")\n        choice = input(\"Enter your choice (1-3): \")",
+        "detail": "run_app",
+        "documentation": {}
+    }
+]

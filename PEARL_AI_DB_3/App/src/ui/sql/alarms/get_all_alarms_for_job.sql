@@ -1,0 +1,1 @@
+SELECT * FROM alarms WHERE job_id = ? AND pearl_id = ?;

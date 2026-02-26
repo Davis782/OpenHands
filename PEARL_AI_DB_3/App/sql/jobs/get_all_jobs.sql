@@ -1,0 +1,1 @@
+SELECT * FROM Jobs WHERE PEARL_ID = :pearl_id;

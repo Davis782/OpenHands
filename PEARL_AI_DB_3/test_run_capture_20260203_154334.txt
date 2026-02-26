@@ -1,0 +1,96 @@
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 8
+
+Select a Database:
+------------------
+1. pearl.db
+2. project_mgmt_acct.db
+------------------
+Enter the number of the database, or type its name:
+[MOCK_INPUT] Prompt: '> (e.g., '1' or 'my_vault.db')' | Returned: '1' | Remaining inputs: 7
+Database set to: pearl.db
+PAUSE SKIPPED (test mode)
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '2' | Remaining inputs: 6
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Create New Vault
+2. Load Existing Vault
+3. Lock Current Vault
+4. View Vault Metadata
+5. Delete Vault File
+6. Back
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 5
+
+Creating a new vault...
+[MOCK_INPUT] Prompt: 'Enter a password for the new vault (e.g., 'MySecurePass123!'):' | Returned: 'newtestpassword' | Remaining inputs: 4
+[MOCK_INPUT] Prompt: 'Confirm password (e.g., 'MySecurePass123!'):' | Returned: 'newtestpassword' | Remaining inputs: 3
+[MOCK_INPUT] Prompt: 'Enter optional metadata as a JSON string (e.g., '{"user":"test"}') or leave blank:' | Returned: '{"test_key": "test_value", "vault_purpose": "test_report"}' | Remaining inputs: 2
+A vault file already exists.
+[DEBUG] Derived key length: 32 bytes
+Vault overwritten successfully in test mode.
+PAUSE SKIPPED (test mode)
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Create New Vault
+2. Load Existing Vault
+3. Lock Current Vault
+4. View Vault Metadata
+5. Delete Vault File
+6. Back
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '4' | Remaining inputs: 1
+
+Viewing vault metadata...
+{
+  "test_key": "test_value",
+  "vault_purpose": "test_report"
+}
+PAUSE SKIPPED (test mode)
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Create New Vault
+2. Load Existing Vault
+3. Lock Current Vault
+4. View Vault Metadata
+5. Delete Vault File
+6. Back
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '4' | Remaining inputs: 0
+
+Viewing vault metadata...
+{
+  "test_key": "test_value",
+  "vault_purpose": "test_report"
+}
+PAUSE SKIPPED (test mode)
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Create New Vault
+2. Load Existing Vault
+3. Lock Current Vault
+4. View Vault Metadata
+5. Delete Vault File
+6. Back
+----------------
+[MOCK_INPUT] Using real input for prompt: '>'
+> 

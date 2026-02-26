@@ -1,0 +1,41 @@
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 2
+[DEBUG] db_dir: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\cli\..\core\database\databases
+[DEBUG] db_files: ['PEARL_AI_DB.sqlite', 'test_pearl_id.sqlite']
+
+Select a Database:
+------------------
+1. PEARL_AI_DB.sqlite
+2. test_pearl_id.sqlite
+3. Create New Database
+------------------
+Enter the number of the database, type its name, or choose to create a new one:
+[MOCK_INPUT] Prompt: '> (e.g., '1', 'my_new_db.db', or 'Create')' | Returned: '1' | Remaining inputs: 1
+Database set to: PEARL_AI_DB.sqlite
+DEBUG: PearlClient initialized with active_db: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\core\database\databases\PEARL_AI_DB.sqlite
+DEBUG: PearlClient initialized with active_db: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\core\database\databases\PEARL_AI_DB.sqlite
+DEBUG: AgentPearl initialized with pearl_client: <App.src.core.database.pearl_qlite.pearl_qlite.PearlClient object at 0x00000237120D9B80>
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '7' | Remaining inputs: 0
+Exiting PEARL AI. Goodbye!

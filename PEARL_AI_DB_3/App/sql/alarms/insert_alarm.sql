@@ -1,0 +1,2 @@
+INSERT INTO Alarms (job_id, pearl_id, alarm_time, message, recurrence, start_date, end_date, snooze_until, dismissed_at, is_active)
+VALUES (:job_id, :pearl_id, :alarm_time, :message, :recurrence, :start_date, :end_date, :snooze_until, :dismissed_at, :is_active);

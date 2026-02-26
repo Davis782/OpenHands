@@ -1,0 +1,1 @@
+DELETE FROM Contacts WHERE contact_id = :contact_id AND pearl_id = :pearl_id;

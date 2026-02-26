@@ -1,0 +1,3 @@
+id,entity_type,attributes
+ARE_fad46028,Are you ready:Hotel,"{""cost"": ""333""}"
+TES_6ca9b481,UpdatedTestEntity,"{""updated_attr"": ""new_value"", ""another_attr"": 123}"

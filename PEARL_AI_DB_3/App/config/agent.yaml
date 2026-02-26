@@ -1,0 +1,15 @@
+pearlqlite:
+  base_url: "http://localhost:4101"
+  timeout_ms: 5000
+
+agent:
+  name: "agent-pearl"
+  max_steps: 8
+  temperature: 0.2
+
+memory:
+  crdt_table: "agent_memory"
+  log_table: "semantic_logs"
+
+contracts:
+  default_audit_contract: "audit-event"

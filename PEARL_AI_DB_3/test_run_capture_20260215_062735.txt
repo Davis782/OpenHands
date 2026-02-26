@@ -1,0 +1,233 @@
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 8
+[DEBUG] db_dir: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\cli\..\core\database\databases
+[DEBUG] db_files: ['PEARL_AI_DB.sqlite', 'test_pearl_id.sqlite']
+
+Select a Database:
+------------------
+1. PEARL_AI_DB.sqlite
+2. test_pearl_id.sqlite
+3. Create New Database
+------------------
+Enter the number of the database, type its name, or choose to create a new one:
+[MOCK_INPUT] Prompt: '> (e.g., '1', 'my_new_db.db', or 'Create')' | Returned: '1' | Remaining inputs: 7
+Database set to: PEARL_AI_DB.sqlite
+DEBUG: AgentPearl initialized with pearl_client: <App.src.core.database.pearl_qlite.pearl_qlite.PearlClient object at 0x000001BF9BF43B60>
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '2' | Remaining inputs: 6
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 5
+[CLEAR_SCREEN_SIMULATED]
+Load Existing Vault
+-------------------
+[MOCK_INPUT] Prompt: 'Enter Vault Door password:' | Returned: 'newtestpassword' | Remaining inputs: 4
+[MOCK_INPUT] Prompt: 'Enter Identity password:' | Returned: 'newtestpassword' | Remaining inputs: 3
+[MOCK_INPUT] Prompt: 'Enter Metadata password:' | Returned: '{"test_key": "test_value", "vault_purpose": "test_report"}' | Remaining inputs: 2
+[DEBUG] Derived key length: 32 bytes
+An unexpected error occurred during vault loading: 
+[PAUSE SKIPPED (test mode)]
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '6' | Remaining inputs: 1
+Invalid choice. Please try again.
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Vault Management
+----------------
+1. Unlock Vault
+2. Lock Vault
+3. Create New Vault
+4. Back to Main Menu
+----------------
+[MOCK_INPUT] Prompt: '>' | Returned: '4' | Remaining inputs: 0
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Using real input for prompt: '>'
+> [CLEAR_SCREEN_SIMULATED]
+--- Generate CSV Template ---
+Executed DDL from common/create_pearls_table.sql
+Executed DDL from jobs/create_jobs_table.sql
+Executed DDL from contacts/create_contacts_table.sql
+Executed DDL from accounting/create_accounting_table.sql
+Executed DDL from reports/create_reports_table.sql
+Executed DDL from groups/create_pearl_id_groups_table.sql
+Executed DDL from groups/create_group_members_table.sql
+Executed DDL from alarms/create_alarms_table.sql
+Available tables:
+1. pearl_ids
+2. transactions
+3. sqlite_sequence
+4. crdt_log
+5. crdt_counter
+6. Pearls
+7. Jobs
+8. Contacts
+9. Accounting
+10. Reports
+11. try
+12. Alarms
+13. pearl_id_groups
+14. group_members
+[MOCK_INPUT] Using real input for prompt: 'Select a table by number to generate a template for:'
+Select a table by number to generate a template for: [MOCK_INPUT] Using real input for prompt: 'Enter desired filename for the template (e.g., try_template.csv):'
+Enter desired filename for the template (e.g., try_template.csv): Generating template for table 'try' at 'C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\try_template.csv'...
+CSV template successfully generated for 'try' at 'C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\try_template.csv'.
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Using real input for prompt: '>'
+> [CLEAR_SCREEN_SIMULATED]
+
+Agent-PEARL Debug Tools
+-----------------------
+1. View Agent State
+2. List All PEARL IDs
+3. List All Tables
+4. Export Query Results
+5. Import CSV to Table
+6. Interpret PEARL ID
+7. Generate PEARL ID from Seed String
+8. Generate Random Seed String
+9. Back
+
+[MOCK_INPUT] Using real input for prompt: '>'
+> [CLEAR_SCREEN_SIMULATED]
+List All PEARL IDs
+------------------
+Executed DDL from common/create_pearls_table.sql
+Executed DDL from jobs/create_jobs_table.sql
+Executed DDL from contacts/create_contacts_table.sql
+Executed DDL from accounting/create_accounting_table.sql
+Executed DDL from reports/create_reports_table.sql
+Executed DDL from groups/create_pearl_id_groups_table.sql
+Executed DDL from groups/create_group_members_table.sql
+Executed DDL from alarms/create_alarms_table.sql
+  ID: pearl_a93d0f9fcff9, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_d2c01677f5dc, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_50270fe99b4a, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_97dfe0b30f20, Type: job, Attributes: {'name': 'b'}
+  ID: pearl_50cdd216466d, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_8717e36457a9, Type: job, Attributes: {'name': 'Job to be Finished'}
+  ID: pearl_e2286bddf4b3, Type: job, Attributes: {'name': 'b'}
+  ID: pearl_75b4fb6ad0f9, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_5b1f075b35f9, Type: job, Attributes: {'name': 'Job to be Finished'}
+  ID: pearl_bbf18c753819, Type: job, Attributes: {'name': 'Test Job 1'}
+  ID: pearl_ec066055393b, Type: job, Attributes: {'name': 'Job to be Finished'}
+  ID: pearl_75dbc90af8be, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_01f9404a4c7d, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_50277a2683fb, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_e8d6b9f57be9, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_495944bd9937, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_a808ec219d65, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_b8b3e9d6aa75, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_e893a7182834, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_e398756dddbc, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_5585ff4fc859, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_5ef93e73d48e, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_78a9fb3c5bb4, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_7f098fd51456, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_337166a9639a, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_c6da6f7ab0b7, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_0f2a1b9511a6, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_851f6df0cafb, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_366712b4a2de, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_cfd6fa934aa3, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_3072ef843b7a, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_3b5351821ace, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_fa5ace4efa71, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_19badf46190e, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_1c7be0667b8b, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_02e61547f55b, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_746a194474cb, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_e6fab5ee42e5, Type: job, Attributes: {'name': 'Test Job for Transaction'}
+  ID: pearl_1b3bb5e19328, Type: generic_seed, Attributes: {'source': 'manual_seed_input'}
+  ID: pearl_e2b3e8361081, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_a9e1e722e2bf, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_dc2720499606, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_7fe9a9eaf398, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_c96b09d782e0, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_ea61c797fb35, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_5c982e836e49, Type: random_seed, Attributes: {'source': 'random_generation'}
+  ID: pearl_6f77ad8be0f2, Type: random_seed, Attributes: {'source': 'random_generation'}
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+
+Agent-PEARL Debug Tools
+-----------------------
+1. View Agent State
+2. List All PEARL IDs
+3. List All Tables
+4. Export Query Results
+5. Import CSV to Table
+6. Interpret PEARL ID
+7. Generate PEARL ID from Seed String
+8. Generate Random Seed String
+9. Back
+
+[MOCK_INPUT] Using real input for prompt: '>'
+> [CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Using real input for prompt: '>'
+> Exiting PEARL AI. Goodbye!
