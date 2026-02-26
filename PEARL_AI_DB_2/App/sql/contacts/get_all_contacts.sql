@@ -1,0 +1,1 @@
+SELECT * FROM Contacts WHERE pearl_id = :pearl_id;

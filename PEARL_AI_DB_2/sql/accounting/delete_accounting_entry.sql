@@ -1,0 +1,1 @@
+DELETE FROM Accounting WHERE entry_id = ?;

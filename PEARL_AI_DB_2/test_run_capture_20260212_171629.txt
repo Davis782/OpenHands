@@ -1,0 +1,70 @@
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '1' | Remaining inputs: 5
+[DEBUG] db_dir: C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\App\src\cli\..\core\database\databases
+[DEBUG] db_files: ['PEARL_AI_DB.sqlite', 'test_pearl_id.sqlite']
+
+Select a Database:
+------------------
+1. PEARL_AI_DB.sqlite
+2. test_pearl_id.sqlite
+3. Create New Database
+------------------
+Enter the number of the database, type its name, or choose to create a new one:
+[MOCK_INPUT] Prompt: '> (e.g., '1', 'my_new_db.db', or 'Create')' | Returned: '1' | Remaining inputs: 4
+Database set to: PEARL_AI_DB.sqlite
+DEBUG: AgentPearl initialized with pearl_client: <App.src.core.database.pearl_qlite.pearl_qlite.PearlClient object at 0x0000014AC4243200>
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '6' | Remaining inputs: 3
+[CLEAR_SCREEN_SIMULATED]
+--- Generate CSV Template ---
+Available tables:
+1. pearl_ids
+2. transactions
+3. sqlite_sequence
+4. crdt_log
+5. crdt_counter
+6. Pearls
+7. Jobs
+8. Contacts
+9. Accounting
+10. Reports
+11. try
+[MOCK_INPUT] Prompt: 'Select a table by number to generate a template for:' | Returned: '1' | Remaining inputs: 2
+[MOCK_INPUT] Prompt: 'Enter desired filename for the template (e.g., pearl_ids_template.csv):' | Returned: 'test_template.csv' | Remaining inputs: 1
+Generating template for table 'pearl_ids' at 'C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\test_template.csv'...
+CSV template successfully generated for 'pearl_ids' at 'C:\Users\Solid\OneDrive\Documents\GitHub\Trae_AI\PEARL_AI_DB_2\test_template.csv'.
+[PAUSE SKIPPED (test mode)]
+[CLEAR_SCREEN_SIMULATED]
+Main Menu
+---------
+1. Select/Change Database
+2. Vault Management
+3. Admin Tools
+4. Transaction Management
+5. Query Builder
+6. Generate CSV Template
+7. Exit
+---------
+[MOCK_INPUT] Prompt: '>' | Returned: '7' | Remaining inputs: 0
+Exiting PEARL AI. Goodbye!

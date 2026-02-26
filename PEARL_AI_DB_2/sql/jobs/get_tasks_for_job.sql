@@ -1,0 +1,1 @@
+SELECT * FROM Tasks WHERE job_id = :job_id;

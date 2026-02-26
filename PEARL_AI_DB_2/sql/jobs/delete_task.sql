@@ -1,0 +1,1 @@
+DELETE FROM Tasks WHERE task_id = :task_id AND pearl_id = :pearl_id;

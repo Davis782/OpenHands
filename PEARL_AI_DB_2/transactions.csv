@@ -1,0 +1,6 @@
+item,cost,payment,sku
+Laptop,1200,Credit,SKU1001
+Mouse,25,Cash,SKU1002
+Keyboard,75,Debit,SKU1003
+Monitor,300,Credit,SKU1004
+USB Cable,10,Cash,SKU1005

@@ -1,0 +1,1 @@
+SELECT * FROM Alarms WHERE job_id = :job_id AND pearl_id = :pearl_id;

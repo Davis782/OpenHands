@@ -1,0 +1,1 @@
+SELECT * FROM Alarms WHERE alarm_id = :alarm_id AND pearl_id = :pearl_id;

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  pearl-ai-db:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=sqlite:///./sql_app.db
+    # Add other environment variables as needed
+
