@@ -1,0 +1,24 @@
+{
+    "models": {
+        "gemini-long": {
+            "provider": "google",
+            "model": "gemini-1.5-flash",
+            "api_key_env": "GOOGLE_API_KEY"
+        },
+        "gemini-fast": {
+            "provider": "google",
+            "model": "gemini-2.5-flash",
+            "api_key_env": "GOOGLE_API_KEY"
+        },
+        "deepseek-coder": {
+            "provider": "openrouter",
+            "model": "deepseek/deepseek-chat",
+            "api_key_env": "OPENROUTER_API_KEY"
+        }
+    },
+    "routing": {
+        "long_context": "gemini-long",
+        "coding": "deepseek-coder",
+        "fast_chat": "gemini-fast"
+    }
+}

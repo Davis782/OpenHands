@@ -1,0 +1,24 @@
+{
+    "models": {
+        "gemini-long": {
+            "provider": "google",
+            "model": "gemini-1.5-flash",
+            "api_key_env": "v1-fa28b476ce189eeea592a9fd8a360871dd324e873c0d0140c971ab99df06e82b"
+        },
+        "gemini-fast": {
+            "provider": "google",
+            "model": "gemini-2.0-flash",
+            "api_key_env": "GOOGLE_API_KEY"
+        },
+        "deepseek-coder": {
+            "provider": "openrouter",
+            "model": "deepseek/deepseek-chat",
+            "api_key_env": "v1-629bc75116e5f1a1affb8fc2525df3e3595e366ad3b5c8050938112bc18de549"
+        }
+    },
+    "routing": {
+        "long_context": "gemini-long",
+        "coding": "deepseek-coder",
+        "fast_chat": "gemini-fast"
+    }
+}
