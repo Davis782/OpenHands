@@ -1,5 +1,12 @@
 ## Revert Information
 
+- **Commit:** FIX: Revert docx support and refine encoding handling for CSV/TXT uploads
+- **Date:** 2026-03-13
+- **Hash:** a80c79a59
+- **Description:**
+  - Reverted changes related to `.docx` file support in `App/src/ui/pages/reports.py`.
+  - Modified `render_csv_import_page` to pass the raw `uploaded_file` object directly to `pd.read_csv` along with the `selected_encoding`, providing a more robust solution for handling file encoding.
+
 - **Commit:** FIX: Resolve 'utf-8' codec can't decode bytes error in Streamlit CSV import
 - **Date:** 2026-03-13
 - **Hash:** c5371727b

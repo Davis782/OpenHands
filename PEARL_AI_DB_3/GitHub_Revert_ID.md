@@ -3,12 +3,8 @@
 ## Latest Activity
 
 ### Git Commit - 2026-03-13
-- **ID:** c5371727b
-- **Description:** FIX: Resolve 'utf-8' codec can't decode bytes error in Streamlit CSV import
-
-### Git Commit - 2026-03-13
-- **ID:** ea35e8a56
-- **Description:** FEAT: Add encoding selection for file uploads in Streamlit reports page
+- **ID:** a80c79a59
+- **Description:** FIX: Revert docx support and refine encoding handling for CSV/TXT uploads
 
 ### Git Commit - 2026-03-13
 - **ID:** 19502c3a1
