@@ -1,5 +1,13 @@
 ## Revert Information
 
+- **Commit:** FIX: Enhance encoding robustness for CSV/TXT uploads with errors='replace'
+- **Date:** 2026-03-13
+- **Hash:** 1f38f865a
+- **Description:**
+  - Modified `render_csv_import_page` in `App/src/ui/pages/reports.py` to use `io.TextIOWrapper` with `errors='replace'` during decoding.
+  - This approach explicitly handles byte streams and replaces undecodable bytes with a placeholder, preventing `UnicodeDecodeError` and allowing file processing to continue.
+  - Ensures `uploaded_file.seek(0)` is called to reset the file pointer before reading.
+
 - **Commit:** FIX: Implement robust encoding handling for CSV/TXT uploads using io.TextIOWrapper
 - **Date:** 2026-03-13
 - **Hash:** ea388216a

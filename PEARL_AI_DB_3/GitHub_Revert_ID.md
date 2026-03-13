@@ -3,6 +3,10 @@
 ## Latest Activity
 
 ### Git Commit - 2026-03-13
+- **ID:** 1f38f865a
+- **Description:** FIX: Enhance encoding robustness for CSV/TXT uploads with errors='replace'
+
+### Git Commit - 2026-03-13
 - **ID:** ea388216a
 - **Description:** FIX: Implement robust encoding handling for CSV/TXT uploads using io.TextIOWrapper
 

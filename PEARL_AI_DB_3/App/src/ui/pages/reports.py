@@ -166,9 +166,14 @@ def render_csv_import_page(dal):
 
     if uploaded_file is not None:
         try:
+            st.write(f"DEBUG: Type of uploaded_file: {type(uploaded_file)}")
             uploaded_file.seek(0)
+            raw_bytes = uploaded_file.getvalue()
+            st.write(f"DEBUG: First 50 raw bytes: {raw_bytes[:50]}")
+
             # Use TextIOWrapper to handle encoding explicitly
-            text_io_wrapper = io.TextIOWrapper(uploaded_file, encoding=selected_encoding, errors='replace')
+            text_io_wrapper = io.TextIOWrapper(io.BytesIO(raw_bytes), encoding=selected_encoding, errors='replace')
+
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
                 # A more robust solution would allow the user to specify a delimiter.
