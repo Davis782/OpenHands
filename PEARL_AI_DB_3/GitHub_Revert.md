@@ -1,5 +1,23 @@
 ## Revert Information
 
+- **Commit:** FEAT: Allow .txt file uploads in Streamlit reports page
+- **Date:** 2026-03-13
+- **Hash:** <new_hash_here>
+- **Description:**
+  - Modified `st.file_uploader` in `App/src/ui/pages/reports.py` to accept both "csv" and "txt" file types.
+  - Added logic to `render_csv_import_page` to read `.txt` files using `pd.read_csv` with `sep=','` (assuming comma-separated for now).
+
+- **Commit:** Fix: Resolve all test failures and ensure proper in-memory database handling for CRDT tests.
+- **Date:** 2026-03-13
+- **Hash:** fb6d7efe8
+- **Description:**
+  - Resolved `test_snooze_alarm` failure in `test_alarms.py` by correcting the assertion to check `snooze_until` instead of `alarm_time`.
+  - Resolved `sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file` in `test_crdt.py` by:
+    - Modifying `PearlClient.__init__` to correctly handle `":memory:"` as an in-memory database, preventing it from being combined with a file path.
+    - Modifying `PearlClient._ensure_db_and_tables` to skip loading SQL files from disk when using an in-memory database, and instead manually creating the `crdt_log` and `crdt_counter` tables.
+    - Patching `App.src.agent_pearl.agent_pearl.AgentPearl._initialize_text_to_sql` in `test_crdt.py` to bypass `ai_text_to_sql`'s problematic `SQLiteConnector` initialization during testing.
+  - Fixed `IndentationError` in `test_alarms.py` by removing an incorrect line continuation character.
+
 - **Commit:** FEAT: Implement comprehensive SQL Query Builder features and UI enhancements, and update PRD for voting system
 - **Date:** 2026-03-13
 - **Hash:** e96c65797fea64ac119d2ec2aa3e7022ef8b08e9

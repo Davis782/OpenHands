@@ -48,9 +48,9 @@ def render_reports_page(dal):
     Renders the Reports management page.
     """
     st.title("Reports & Analytics")
-    
+
     st.write("Welcome to the Reports module. Here you can generate various business reports.")
-    
+
     # --- Report Selection ---
     report_type = st.selectbox("Select Report Type", [
         "Job Cost Summary",
@@ -89,7 +89,7 @@ def render_reports_page(dal):
                 if jobs:
                     df = pd.DataFrame(jobs, columns=["job_name", "description", "budget", "start_date"])
                     _display_dataframe_and_download_csv(df, "Jobs by Budget Range")
-                    
+
                     # Add DB export option
                     if st.button("Export Jobs by Budget Range to DB"):
                         _export_dataframe_to_db(df, "jobs_by_budget_range")
@@ -161,11 +161,16 @@ def render_csv_import_page(dal):
     st.subheader("CSV Data Import")
     st.write("Upload a CSV file to import data into your database.")
 
-    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+    uploaded_file = st.file_uploader("Choose a data file", type=["csv", "txt"])
 
     if uploaded_file is not None:
         try:
-            df = pd.read_csv(uploaded_file)
+            if uploaded_file.name.endswith('.txt'):
+                # Assuming .txt files are also comma-separated for now.
+                # A more robust solution would allow the user to specify a delimiter.
+                df = pd.read_csv(uploaded_file, sep=',')
+            else: # Default to CSV for .csv and other types
+                df = pd.read_csv(uploaded_file)
             st.success("CSV file loaded successfully!")
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())
@@ -245,7 +250,7 @@ def render_folder_structure_report(dal):
                                     "Table Name": table["name"],
                                     "Row Count": table["row_count"]
                                 })
-                    
+
                     if report_rows:
                         df = pd.DataFrame(report_rows)
                         _display_dataframe_and_download_csv(df, "Folder Structure Report")
@@ -286,7 +291,7 @@ def render_tasks_by_job_report(dal):
 
                 if selected_job:
                     st.write(f"### Tasks for Job: {selected_job['job_name']}")
-                    
+
                     # 2. Fetch tasks for the selected job
                     # We'll need a new SQL file: jobs/get_tasks_for_job.sql
                     tasks = dal.fetch_all("jobs/get_tasks_for_job.sql", {"job_id": selected_job["job_id"]})
