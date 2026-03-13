@@ -1,5 +1,5 @@
-
 import os
+import logging
 from ..core.database.pearl_qlite.pearl_qlite import PearlClient
 from typing import Optional
 from ..core.security.vault import Vault, VaultDecryptionError
@@ -11,6 +11,13 @@ from ai_text_to_sql.llm_connectors import OpenAIConnector
 import uuid # Import uuid for generating limited access seeds
 # from ..contract_executor import ContractExecutor # Uncomment when ContractExecutor is ready
 
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 class AgentPearl:
     """Orchestration agent for PEARL_AI_DB operations."""
     def __init__(self, db_name: str = "core/database/databases/project_mgmt_acct.db", vault_path: str = "core/security/vault.vault", pearl_client: Optional[PearlClient] = None):
@@ -18,7 +25,7 @@ class AgentPearl:
             self.pearl_client = pearl_client
         else:
             self.pearl_client = PearlClient(default_db=db_name)
-        print(f"DEBUG: AgentPearl initialized with pearl_client: {self.pearl_client}")
+        logger.debug(f"AgentPearl initialized with pearl_client: {self.pearl_client}")
         self.vault = Vault(vault_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), vault_path))
         self.limited_access_key_store: Optional[LimitedAccessKeyStore] = None
         self._limited_access_store_master_pearl_id: Optional[str] = None
@@ -273,7 +280,7 @@ class AgentPearl:
                     pearl_id=master_pearl_id,
                     seed=None # The pearl_id is already fully formed
                 )
-                print(f"DEBUG: Attempted to create pearl_id for vault_creation: {master_pearl_id}")
+                logger.debug(f"Attempted to create pearl_id for vault_creation: {master_pearl_id}")
             self._initialize_limited_access_key_store(master_pearl_id)
             return "Vault created successfully."
         except FileExistsError as e:
@@ -296,7 +303,7 @@ class AgentPearl:
 
         Args:
             master_key_seed (str): The master key seed (concatenation of vault_door, identity, and metadata seeds).
-        
+
         Returns:
             dict: A dictionary indicating the status of the unlock attempt.
         """
@@ -322,16 +329,16 @@ class AgentPearl:
             master_pearl_id = self.get_master_pearl_id()
             # Ensure the master_pearl_id is recorded in the pearl_ids table
             pearl_id_exists = self.pearl_client.get_pearl_id(master_pearl_id)
-            print(f"DEBUG: Checking if Master PEARL ID {master_pearl_id} exists in DB: {pearl_id_exists}")
+            logger.debug(f"Checking if Master PEARL ID {master_pearl_id} exists in DB: {pearl_id_exists}")
             if not pearl_id_exists:
-                print(f"DEBUG: Calling create_pearl_id with pearl_id: {master_pearl_id}") # Added debug print
+                logger.debug(f"Calling create_pearl_id with pearl_id: {master_pearl_id}")
                 self.pearl_client.create_pearl_id(
                     entity_type="master_vault_id",
                     attributes={"source": "vault_unlock_master_seed"},
                     pearl_id=master_pearl_id,
                     seed=None # The pearl_id is already fully formed
                 )
-                print(f"DEBUG: Attempted to create pearl_id for vault_unlock_master_seed: {master_pearl_id}")
+                logger.debug(f"Attempted to create pearl_id for vault_unlock_master_seed: {master_pearl_id}")
 
             self._initialize_limited_access_key_store(master_pearl_id)
             return {"status": "success", "message": "Vault unlocked successfully with Master PEARL ID Seed.", "read_only": False}
@@ -372,7 +379,7 @@ class AgentPearl:
                     pearl_id=master_pearl_id,
                     seed=None # The pearl_id is already fully formed
                 )
-                print(f"DEBUG: Attempted to create pearl_id for vault_unlock_limited_access: {master_pearl_id}")
+                logger.debug(f"Attempted to create pearl_id for vault_unlock_limited_access: {master_pearl_id}")
 
             self._initialize_limited_access_key_store(master_pearl_id)
             return {"status": "success", "message": "Vault unlocked successfully with limited access credentials.", "read_only": False}

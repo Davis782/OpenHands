@@ -9,6 +9,17 @@ from ..seedtools.seedtools import seed_to_pearl_id
 from App.src.core.database.pearl_qlite.pearl_qlite import PearlClient
 from App.config.sql_categories import SQL_CATEGORIES
 
+
+# ADD THIS PART:
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 class DataAccess:
     """
     A Data Access Layer (DAL) for interacting with the SQLite database.
@@ -66,12 +77,12 @@ class DataAccess:
                                  f"Allowed categories are: {', '.join(SQL_CATEGORIES)}")
 
         file_path = os.path.join(self.sql_dir, query_name)
-        print(f"DEBUG: _load_sql_query - Attempting to load SQL from: {file_path}")
+        logger.debug(f"_load_sql_query - Attempting to load SQL from: {file_path}")
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"SQL query file not found: {file_path}")
         with open(file_path, 'r') as f:
             sql_content = f.read()
-            print(f"DEBUG: _load_sql_query - Loaded SQL content: {sql_content[:100]}...") # Print first 100 chars
+            logger.debug(f"_load_sql_query - Loaded SQL content: {sql_content[:100]}...") # Print first 100 chars
             return sql_content
 
     def set_pearl_id(self, pearl_id: str):
@@ -123,7 +134,7 @@ class DataAccess:
 
         if self._pearl_id:
             current_params['pearl_id'] = self._pearl_id
-        
+
         # Explicitly check for pearl_id if it's expected in the SQL
         if ':pearl_id' in sql and (current_params.get('pearl_id') is None or current_params.get('pearl_id') == ''):
             raise ValueError("PEARL_ID is required for this operation but was not provided or is None/empty.")
@@ -206,7 +217,7 @@ class DataAccess:
                 column_definitions.append("pearl_id TEXT PRIMARY KEY")
             elif add_autoincrement_id_column:
                 column_definitions.append("id INTEGER PRIMARY KEY AUTOINCREMENT")
-            
+
             create_table_sql = f"CREATE TABLE {table_name} ({', '.join(column_definitions)});"
             try:
                 self._execute_raw_sql(create_table_sql) # Use _execute_raw_sql for DDL
@@ -254,7 +265,7 @@ class DataAccess:
                     params.append(None)
                 else:
                     params.append(value)
-            
+
             try:
                 self._execute_raw_sql(sql, tuple(params))
                 imported_rows += 1
@@ -292,7 +303,7 @@ class DataAccess:
             cols_sql.append(f"{col_name} {col_type}")
 
         create_table_sql = f"CREATE TABLE IF NOT EXISTS {table_name} ({", ".join(cols_sql)});"
-        
+
         try:
             self._execute_raw_sql(create_table_sql) # Use _execute_raw_sql for DDL
             st.success(f"Table '{table_name}' created successfully.")
@@ -765,8 +776,8 @@ class DataAccess:
     def _fetch_raw_sql(self, sql: str, params: Optional[Union[tuple, dict]] = None) -> list[sqlite3.Row]:
         try:
             if params:
-                print(f"DEBUG: DataAccess._fetch_raw_sql - Type of params before passing to pearl_client: {type(params)}")
-                print(f"DEBUG: DataAccess._fetch_raw_sql - Value of params before passing to pearl_client: {params}")
+                logger.debug(f"DataAccess._fetch_raw_sql - Type of params before passing to pearl_client: {type(params)}")
+                logger.debug(f"DataAccess._fetch_raw_sql - Value of params before passing to pearl_client: {params}")
                 return self.pearl_client.fetch_query_raw(sql, params)
             else:
                 return self.pearl_client.fetch_query_raw(sql)
@@ -890,6 +901,14 @@ class DataAccess:
                 except Exception as e:
                     # Log or handle error for specific table, but continue with others
                     print(f"Error deleting data from table {table_name} for pearl_id {pearl_id}: {e}")
+
+        # Also delete the PEARL ID itself from the pearl_ids table
+        try:
+            sql = "DELETE FROM pearl_ids WHERE id = :pearl_id"
+            params = {"pearl_id": pearl_id}
+            self._execute_raw_sql(sql, params)
+        except Exception as e:
+            print(f"Error deleting PEARL ID {pearl_id} from pearl_ids table: {e}")
 
 
 

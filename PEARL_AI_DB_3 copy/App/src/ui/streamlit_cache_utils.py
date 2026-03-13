@@ -1,15 +1,16 @@
 import streamlit as st
+import logging
 from App.src.core.database import data_access
 from App.src.core.database.pearl_qlite.pearl_qlite import PearlClient
 from App.src.agent_pearl import agent_pearl
 import os
 
-# Define sql_dir globally or pass it to functions that need it
-# For simplicity, let's assume it can be derived or passed from main_app.py
-# For now, we'll define a placeholder or assume it's available via st.session_state if set.
-# A better approach might be to pass it as an argument to the cached functions if it's dynamic.
-# However, for these specific functions, we're trying to avoid passing unhashable objects.
-# The get_data_access_cached already handles the sql_dir.
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 @st.cache_resource(ttl=3600)
 def get_pearl_client_cached(db_path: str) -> PearlClient:
@@ -17,7 +18,7 @@ def get_pearl_client_cached(db_path: str) -> PearlClient:
     Caches and returns a PearlClient instance.
     This ensures the PearlClient is a singleton across Streamlit reruns.
     """
-    print(f"DEBUG: get_pearl_client_cached received db_path: {db_path}")
+    logger.debug(f"get_pearl_client_cached received db_path: {db_path}")
     return PearlClient(default_db=db_path)
 
 @st.cache_resource(ttl=3600)

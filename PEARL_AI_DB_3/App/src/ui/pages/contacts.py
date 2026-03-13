@@ -39,6 +39,8 @@ def render_contacts_page(dal: DataAccess):
                         "pearl_id": st.session_state.pearl_id
                     }
                     
+                    print(f"Executing SQL (INSERT): {insert_sql}")
+                    print(f"Parameters (INSERT): {insert_params}")
                     dal._execute_raw_sql(insert_sql, insert_params)
                     st.success(f"Contact '{first_name} {last_name}' added successfully!")
                     st.rerun()
@@ -93,6 +95,8 @@ def render_contacts_page(dal: DataAccess):
                                         "contact_id": selected_contact['contact_id'],
                                         "pearl_id": st.session_state.pearl_id
                                     }
+                                    print(f"Executing SQL (UPDATE): contacts/update_contact.sql")
+                                    print(f"Parameters (UPDATE): {update_params}")
                                     dal._execute_raw_sql("contacts/update_contact.sql", update_params)
                                     st.success(f"Contact '{updated_first_name} {updated_last_name}' updated successfully!")
                                     st.rerun()

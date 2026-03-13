@@ -39,39 +39,39 @@ default_db_path = os.path.join(db_dir, "pearl_database.db")
 
 
 # Initialize session state variables if they don't exist
-if "pearl_id" not in st.session_state:
+if"pearl_id" not in st.session_state:
     st.session_state.pearl_id = None
-if "active_group_id" not in st.session_state:
+if"active_group_id" not in st.session_state:
     st.session_state.active_group_id = None
-if "vault_unlocked" not in st.session_state:
+if"vault_unlocked" not in st.session_state:
     st.session_state.vault_unlocked = False
-if "vault_manager" not in st.session_state:
+if"vault_manager" not in st.session_state:
     st.session_state.vault_manager = None
-if "db_path" not in st.session_state:
+if"db_path" not in st.session_state:
     st.session_state.db_path = default_db_path # Ensure db_path is always initialized to an absolute path
 
-if "agent_pearl" not in st.session_state:
+if"agent_pearl" not in st.session_state:
     st.session_state.agent_pearl = None
-if "pearl_id_modified" not in st.session_state:
+if"pearl_id_modified" not in st.session_state:
     st.session_state.pearl_id_modified = False
-if "vault_read_only" not in st.session_state:
+if"vault_read_only" not in st.session_state:
     st.session_state.vault_read_only = False
-if "unlock_method_selection" not in st.session_state:
+if"unlock_method_selection" not in st.session_state:
     st.session_state.unlock_method_selection = "Individual Passwords"
-if "displayed_master_pearl_id" not in st.session_state:
+if"displayed_master_pearl_id" not in st.session_state:
     st.session_state.displayed_master_pearl_id = None
-if "display_master_pearl_id_info" not in st.session_state:
+if"display_master_pearl_id_info" not in st.session_state:
     st.session_state.display_master_pearl_id_info = False
-if "displayed_master_pearl_seed" not in st.session_state:
+if"displayed_master_pearl_seed" not in st.session_state:
     st.session_state.displayed_master_pearl_seed = None
-if "display_master_pearl_seed_info" not in st.session_state:
+if"display_master_pearl_seed_info" not in st.session_state:
     st.session_state.display_master_pearl_seed_info = False
 
 
-if "active_group_context_selector_uuid" not in st.session_state:
+if"active_group_context_selector_uuid" not in st.session_state:
     st.session_state.active_group_context_selector_uuid = str(uuid.uuid4())
 
-if "sql_dir" not in st.session_state:
+if"sql_dir" not in st.session_state:
     st.session_state.sql_dir = None
 
 
@@ -85,7 +85,7 @@ def render_database_selection_ui(db_dir: str):
     os.makedirs(db_dir, exist_ok=True) # Ensure the directory exists
 
     db_files = sorted([f for f in os.listdir(db_dir) if f.endswith(('.db', '.sqlite'))])
-    
+
     current_db_path = st.session_state.get("db_path", "pearl_database.db")
     current_db_name = os.path.basename(current_db_path)
 
@@ -95,14 +95,14 @@ def render_database_selection_ui(db_dir: str):
         # Add current_db_name to the options if it's not already there and is a valid file
         if current_db_name not in db_files and os.path.exists(current_db_path):
             db_files.insert(0, current_db_name)
-        
+
         selected_db_name = st.selectbox(
             "Choose a database file:",
             options=db_files,
             index=db_files.index(current_db_name) if current_db_name in db_files else 0,
             key="db_selector"
         )
-        
+
         if selected_db_name != current_db_name:
             st.session_state.db_path = os.path.join(db_dir, selected_db_name)
             st.success(f"Database set to: {selected_db_name}")
@@ -124,7 +124,7 @@ def render_database_selection_ui(db_dir: str):
             if new_db_name_input:
                 if not (new_db_name_input.endswith(".db") or new_db_name_input.endswith(".sqlite")):\
                     new_db_name_input += ".db"
-                
+
                 new_db_full_path = os.path.join(db_dir, new_db_name_input)
                 if os.path.exists(new_db_full_path):
                     st.error(f"A database named '{new_db_name_input}' already exists. Please choose a different name.")
@@ -247,7 +247,7 @@ def render_vault_management_ui(dal: DataAccess):
                 with st.form("create_limited_access_form"):
                     limited_access_id = st.text_input("Limited Access ID", key="new_limited_access_id")
                     limited_access_password = st.text_input("Limited Access Password", type="password", key="new_limited_access_password")
-                    
+
                     # The vault passwords are required to create a limited access entry
                     # as the AgentPearl.create_limited_access_entry method requires them.
                     # These are the passwords that were used to unlock the vault.
@@ -273,7 +273,7 @@ def render_vault_management_ui(dal: DataAccess):
                                 st.error(f"An unexpected error occurred: {e}")
                         else:
                             st.error("All fields are required to create a limited access entry.")
-        
+
         st.markdown("---")
 
         if st.session_state.get("display_master_pearl_id_info", False):
@@ -361,7 +361,7 @@ def render_vault_management_ui(dal: DataAccess):
             # Unlock Existing Vault Section
             with st.expander("Unlock Vault"):
                 st.info("A vault file exists. Please unlock it to proceed.")
-                
+
                 # Unlock method selection
                 unlock_method = st.radio(
                     "Select Unlock Method:",
@@ -386,7 +386,7 @@ def render_vault_management_ui(dal: DataAccess):
                                         identity_password=identity_password,
                                         metadata_password=metadata_password
                                     )
-                                    if "unlocked successfully" in result:
+                                    if"unlocked successfully" in result:
                                         st.session_state.vault_unlocked = True
                                         st.session_state.vault_read_only = False # load_vault implies full access
                                         master_pearl_id = st.session_state.agent_pearl.get_master_pearl_id()
@@ -509,23 +509,23 @@ def handle_database_change():
     db_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'core', 'database', 'databases'))
     os.makedirs(db_dir, exist_ok=True)
 
-    st.sidebar.warning(f"DEBUG: handle_database_change start - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+    st.sidebar.warning(f"handle_database_change start - st.session_state.db_path: `{st.session_state.get('db_path')}`")
 
     # --- Handle Upload --- #
     uploaded_db = st.sidebar.file_uploader("Upload a .db or .sqlite file", type=["db", "sqlite"], key="db_uploader")
     if uploaded_db is not None:
         save_path = os.path.join(db_dir, uploaded_db.name)
-        st.sidebar.info(f"DEBUG: Upload detected. Target path: `{save_path}`")
+        st.sidebar.info(f"Upload detected. Target path: `{save_path}`")
         if st.session_state.get("db_path") != save_path:
-            st.sidebar.info("DEBUG: New file detected. Processing upload and reset...")
+            st.sidebar.info("" "New file detected. Processing upload and reset...")
             with open(save_path, "wb") as f:
                 f.write(uploaded_db.getbuffer())
-            
+
             new_db_path = save_path
-            st.sidebar.info(f"DEBUG: Before full_session_reset - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+            st.sidebar.info(f"Before full_session_reset - st.session_state.db_path: `{st.session_state.get('db_path')}`")
             full_session_reset(clear_db_path=False)
             st.session_state.db_path = new_db_path
-            st.sidebar.success(f"DEBUG: After full_session_reset and set - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+            st.sidebar.success(f"After full_session_reset and set - st.session_state.db_path: `{st.session_state.get('db_path')}`")
             st.success(f"Database '{uploaded_db.name}' uploaded. Please unlock the vault.")
             st.rerun()
 
@@ -534,26 +534,26 @@ def handle_database_change():
     current_db_path = st.session_state.get("db_path", default_db_path) # Use default_db_path here
     current_db_name = os.path.basename(current_db_path)
 
-    st.sidebar.info(f"DEBUG: handle_database_change - current_db_path for selection: `{current_db_path}`")
+    st.sidebar.info(f"handle_database_change - current_db_path for selection: `{current_db_path}`")
 
     if db_files:
         # Add current_db_name to the options if it's not already there and is a valid file
         if current_db_name not in db_files and os.path.exists(current_db_path):
             db_files.insert(0, current_db_name)
-        
+
         selected_db_name = st.sidebar.selectbox(
             "Choose a database file:",
             options=db_files,
             index=db_files.index(current_db_name) if current_db_name in db_files else 0,
             key="db_selector"
         )
-        
+
         if selected_db_name != current_db_name:
             new_db_path = os.path.join(db_dir, selected_db_name)
-            st.sidebar.info(f"DEBUG: Before full_session_reset (selection) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+            st.sidebar.info(f"Before full_session_reset (selection) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
             full_session_reset(clear_db_path=False)
             st.session_state.db_path = new_db_path
-            st.sidebar.success(f"DEBUG: After full_session_reset and set (selection) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+            st.sidebar.success(f"After full_session_reset and set (selection) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
             st.success(f"Database switched to '{selected_db_name}'. Please unlock the vault.")
             st.rerun()
     else:
@@ -570,10 +570,10 @@ def handle_database_change():
                 conn = sqlite3.connect(new_db_full_path)
                 conn.close()
                 new_db_path = new_db_full_path
-                st.sidebar.info(f"DEBUG: Before full_session_reset (creation) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+                st.sidebar.info(f"Before full_session_reset (creation) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
                 full_session_reset(clear_db_path=False)
                 st.session_state.db_path = new_db_path
-                st.sidebar.success(f"DEBUG: After full_session_reset and set (creation) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+                st.sidebar.success(f"After full_session_reset and set (creation) - st.session_state.db_path: `{st.session_state.get('db_path')}`")
                 st.success(f"Database '{new_db_name_input}' created. Please create and unlock a vault.")
                 st.rerun()
             else:
@@ -588,7 +588,7 @@ def main():
     st.title("PEARL AI Database Interface")
 
     # --- PROTOCOL DEBUGGING ---
-    st.sidebar.warning(f"DEBUG: Main start - st.session_state.db_path: `{st.session_state.get('db_path')}`")
+    st.sidebar.warning(f"Main start - st.session_state.db_path: `{st.session_state.get('db_path')}`")
     # --- END DEBUGGING ---
 
     # This function now handles all DB state changes and will rerun the app if a change occurs.
@@ -596,7 +596,7 @@ def main():
     current_db_path = handle_database_change()
 
     # If the app continues past this point, the DB state is stable for this run.
-    st.sidebar.info(f"DEBUG: Main() - Before get_data_access, current_db_path: `{current_db_path}`") # New debug line
+    st.sidebar.info(f"Main() - Before get_data_access, current_db_path: `{current_db_path}`") # New debug line
     dal = get_data_access(current_db_path)
     st.session_state.sql_dir = st.session_state.pearl_client.sql_dir
 
@@ -624,7 +624,7 @@ def main():
 
     # Allow selecting from existing PEARL IDs
     all_pearl_ids = get_all_distinct_pearl_ids_from_all_tables_cached(st.session_state.db_path, st.session_state.sql_dir)
-    
+
     # Add a 'None' option if no PEARL ID is currently selected or if there are no existing IDs
     display_pearl_ids = ["None (Unlock Vault to Set)"] + sorted(list(all_pearl_ids))
 
@@ -674,9 +674,9 @@ def main():
                     original_db_name = os.path.basename(st.session_state.db_path).replace(".db", "").replace(".sqlite", "")
                     export_db_name = f"{original_db_name}_export_{st.session_state.pearl_id}.db"
                     export_db_full_path = os.path.join(os.path.dirname(st.session_state.db_path), export_db_name)
-                    
+
                     export_user_data_to_new_db(st.session_state.pearl_id, st.session_state.db_path, export_db_full_path)
-                    
+
                     with open(export_db_full_path, "rb") as fp:
                         st.download_button(
                             label="Download Your Database",
@@ -684,7 +684,7 @@ def main():
                             file_name=export_db_name,
                             mime="application/x-sqlite3"
                         )
-                    
+
                     # Clean up the temporary file
                     if os.path.exists(export_db_full_path):
                         os.remove(export_db_full_path)
@@ -723,8 +723,8 @@ def main():
                             dal.delete_all_user_data(st.session_state.pearl_id)
                             st.success("All data for your PEARL ID has been deleted. The application will now reset.")
                             st.session_state.pearl_id = None # Explicitly clear pearl_id
-                            get_all_distinct_pearl_ids_from_all_tables_cached.clear() # Clear cache for pearl IDs
                             full_session_reset(clear_db_path=True)
+                            get_all_distinct_pearl_ids_from_all_tables_cached.clear() # Clear cache for pearl IDs
                             st.rerun()
                         except Exception as e:
                             st.error(f"Error deleting data: {e}")
@@ -750,7 +750,7 @@ def main():
     elif page_selection == "Reports":
         render_reports_page(dal)
     elif page_selection == "Query Builder":
-        render_query_builder_page(dal, st.session_state.sql_dir)
+        render_query_builder_page(st.session_state.agent_pearl, st.session_state.sql_dir)
 
 if __name__ == "__main__":
     main()

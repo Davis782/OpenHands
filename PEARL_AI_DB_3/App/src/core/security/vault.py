@@ -2,11 +2,19 @@ import os
 import sys
 import json
 import base64
+import logging
 from typing import Optional # Import Optional for type hinting
 from argon2 import low_level
 from argon2.exceptions import VerifyMismatchError
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 class VaultDecryptionError(Exception):
     """Custom exception for vault decryption failures."""
@@ -70,7 +78,7 @@ class Vault:
             type=low_level.Type.ID
         )
 
-        print(f"[DEBUG] Derived key length: {len(derived_key_bytes)} bytes", file=sys.stderr)
+        logger.debug(f"Derived key length: {len(derived_key_bytes)} bytes")
         return derived_key_bytes
 
     def _encrypt_payload(self, data: bytes, key: bytes) -> tuple[bytes, bytes, bytes]:
@@ -195,62 +203,54 @@ class Vault:
             json.dumps(vault_door_payload).encode(), self._vault_door_key
         )
 
-        # 5. Save to File
-        vault_file_content = {
+        # 5. Save to file
+        vault_data = {
             "vault_door_salt": base64.b64encode(self._vault_door_salt).decode(),
             "vault_door_nonce": base64.b64encode(vault_door_nonce).decode(),
             "vault_door_ciphertext": base64.b64encode(vault_door_ciphertext).decode(),
             "vault_door_tag": base64.b64encode(vault_door_tag).decode(),
         }
 
-        with open(self.vault_path, "w") as f:
-            json.dump(vault_file_content, f, indent=4)
+        with open(self.vault_path, 'w') as f:
+            json.dump(vault_data, f)
 
-    def load_vault(
-        self,
-        vault_door_password: str,
-        identity_password: str,
-        metadata_password: str
-    ):
+    def load_vault(self, vault_door_password: str, identity_password: str, metadata_password: str):
         """
-        Loads and decrypts an existing vault file with multi-tiered security.
+        Loads and decrypts an existing vault file.
 
         Args:
-            vault_door_password (str): The password to unlock the vault structure.
-            identity_password (str): The password to unlock the identity (seed).
-            metadata_password (str): The password to unlock the optional metadata.
+            vault_door_password (str): The password to unlock the vault door.
+            identity_password (str): The password to decrypt the identity compartment.
+            metadata_password (str): The password to decrypt the metadata compartment.
 
         Raises:
-            FileNotFoundError: If no vault file exists at the specified path.
-            ValueError: If any password is incorrect or vault data is corrupted.
+            FileNotFoundError: If the vault file does not exist.
+            ValueError: If the password is incorrect or data is corrupted.
         """
         if not os.path.exists(self.vault_path):
-            raise FileNotFoundError(f"No vault found at {self.vault_path}.")
+            raise FileNotFoundError(f"Vault file not found at {self.vault_path}")
 
-        with open(self.vault_path, "rb") as f:
-            encrypted_data = f.read()
+        with open(self.vault_path, 'r') as f:
+            vault_data = json.load(f)
+
+        # 1. Derive vault door key and decrypt vault door payload
+        self._vault_door_salt = base64.b64decode(vault_data["vault_door_salt"])
+        self._vault_door_key = self._derive_key(vault_door_password, self._vault_door_salt)
+
+        vault_door_nonce = base64.b64decode(vault_data["vault_door_nonce"])
+        vault_door_ciphertext = base64.b64decode(vault_data["vault_door_ciphertext"])
+        vault_door_tag = base64.b64decode(vault_data["vault_door_tag"])
 
         try:
-            vault_file_content = json.loads(encrypted_data.decode())
-
-            # 1. Decrypt Vault Door
-            self._vault_door_salt = base64.b64decode(vault_file_content["vault_door_salt"])
-            vault_door_nonce = base64.b64decode(vault_file_content["vault_door_nonce"])
-            vault_door_ciphertext = base64.b64decode(vault_file_content["vault_door_ciphertext"])
-            vault_door_tag = base64.b64decode(vault_file_content["vault_door_tag"])
-
-            self._vault_door_key = self._derive_key(vault_door_password, self._vault_door_salt)
-            decrypted_vault_door_payload = self._decrypt_payload(
-                vault_door_nonce, vault_door_ciphertext, vault_door_tag, self._vault_door_key
-            ).decode()
-            vault_door_payload = json.loads(decrypted_vault_door_payload)
-
-        except (json.JSONDecodeError, KeyError, base64.binascii.Error, VerifyMismatchError) as e:
-            self.lock_vault() # Clear sensitive data on failure
-            raise ValueError(f"Corrupted vault file or incorrect password: {e}")
-        except Exception as e:
-            self.lock_vault() # Clear sensitive data on failure
-            raise ValueError(f"An unexpected error occurred during vault loading: {e}")
+            vault_door_payload_bytes = self._decrypt_payload(
+                vault_door_nonce,
+                vault_door_ciphertext,
+                vault_door_tag,
+                self._vault_door_key
+            )
+            vault_door_payload = json.loads(vault_door_payload_bytes.decode())
+        except ValueError as e:
+            raise ValueError(f"Failed to decrypt vault door. Password might be incorrect: {e}")
 
         # 2. Store encrypted identity compartment data and derive identity key
         identity_compartment = vault_door_payload["identity_compartment"]
@@ -449,3 +449,38 @@ if __name__ == "__main__":
     vault = Vault(VAULT_FILE)
 
     print("--- Creating New Vault ---")
+    vault.create_new_vault(test_vault_door_password, test_identity_password, test_seed, test_metadata_password, test_metadata)
+    print("Vault created successfully.")
+
+    # Test loading the vault
+    print("\n--- Loading Vault ---")
+    vault2 = Vault(VAULT_FILE)
+    vault2.load_vault(test_vault_door_password, test_identity_password, test_metadata_password)
+    print("Vault loaded successfully.")
+
+    # Test retrieving seed
+    print("\n--- Retrieving Seed ---")
+    retrieved_seed = vault2.get_seed()
+    print(f"Retrieved seed: {retrieved_seed}")
+    print(f"Seed matches: {retrieved_seed == test_seed}")
+
+    # Test retrieving metadata
+    print("\n--- Retrieving Metadata ---")
+    retrieved_metadata = vault2.get_metadata()
+    print(f"Retrieved metadata: {retrieved_metadata}")
+    print(f"Metadata matches: {retrieved_metadata == test_metadata}")
+
+    # Test retrieving master pearl id
+    print("\n--- Retrieving Master Pearl ID ---")
+    master_pearl_id = vault2.get_master_pearl_id()
+    print(f"Master PEARL ID: {master_pearl_id}")
+
+    # Test locking the vault
+    print("\n--- Locking Vault ---")
+    vault2.lock_vault()
+    print(f"Vault locked: {vault2.is_locked()}")
+    print(f"Vault loaded: {vault2.is_loaded()}")
+
+    # Clean up
+    if os.path.exists(VAULT_FILE):
+        os.remove(VAULT_FILE)

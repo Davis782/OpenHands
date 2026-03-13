@@ -500,14 +500,18 @@ class PearlClient:
             conn.commit()
             print(f"DDL executed: {ddl_query}")
 
-    def execute_query(self, query: str, params: tuple = ()):
+    def execute_query(self, query: str, params: tuple = ()) -> tuple[list[sqlite3.Row], list[str]]:
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute(query, params)
             conn.commit()
-            results = cursor.fetchall()
-            column_names = [description[0] for description in cursor.description]
-            return results, column_names
+            
+            if cursor.description: # Check if there is a result set
+                results = cursor.fetchall()
+                column_names = [description[0] for description in cursor.description]
+                return results, column_names
+            else:
+                return [], [] # Return empty lists for non-SELECT queries
 
     def log_semantic_event(self, pearl_id: str, log_entry: str):
         """

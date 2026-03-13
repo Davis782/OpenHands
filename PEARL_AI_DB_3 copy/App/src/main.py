@@ -30,21 +30,21 @@ def main():
                 test_inputs = [line.strip() for line in f.readlines()]
             _test_context.activate_test_mode(test_inputs)
             print(f"[DEBUG] Test mode activated. Inputs loaded from {test_file_path}", file=sys.__stderr__)
-            
+
             output_file_path = os.path.join(os.path.dirname(__file__), '..', '..', f'test_run_capture_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt')
 
             print(f"[DEBUG] Attempting to open file for writing: {output_file_path}", file=sys.__stderr__)
-            
+
             original_stdout = sys.stdout
             original_stderr = sys.stderr
-            
+
             with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 sys.stdout = output_file
                 sys.stderr = output_file
 
                 main_menu(test_mode=_test_context.test_mode)
 
-            
+
             sys.stdout = original_stdout
             sys.stderr = original_stderr
             _test_context.deactivate_test_mode()
@@ -52,7 +52,7 @@ def main():
         else:
             print(f"Error: Test mode enabled but test input file not found: {test_file_path}", file=sys.__stderr__)
             sys.exit(1)
-    
+
     main_menu(test_mode=test_mode)
 
 if __name__ == "__main__":
