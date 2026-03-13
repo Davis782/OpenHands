@@ -1,1 +1,1 @@
-FIX: Revert docx support and refine encoding handling for CSV/TXT uploads
+FIX: Ensure robust encoding handling for CSV/TXT uploads in Streamlit reports page

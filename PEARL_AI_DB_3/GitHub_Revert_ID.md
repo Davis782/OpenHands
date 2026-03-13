@@ -3,6 +3,10 @@
 ## Latest Activity
 
 ### Git Commit - 2026-03-13
+- **ID:** 41eedd7b9
+- **Description:** FIX: Ensure robust encoding handling for CSV/TXT uploads in Streamlit reports page
+
+### Git Commit - 2026-03-13
 - **ID:** a80c79a59
 - **Description:** FIX: Revert docx support and refine encoding handling for CSV/TXT uploads
 

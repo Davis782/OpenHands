@@ -1,5 +1,13 @@
 ## Revert Information
 
+- **Commit:** FIX: Ensure robust encoding handling for CSV/TXT uploads in Streamlit reports page
+- **Date:** 2026-03-13
+- **Hash:** 41eedd7b9
+- **Description:**
+  - Reverted the explicit decoding of uploaded file content and passing it to `StringIO`.
+  - Modified `render_csv_import_page` in `App/src/ui/pages/reports.py` to pass the raw `uploaded_file` object directly to `pd.read_csv` along with the `selected_encoding` parameter.
+  - This approach allows `pandas` to handle the decoding internally, providing a more robust solution for various file encodings and resolving the `'utf-8' codec can't decode bytes` error.
+
 - **Commit:** FIX: Revert docx support and refine encoding handling for CSV/TXT uploads
 - **Date:** 2026-03-13
 - **Hash:** a80c79a59

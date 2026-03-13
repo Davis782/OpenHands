@@ -166,6 +166,7 @@ def render_csv_import_page(dal):
 
     if uploaded_file is not None:
         try:
+            uploaded_file.seek(0)
             file_content = uploaded_file.getvalue().decode(selected_encoding)
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
