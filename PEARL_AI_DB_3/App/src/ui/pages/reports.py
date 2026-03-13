@@ -168,7 +168,7 @@ def render_csv_import_page(dal):
         try:
             uploaded_file.seek(0)
             # Use TextIOWrapper to handle encoding explicitly
-            text_io_wrapper = io.TextIOWrapper(uploaded_file, encoding=selected_encoding)
+            text_io_wrapper = io.TextIOWrapper(uploaded_file, encoding=selected_encoding, errors='replace')
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
                 # A more robust solution would allow the user to specify a delimiter.

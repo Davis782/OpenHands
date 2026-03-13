@@ -3,6 +3,10 @@
 ## Latest Activity
 
 ### Git Commit - 2026-03-13
+- **ID:** ea388216a
+- **Description:** FIX: Implement robust encoding handling for CSV/TXT uploads using io.TextIOWrapper
+
+### Git Commit - 2026-03-13
 - **ID:** 8fba73bb4
 - **Description:** FIX: Re-implement robust encoding handling for CSV/TXT uploads in Streamlit reports page
 
