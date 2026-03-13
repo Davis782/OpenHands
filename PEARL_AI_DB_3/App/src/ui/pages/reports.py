@@ -166,12 +166,13 @@ def render_csv_import_page(dal):
 
     if uploaded_file is not None:
         try:
+            file_content = uploaded_file.getvalue().decode(selected_encoding)
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
                 # A more robust solution would allow the user to specify a delimiter.
-                df = pd.read_csv(uploaded_file, sep=',', encoding=selected_encoding)
+                df = pd.read_csv(StringIO(file_content), sep=',')
             else: # Default to CSV for .csv and other types
-                df = pd.read_csv(uploaded_file, encoding=selected_encoding)
+                df = pd.read_csv(StringIO(file_content))
             st.success("CSV file loaded successfully!")
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())

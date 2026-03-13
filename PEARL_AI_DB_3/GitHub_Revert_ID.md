@@ -3,6 +3,10 @@
 ## Latest Activity
 
 ### Git Commit - 2026-03-13
+- **ID:** ea35e8a56
+- **Description:** FEAT: Add encoding selection for file uploads in Streamlit reports page
+
+### Git Commit - 2026-03-13
 - **ID:** 19502c3a1
 - **Description:** FEAT: Allow .txt file uploads in Streamlit reports page
 

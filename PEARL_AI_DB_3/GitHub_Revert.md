@@ -1,5 +1,12 @@
 ## Revert Information
 
+- **Commit:** FEAT: Add encoding selection for file uploads in Streamlit reports page
+- **Date:** 2026-03-13
+- **Hash:** ea35e8a56
+- **Description:**
+  - Added a `st.selectbox` for encoding selection (utf-8, latin-1, cp1252) to the CSV Import page in `App/src/ui/pages/reports.py`.
+  - Modified `pd.read_csv` calls to use the selected encoding, resolving potential `'utf-8' codec can't decode bytes` errors.
+
 - **Commit:** FEAT: Allow .txt file uploads in Streamlit reports page
 - **Date:** 2026-03-13
 - **Hash:** 19502c3a1
