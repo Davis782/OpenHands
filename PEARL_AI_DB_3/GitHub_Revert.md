@@ -2,7 +2,7 @@
 
 - **Commit:** FEAT: Allow .txt file uploads in Streamlit reports page
 - **Date:** 2026-03-13
-- **Hash:** <new_hash_here>
+- **Hash:** 19502c3a1
 - **Description:**
   - Modified `st.file_uploader` in `App/src/ui/pages/reports.py` to accept both "csv" and "txt" file types.
   - Added logic to `render_csv_import_page` to read `.txt` files using `pd.read_csv` with `sep=','` (assuming comma-separated for now).
