@@ -1,5 +1,14 @@
 ## Revert Information
 
+- **Commit:** FIX: Re-implement robust encoding handling for CSV/TXT uploads in Streamlit reports page
+- **Date:** 2026-03-13
+- **Hash:** 8fba73bb4
+- **Description:**
+  - Reverted the previous attempt to simplify encoding handling.
+  - Re-implemented the explicit decoding of uploaded file content using the selected encoding and wrapping it in a `StringIO` object before passing to `pd.read_csv`.
+  - Added `uploaded_file.seek(0)` to ensure the file pointer is at the beginning before reading, which is crucial for `BytesIO` objects.
+  - This approach provides the most robust solution for handling various file encodings and should definitively resolve the `'utf-8' codec can't decode bytes` error.
+
 - **Commit:** FIX: Ensure robust encoding handling for CSV/TXT uploads in Streamlit reports page
 - **Date:** 2026-03-13
 - **Hash:** 41eedd7b9

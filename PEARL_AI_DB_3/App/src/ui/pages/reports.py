@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
-from io import StringIO, BytesIO
+from io import StringIO, BytesIO, TextIOWrapper
 import json
 from App.src.core.database.query_builder import QueryBuilder
 
@@ -167,13 +167,14 @@ def render_csv_import_page(dal):
     if uploaded_file is not None:
         try:
             uploaded_file.seek(0)
-            file_content = uploaded_file.getvalue().decode(selected_encoding)
+            # Use TextIOWrapper to handle encoding explicitly
+            text_io_wrapper = io.TextIOWrapper(uploaded_file, encoding=selected_encoding)
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
                 # A more robust solution would allow the user to specify a delimiter.
-                df = pd.read_csv(StringIO(file_content), sep=',')
+                df = pd.read_csv(text_io_wrapper, sep=',')
             else: # Default to CSV for .csv and other types
-                df = pd.read_csv(StringIO(file_content))
+                df = pd.read_csv(text_io_wrapper)
             st.success("CSV file loaded successfully!")
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())
