@@ -162,15 +162,16 @@ def render_csv_import_page(dal):
     st.write("Upload a CSV file to import data into your database.")
 
     uploaded_file = st.file_uploader("Choose a data file", type=["csv", "txt"])
+    selected_encoding = st.selectbox("Select file encoding", ["utf-8", "latin-1", "cp1252"], index=0)
 
     if uploaded_file is not None:
         try:
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
                 # A more robust solution would allow the user to specify a delimiter.
-                df = pd.read_csv(uploaded_file, sep=',')
+                df = pd.read_csv(uploaded_file, sep=',', encoding=selected_encoding)
             else: # Default to CSV for .csv and other types
-                df = pd.read_csv(uploaded_file)
+                df = pd.read_csv(uploaded_file, encoding=selected_encoding)
             st.success("CSV file loaded successfully!")
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())

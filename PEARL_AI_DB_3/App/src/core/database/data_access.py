@@ -375,8 +375,7 @@ class DataAccess:
                 conn.rollback()
             raise RuntimeError(f"Database error during script execution ({script_name}): {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient
 
     def get_all_table_names(self) -> list[str]:
         """
@@ -394,8 +393,7 @@ class DataAccess:
         except sqlite3.Error as e:
             raise RuntimeError(f"Database error retrieving table names: {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient
 
     def get_all_distinct_pearl_ids_from_all_tables(self) -> list[str]:
         """
@@ -428,8 +426,7 @@ class DataAccess:
         except sqlite3.Error as e:
             raise RuntimeError(f"Database error retrieving distinct PEARL IDs: {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient
         return sorted(list(all_pearl_ids))
 
     def create_pearl_id_group(self, group_id: str, group_name: str, description: Optional[str] = None, master_key_id: Optional[str] = None):
