@@ -1,5 +1,12 @@
 ## Revert Information
 
+- **Commit:** FIX: Resolve 'utf-8' codec can't decode bytes error in Streamlit CSV import
+- **Date:** 2026-03-13
+- **Hash:** c5371727b
+- **Description:**
+  - Modified `render_csv_import_page` in `App/src/ui/pages/reports.py` to explicitly decode the uploaded file content using the selected encoding before passing it to `pd.read_csv`.
+  - This resolves the `'utf-8' codec can't decode bytes` error by ensuring the file content is correctly interpreted based on the user's encoding selection.
+
 - **Commit:** FEAT: Add encoding selection for file uploads in Streamlit reports page
 - **Date:** 2026-03-13
 - **Hash:** ea35e8a56
