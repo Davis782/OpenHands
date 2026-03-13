@@ -16,6 +16,8 @@ SQL_CATEGORIES: List[SqlCategory] = [
     SqlCategory(name="Common Utilities", directory="common", description="General purpose SQL queries that are not specific to any module.", sql_files=frozenset([
         ("get_server_info", "common/get_server_info.sql"),
         ("create_common_table", "common/create_pearls_table.sql"),
+        ("create_crdt_log_table", "common/create_crdt_log_table.sql"),
+        ("create_crdt_counter_table", "common/create_crdt_counter_table.sql"),
     ])),
     SqlCategory(name="Job Management", directory="jobs", description="Queries related to job creation, tracking, and updates.", sql_files=frozenset([
         ("get_all_jobs", "jobs/get_all_jobs.sql"),

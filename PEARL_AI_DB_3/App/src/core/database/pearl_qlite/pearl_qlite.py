@@ -19,9 +19,12 @@ class PearlClient:
         return self.active_db == other.active_db
 
     def __init__(self, default_db: str = "project_mgmt_acct.db"):
-        DB_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "databases")
-        os.makedirs(DB_DIR, exist_ok=True)
-        self.active_db = os.path.join(DB_DIR, default_db)
+        if default_db == ":memory:":
+            self.active_db = ":memory:"
+        else:
+            DB_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "databases")
+            os.makedirs(DB_DIR, exist_ok=True)
+            self.active_db = os.path.join(DB_DIR, default_db)
         self.sql_dir = None # Initialize sql_dir attribute
         self._active_pearl_id = None # Initialize active PEARL ID
         self._connection = None # Store persistent connection
@@ -82,19 +85,35 @@ class PearlClient:
 
     def _ensure_db_and_tables(self, conn):
         cursor = conn.cursor()
+
+        # If using an in-memory database, skip loading SQL files from disk
+        if self.active_db == ":memory:":
+            print("DEBUG: In-memory database detected. Skipping SQL file loading.")
+            # Manually create essential tables for CRDT tests if needed
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS crdt_log (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    site_id TEXT NOT NULL,
+                    log_entry TEXT
+                );
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS crdt_counter (
+                    counter_name TEXT NOT NULL,
+                    site_id TEXT NOT NULL,
+                    increments INTEGER DEFAULT 0,
+                    decrements INTEGER DEFAULT 0,
+                    PRIMARY KEY (counter_name, site_id)
+                );
+            """)
+            conn.commit()
+            return
+
         # Dynamically create tables based on SQL_CATEGORIES
-        current_file_path = os.path.abspath(__file__)
-        # Navigate up until we find the 'PEARL_AI_DB_2' directory
-        path_parts = current_file_path.split(os.sep)
-        try:
-            pearl_ai_db_2_index = path_parts.index('PEARL_AI_DB_2')
-            project_root = os.sep.join(path_parts[:pearl_ai_db_2_index + 1])
-            SQL_DIR = os.path.join(project_root, "sql")
-        except ValueError:
-            # Fallback if 'PEARL_AI_DB_2' is not in the path (should not happen in this setup)
-            current_file_dir = os.path.dirname(current_file_path)
-            project_root = os.path.abspath(os.path.join(current_file_dir, '..', '..', '..', '..', '..')) # Go up 5 levels to PEARL_AI_DB_2
-            SQL_DIR = os.path.join(project_root, "sql")
+        SQL_DIR = "C:\\Users\\Solid\\OneDrive\\Documents\\GitHub\\Trae_AI\\OpenHands\\PEARL_AI_DB_3\\App\\sql"
+        print(f"DEBUG: SQL_DIR in _ensure_db_and_tables: {SQL_DIR}") # Debug print
+
         self.sql_dir = SQL_DIR # Assign to instance attribute
 
         # First, ensure pearl_ids table is created if it exists in SQL_CATEGORIES
@@ -103,10 +122,12 @@ class PearlClient:
             for sql_file_name, relative_path in category.sql_files:
                 if "create_pearls_table.sql" in relative_path:
                     file_path = os.path.join(SQL_DIR, relative_path)
+                    print(f"DEBUG: Processing SQL file (pearls table): {file_path}") # Debug print
                     try:
                         with open(file_path, 'r') as f:
                             sql_script = f.read()
                         cursor.execute(sql_script)
+
                         pearl_ids_created = True
                     except FileNotFoundError:
                         pass # Log this silently or with a proper logging mechanism
@@ -119,8 +140,9 @@ class PearlClient:
         for category in SQL_CATEGORIES:
             for sql_name, sql_file_path_relative in category.sql_files:
                 # Only execute SQL files that start with 'create_' during schema initialization
-                if sql_file_path_relative.startswith("create_"):
+                if os.path.basename(sql_file_path_relative).startswith("create_"):
                     full_sql_path = os.path.join(SQL_DIR, sql_file_path_relative)
+                    print(f"DEBUG: Processing SQL file: {full_sql_path}") # Debug print
                     try:
                         with open(full_sql_path, 'r') as f:
                             sql_script = f.read()
@@ -445,7 +467,7 @@ class PearlClient:
             if attributes:
                 updates.append("attributes = ?")
                 params.append(json.dumps(attributes))
-            
+
             if not updates:
                 return # Nothing to update
 
@@ -505,7 +527,7 @@ class PearlClient:
             cursor = conn.cursor()
             cursor.execute(query, params)
             conn.commit()
-            
+
             if cursor.description: # Check if there is a result set
                 results = cursor.fetchall()
                 column_names = [description[0] for description in cursor.description]

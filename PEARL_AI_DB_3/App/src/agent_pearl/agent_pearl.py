@@ -92,7 +92,11 @@ class AgentPearl:
         Initializes the TextToSQL converter.
         """
         db_path = self.pearl_client.active_db
-        sqlite_connector = SQLiteConnector(database=db_path)
+        if db_path == ":memory:":
+            sqlite_connector = SQLiteConnector(database=":memory:")
+        else:
+            # For file-based databases, ensure the full path is used
+            sqlite_connector = SQLiteConnector(database=db_path)
         openai_connector = OpenAIConnector(api_key=os.environ.get("OPENAI_API_KEY"))
         return TextToSQL(sqlite_connector, openai_connector)
 
@@ -244,7 +248,8 @@ class AgentPearl:
         Adds an entry to the CRDT log.
         """
         # Assuming pearl_client.add_crdt_log_entry expects entry_type and data separately for structured logging
-        self.pearl_client.add_crdt_log_entry(entity_id, entry_type, data)
+        log_entry_content = f"Type: {entry_type}, Data: {data}"
+        self.pearl_client.add_crdt_log_entry(entity_id, log_entry_content)
 
     def get_crdt_log(self) -> list[dict]:
         """

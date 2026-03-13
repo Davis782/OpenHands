@@ -1,5 +1,17 @@
 ## Revert Information
 
+- **Commit:** FEAT: Implement comprehensive SQL Query Builder features and UI enhancements, and update PRD for voting system
+- **Date:** 2026-03-13
+- **Hash:** e96c65797fea64ac119d2ec2aa3e7022ef8b08e9
+- **Description:**
+  - Implemented comprehensive DDL, DQL, DML, TCL, Utility, and Advanced Pattern features in the Streamlit SQL Query Builder.
+  - Enhanced UI with dynamic pre-filling for various query types (e.g., CREATE VIEW, Subquery, UNION, FTS MATCH).
+  - Added contextual instructional bubbles (using `st.expander`) for complex SQL clauses (WHERE, JOIN, GROUP BY, HAVING, ORDER BY, LIMIT, UPSERT, PRAGMA, Advanced Queries) to guide users.
+  - Fixed `IndentationError` in `query_builder_page.py`.
+  - Fixed `TypeError: 'NoneType' object is not iterable` for non-SELECT queries by modifying `PearlClient.execute_query` to return empty lists for non-result-set queries.
+  - Fixed `SyntaxError: expected 'except' or 'finally' block` in `render_savepoint_query_builder`.
+  - Updated `PRD_Voting_Pearl_ID.md` to reflect a simplified, integration-focused architecture for a secure anonymous public voting system.
+
 - **Commit:** FEAT: Implement alarm and task editing/deletion, fix form submission errors
 - **Date:** 2026-02-23
 - **Hash:** c54c6e7

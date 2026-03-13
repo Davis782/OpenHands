@@ -141,10 +141,27 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
                 selected_filter_column = columns[col_to_filter_options.index(selected_col_to_filter_option)]
                 column_type = column_types.get(selected_filter_column, "TEXT") # Default to TEXT
 
+                # Determine default operator based on column type
+                default_operator = "="
+                if column_type == "TEXT":
+                    default_operator = "LIKE"
+                elif column_type in ["REAL", "INTEGER"]:
+                    default_operator = "="
+                # Add more sophisticated logic for DATE, BOOLEAN if needed
+
+                operator = st.selectbox(
+                    f"Operator for {selected_filter_column} (Condition {i+1}):",
+                    options=["=", "!=", ">", "<", ">=", "<=", "LIKE", "NOT LIKE", "IN", "NOT IN", "IS NULL", "IS NOT NULL"],
+                    index=["=", "!=", ">", "<", ">=", "<=", "LIKE", "NOT LIKE", "IN", "NOT IN", "IS NULL", "IS NOT NULL"].index(default_operator),
+                    key=f"filter_operator_{table_name}_{i}"
+                )
+
                 MAX_DISTINCT_VALUES_FOR_SELECTBOX = 50
                 distinct_values = agent.pearl_client.get_distinct_column_values(table_name, selected_filter_column)
 
-                if len(distinct_values) <= MAX_DISTINCT_VALUES_FOR_SELECTBOX and len(distinct_values) > 0:
+                if operator in ["IS NULL", "IS NOT NULL"]:
+                    where_clause_parts.append(f"{selected_filter_column} {operator}")
+                elif len(distinct_values) <= MAX_DISTINCT_VALUES_FOR_SELECTBOX and len(distinct_values) > 0 and operator in ["=", "!=", "IN", "NOT IN"]:
                     # Use selectbox for a manageable number of distinct values
                     key_selectbox_input = f"filter_value_selectbox_{table_name}_{i}"
                     filter_value = st.selectbox(
@@ -153,16 +170,28 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
                         key=key_selectbox_input
                     )
                     if filter_value is not None:
-                        if column_type in ["REAL", "INTEGER"]:
-                            where_clause_parts.append(f"{selected_filter_column} = {filter_value}")
+                        if operator in ["IN", "NOT IN"]:
+                            # For IN/NOT IN, allow multiple selections or a comma-separated string
+                            # For simplicity, let's assume single selection for now, or user types comma-separated
+                            escaped_filter_value = str(filter_value).replace("'", "''")
+                            where_clause_parts.append(f"{selected_filter_column} {operator} ('{escaped_filter_value}')")
+                        elif column_type in ["REAL", "INTEGER"]:
+                            where_clause_parts.append(f"{selected_filter_column} {operator} {filter_value}")
                         else:
                             escaped_filter_value = str(filter_value).replace("'", "''")
-                            where_clause_parts.append(f"{selected_filter_column} = '{escaped_filter_value}'")
+                            where_clause_parts.append(f"{selected_filter_column} {operator} '{escaped_filter_value}'")
                 else:
                     # Fallback to text/number input for many distinct values or no values
-                    if column_type in ["REAL", "INTEGER"]:
+                    # Determine default value based on type and operator
+                    default_value_input = ""
+                    if operator == "LIKE":
+                        default_value_input = "%%"
+                    elif column_type in ["REAL", "INTEGER"]:
+                        default_value_input = 0
+
+                    if column_type in ["REAL", "INTEGER"] and operator not in ["LIKE", "NOT LIKE"]:
                         key_num_input = f"filter_value_{table_name}_{i}"
-                        current_num_value = st.session_state.get(key_num_input, 0.0)
+                        current_num_value = st.session_state.get(key_num_input, default_value_input)
 
                         num_value = st.number_input(
                             f"Value for {selected_filter_column} (Condition {i+1}):",
@@ -171,20 +200,27 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
                             min_value=None
                         )
                         if num_value is not None:
-                            key_tolerance_input = f"tolerance_{table_name}_{i}"
-                            current_tolerance_value = st.session_state.get(key_tolerance_input, 0.0001)
+                            if operator in [">", "<", ">=", "<="]:
+                                where_clause_parts.append(f"{selected_filter_column} {operator} {num_value}")
+                            else: # Assume = or != for direct comparison
+                                where_clause_parts.append(f"{selected_filter_column} {operator} {num_value}")
 
-                            tolerance = st.number_input(
-                                f"Tolerance for {selected_filter_column} (e.g., 0.0001 for floats):",
-                                min_value=0.0,
-                                value=current_tolerance_value,
-                                step=0.00001,
-                                key=key_tolerance_input
-                            )
-                            where_clause_parts.append(f"{selected_filter_column} BETWEEN {num_value - tolerance} AND {num_value + tolerance}")
-                    else:
+                            # Removed tolerance for simplicity with direct operators, can be re-added for BETWEEN
+                            # if operator == "BETWEEN":
+                            #     key_tolerance_input = f"tolerance_{table_name}_{i}"
+                            #     current_tolerance_value = st.session_state.get(key_tolerance_input, 0.0001)
+                            #     tolerance = st.number_input(
+                            #         f"Tolerance for {selected_filter_column} (e.g., 0.0001 for floats):",
+                            #         min_value=0.0,
+                            #         value=current_tolerance_value,
+                            #         step=0.00001,
+                            #         key=key_tolerance_input
+                            #     )
+                            #     where_clause_parts.append(f"{selected_filter_column} BETWEEN {num_value - tolerance} AND {num_value + tolerance}")
+
+                    else: # TEXT or other types, or LIKE/NOT LIKE operator
                         key_text_input = f"filter_value_{table_name}_{i}"
-                        current_text_value = st.session_state.get(key_text_input, "")
+                        current_text_value = st.session_state.get(key_text_input, default_value_input)
 
                         filter_value = st.text_input(
                             f"Value for {selected_filter_column} (Condition {i+1}):",
@@ -194,7 +230,10 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
 
                         if filter_value:
                             escaped_filter_value = filter_value.replace("'", "''")
-                            where_clause_parts.append(f"{selected_filter_column} = '{escaped_filter_value}'")
+                            if operator in ["LIKE", "NOT LIKE"]:
+                                where_clause_parts.append(f"{selected_filter_column} {operator} '{escaped_filter_value}'")
+                            else:
+                                where_clause_parts.append(f"{selected_filter_column} {operator} '{escaped_filter_value}'")
 
     final_where_clause = " AND ".join(where_clause_parts)
 
@@ -227,6 +266,14 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
     all_tables = agent.pearl_client.get_all_table_names()
     all_tables.remove(table_name) # Don't allow joining a table to itself
 
+    # Get primary key of the main table for suggested ON condition
+    main_table_pk = "id" # Default guess
+    main_table_column_info = agent.pearl_client.get_table_column_info(table_name)
+    for col_info in main_table_column_info:
+        if col_info[5]: # pk column is index 5
+            main_table_pk = col_info[1] # column name is index 1
+            break
+
     for i in range(st.session_state[f"num_joins_{table_name}"]):
         st.markdown(f"**JOIN {i+1}**")
         join_type = st.selectbox(
@@ -239,8 +286,13 @@ def render_select_query_builder(agent: AgentPearl, table_name: str):
             all_tables,
             key=f"joined_table_{table_name}_{i}"
         )
+
+        # Suggest a default ON condition
+        default_on_condition = f"{table_name}.{main_table_pk} = {joined_table}.{table_name}_{main_table_pk}"
+
         on_condition = st.text_input(
-            f"ON Condition {i+1} (e.g., {table_name}.id = {joined_table}.{joined_table}_id):",
+            f"ON Condition {i+1} (e.g., {table_name}.{main_table_pk} = {joined_table}.{table_name}_{main_table_pk}):",
+            value=default_on_condition, # Pre-populate with suggested value
             key=f"on_condition_{table_name}_{i}"
         )
         if joined_table and on_condition:
@@ -402,7 +454,21 @@ def render_insert_query_builder(agent: AgentPearl, table_name: str):
         upsert_action = None
         update_on_conflict_columns = []
 
-    columns = agent.pearl_client.get_table_columns(table_name)
+    columns_info = agent.pearl_client.get_table_column_info(table_name)
+    columns = [info[1] for info in columns_info]
+
+    # Identify non-auto-incrementing columns for default selection
+    non_auto_increment_columns = []
+    for col_info in columns_info:
+        col_name = col_info[1]
+        col_type = col_info[2]
+        is_pk = col_info[5]
+
+        # Heuristic for auto-increment: INTEGER PRIMARY KEY
+        # SQLite's AUTOINCREMENT is a keyword, but table_info only shows PK.
+        # Assuming INTEGER PRIMARY KEY often implies auto-increment for default exclusion.
+        if not (is_pk and col_type.upper() == "INTEGER"):
+            non_auto_increment_columns.append(col_name)
 
     if not columns:
         st.warning(f"No columns found for table '{table_name}'.")
@@ -411,9 +477,14 @@ def render_insert_query_builder(agent: AgentPearl, table_name: str):
     st.write("Select columns to insert into and enter values:")
 
     column_options = [f"{i+1}. {col}" for i, col in enumerate(columns)]
+
+    # Pre-select non-auto-incrementing columns by default
+    default_selected_options = [f"{i+1}. {col}" for i, col in enumerate(columns) if col in non_auto_increment_columns]
+
     selected_insert_column_options = st.multiselect(
         "Select columns for insertion:",
         column_options,
+        default=default_selected_options, # Pre-select columns
         key=f"insert_columns_selection_{table_name}"
     )
 
@@ -424,6 +495,9 @@ def render_insert_query_builder(agent: AgentPearl, table_name: str):
     insert_columns = [columns[column_options.index(opt)] for opt in selected_insert_column_options]
 
     values = {}
+
+    # Map column names to their full info for default value suggestions
+    column_name_to_info = {info[1]: info for info in columns_info}
 
     # Special handling for 'transactions' table to enforce pearl_id
     if table_name == "transactions":
@@ -436,10 +510,32 @@ def render_insert_query_builder(agent: AgentPearl, table_name: str):
             return
 
     for col in insert_columns:
+        col_info = column_name_to_info.get(col)
+        col_type = col_info[2].upper() if col_info else "TEXT"
+        is_not_null = col_info[3] # 1 if NOT NULL, 0 otherwise
+        default_value_from_schema = col_info[4] # Default value from schema, can be None or a string
+
+        # Determine suggested default value for input field
+        suggested_value = ""
+        if col == "pearl_id" and table_name == "transactions":
+            suggested_value = active_pearl_id
+        elif default_value_from_schema is not None:
+            # Use schema default if available
+            suggested_value = str(default_value_from_schema)
+        elif not is_not_null: # If nullable, suggest NULL
+            suggested_value = "NULL"
+        elif col_type == "INTEGER":
+            suggested_value = "0"
+        elif col_type == "REAL":
+            suggested_value = "0.0"
+        elif col_type == "TEXT":
+            suggested_value = "''" # Empty string for text
+        # For BLOB, no easy default
+
         if table_name == "transactions" and col == "pearl_id":
-            values[col] = st.text_input(f"Value for {col}", value=active_pearl_id, key=f"insert_value_{table_name}_{col}", disabled=True)
+            values[col] = st.text_input(f"Value for {col}", value=suggested_value, key=f"insert_value_{table_name}_{col}", disabled=True)
         else:
-            values[col] = st.text_input(f"Value for {col}", key=f"insert_value_{table_name}_{col}")
+            values[col] = st.text_input(f"Value for {col}", value=suggested_value, key=f"insert_value_{table_name}_{col}")
 
     insert_values_for_query = []
     for col in insert_columns:
@@ -526,8 +622,19 @@ def render_update_query_builder(agent: AgentPearl, table_name: str):
 
     set_clause_str = ", ".join(set_clauses)
 
+    # Get primary key for suggested WHERE clause
+    main_table_pk = "id" # Default guess
+    main_table_column_info = agent.pearl_client.get_table_column_info(table_name)
+    for col_info in main_table_column_info:
+        if col_info[5]: # pk column is index 5
+            main_table_pk = col_info[1] # column name is index 1
+            break
+
+    default_where_clause = f"{main_table_pk} = 'value'" # Suggest PK for filtering
+
     where_clause = st.text_input(
-        "WHERE clause (e.g., id = 'abc', status = 'active'):",
+        f"WHERE clause (e.g., {main_table_pk} = 'value', status = 'active'):",
+        value=default_where_clause,
         key=f"update_where_{table_name}"
     )
 
@@ -553,28 +660,21 @@ def render_delete_query_builder(agent: AgentPearl, table_name: str):
         st.warning(f"No columns found for table '{table_name}'.")
         return
 
-    st.write("Build WHERE clause (optional):")
+    # Get primary key for suggested WHERE clause
+    main_table_pk = "id" # Default guess
+    main_table_column_info = agent.pearl_client.get_table_column_info(table_name)
+    for col_info in main_table_column_info:
+        if col_info[5]: # pk column is index 5
+            main_table_pk = col_info[1] # column name is index 1
+            break
 
-    column_options = [f"{i+1}. {col}" for i, col in enumerate(columns)]
-    selected_where_column_option = st.selectbox(
-        "Select a column for the WHERE clause (optional):",
-        ["None"] + column_options,
-        key=f"delete_where_column_{table_name}"
+    default_where_clause = f"{main_table_pk} = 'value'" # Suggest PK for filtering
+
+    where_clause = st.text_input(
+        f"WHERE clause (e.g., {main_table_pk} = 'value'):",
+        value=default_where_clause,
+        key=f"delete_where_{table_name}"
     )
-
-    where_clause = ""
-    if selected_where_column_option != "None":
-        selected_column = columns[column_options.index(selected_where_column_option)]
-        where_value = st.text_input(f"Value for {selected_column}", key=f"delete_where_value_{table_name}_{selected_column}")
-        if where_value:
-            # Basic sanitization: quote strings, leave numbers as is
-            if (where_value.startswith("'") and where_value.endswith("'")) or (where_value.startswith('"') and where_value.endswith('"')):
-                processed_value = where_value
-            elif where_value.replace('.', '', 1).isdigit():
-                processed_value = where_value
-            else:
-                processed_value = f"'{where_value}'"
-            where_clause = f"{selected_column} = {processed_value}"
 
     query = f"DELETE FROM {table_name}"
     if where_clause:
@@ -620,14 +720,24 @@ def render_create_table_query_builder(agent: AgentPearl):
     column_definitions = []
     for i in range(st.session_state.num_columns):
         st.markdown(f"**Column {i+1}**")
-        col_name = st.text_input(f"Column Name {i+1}:", key=f"col_name_{i}")
+
+        default_col_name = "id" if i == 0 else ""
+        default_col_type_index = 1 if i == 0 else 0 # INTEGER for first, TEXT for others
+        default_is_primary_key = True if i == 0 else False
+        default_is_not_null = True if i == 0 else False
+
+        col_name = st.text_input(f"Column Name {i+1}:", value=default_col_name, key=f"col_name_{i}")
         col_type = st.selectbox(
             f"Column Type {i+1}:",
             ("TEXT", "INTEGER", "REAL", "BLOB"),
+            index=default_col_type_index,
             key=f"col_type_{i}"
         )
-        is_primary_key = st.checkbox(f"Primary Key {i+1}", key=f"col_pk_{i}")
-        is_not_null = st.checkbox(f"NOT NULL {i+1}", key=f"col_nn_{i}")
+        is_primary_key = st.checkbox(f"Primary Key {i+1}", value=default_is_primary_key, key=f"col_pk_{i}")
+        is_not_null = st.checkbox(f"NOT NULL {i+1}", value=default_is_not_null, key=f"col_nn_{i}")
+
+        # Add AUTOINCREMENT if it's an INTEGER PRIMARY KEY
+        autoincrement_str = " AUTOINCREMENT" if is_primary_key and col_type == "INTEGER" else ""
 
         if col_name:
             definition = f"{col_name} {col_type}"
@@ -635,6 +745,7 @@ def render_create_table_query_builder(agent: AgentPearl):
                 definition += " NOT NULL"
             if is_primary_key:
                 definition += " PRIMARY KEY"
+            definition += autoincrement_str
             column_definitions.append(definition)
 
     if table_name and column_definitions:
@@ -667,8 +778,22 @@ def render_alter_table_query_builder(agent: AgentPearl, table_name: str):
             ("TEXT", "INTEGER", "REAL", "BLOB"),
             key=f"add_col_type_{table_name}"
         )
+        is_not_null = st.checkbox("NOT NULL", key=f"add_col_nn_{table_name}")
+        default_value_input = st.text_input("Default Value (optional):", key=f"add_col_default_{table_name}")
+
+        col_definition = f"{new_col_name} {new_col_type}"
+        if is_not_null:
+            col_definition += " NOT NULL"
+        if default_value_input:
+            # Basic sanitization for default value
+            if new_col_type in ["INTEGER", "REAL"] and default_value_input.replace('.', '', 1).isdigit():
+                col_definition += f" DEFAULT {default_value_input}"
+            else:
+                escaped_default_value = default_value_input.replace("'", "''")
+                col_definition += f" DEFAULT '{escaped_default_value}'"
+
         if new_col_name:
-            query = f"ALTER TABLE {table_name} ADD COLUMN {new_col_name} {new_col_type};"
+            query = f"ALTER TABLE {table_name} ADD COLUMN {col_definition};"
     elif alter_type == "DROP COLUMN":
         columns = agent.pearl_client.get_table_columns(table_name)
         if columns:
@@ -731,16 +856,28 @@ def render_drop_table_query_builder(agent: AgentPearl, table_name: str):
 def render_create_index_query_builder(agent: AgentPearl, table_name: str):
     st.subheader(f"Build CREATE INDEX Query for {table_name}")
 
-    index_name = st.text_input("Index Name:", key=f"index_name_{table_name}")
+    # Get primary key for default selection
+    main_table_pk = "id" # Default guess
+    main_table_column_info = agent.pearl_client.get_table_column_info(table_name)
+    for col_info in main_table_column_info:
+        if col_info[5]: # pk column is index 5
+            main_table_pk = col_info[1] # column name is index 1
+            break
+
+    default_index_name = f"idx_{table_name}_{main_table_pk}"
+    index_name = st.text_input("Index Name:", value=default_index_name, key=f"index_name_{table_name}")
     columns = agent.pearl_client.get_table_columns(table_name)
 
     if not columns:
         st.warning(f"No columns found for table '{table_name}'.")
         return
 
+    default_selected_columns = [main_table_pk] if main_table_pk in columns else []
+
     selected_columns = st.multiselect(
         "Select columns for index:",
         columns,
+        default=default_selected_columns, # Pre-select primary key
         key=f"index_columns_{table_name}"
     )
 
@@ -912,14 +1049,50 @@ def render_pragma_query_builder(agent: AgentPearl):
         st.markdown("- `PRAGMA foreign_keys = ON;` (enables foreign key enforcement)")
         st.markdown("- `PRAGMA table_info(my_table);` (gets column info for a table)")
 
-    pragma_command = st.text_input(
-        "PRAGMA Command (e.g., journal_mode, foreign_keys):",
-        key="pragma_command"
+    common_pragmas = {
+        "journal_mode": {"value": "WAL", "description": "Sets the journaling mode for the database.", "options": ["DELETE", "TRUNCATE", "PERSIST", "MEMORY", "WAL", "OFF"]},
+        "foreign_keys": {"value": "ON", "description": "Enables or disables foreign key constraint enforcement.", "options": ["ON", "OFF"]},
+        "auto_vacuum": {"value": "FULL", "description": "Configures automatic database vacuuming.", "options": ["NONE", "FULL", "INCREMENTAL"]},
+        "cache_size": {"value": "-2000", "description": "Sets the maximum number of database disk pages that can be held in memory.", "options": []},
+        "synchronous": {"value": "NORMAL", "description": "Sets the level of disk synchronization.", "options": ["OFF", "NORMAL", "FULL"]},
+        "recursive_triggers": {"value": "ON", "description": "Enables or disables recursive triggers.", "options": ["ON", "OFF"]},
+        "secure_delete": {"value": "ON", "description": "Enables or disables secure deletion of data.", "options": ["ON", "OFF"]},
+        "temp_store": {"value": "MEMORY", "description": "Sets where temporary tables and indices are stored.", "options": ["DEFAULT", "FILE", "MEMORY"]},
+        "mmap_size": {"value": "134217728", "description": "Sets the maximum number of bytes of memory that may be used for memory-mapped I/O.", "options": []},
+        "page_size": {"value": "4096", "description": "Sets the database page size.", "options": []},
+        "read_uncommitted": {"value": "OFF", "description": "Enables or disables read uncommitted isolation level.", "options": ["ON", "OFF"]},
+        "query_only": {"value": "OFF", "description": "Sets the database to read-only mode.", "options": ["ON", "OFF"]},
+    }
+
+    pragma_options = ["-- Select a PRAGMA command --"] + sorted(list(common_pragmas.keys()))
+    selected_pragma_command_name = st.selectbox(
+        "Select PRAGMA Command:",
+        options=pragma_options,
+        key="pragma_command_select"
     )
-    pragma_value = st.text_input(
-        "PRAGMA Value (optional, e.g., WAL, ON):",
-        key="pragma_value"
-    )
+
+    pragma_command = ""
+    pragma_value = ""
+    if selected_pragma_command_name != "-- Select a PRAGMA command --":
+        pragma_command = selected_pragma_command_name
+        pragm-info == common_pragmas[pragma_command]
+
+        default_pragma_value = pragm-info["value"]
+        value_options = pragm-info["options"]
+
+        if value_options:
+            pragma_value = st.selectbox(
+                f"Value for {pragma_command}:",
+                options=value_options,
+                index=value_options.index(default_pragma_value) if default_pragma_value in value_options else 0,
+                key="pragma_value_select"
+            )
+        else:
+            pragma_value = st.text_input(
+                f"Value for {pragma_command} (e.g., {default_pragma_value}):",
+                value=default_pragma_value,
+                key="pragma_value_input"
+            )
 
     query = ""
     if pragma_command:
@@ -941,7 +1114,7 @@ def render_pragma_query_builder(agent: AgentPearl):
             except Exception as e:
                 st.error(f"Error executing query: {e}")
     else:
-        st.info("Please enter a PRAGMA command.")
+        st.info("Please select a PRAGMA command.")
 
 def render_advanced_queries_builder(agent: AgentPearl, table_name: str):
     st.subheader("Build Advanced Queries")

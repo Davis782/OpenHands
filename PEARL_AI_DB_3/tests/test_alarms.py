@@ -5,29 +5,51 @@ from datetime import datetime, timedelta
 from App.src.core.database.data_access import DataAccess
 from App.src.core.database.pearl_qlite.pearl_qlite import PearlClient
 import tempfile
+from typing import Optional, Union
 
 # Mock PearlClient for testing purposes
 class MockPearlClient:
     def __init__(self, db_path):
         self.db_path = db_path
+        self._connection = sqlite3.connect(self.db_path, check_same_thread=False)
+        self._connection.row_factory = sqlite3.Row
 
-    def get_connection(self):
-        return sqlite3.connect(self.db_path)
+    def _get_connection(self):
+        return self._connection
+
+    def execute_query_raw(self, sql: str, params: Optional[Union[tuple, dict]] = None) -> int:
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            if params:
+                cursor.execute(sql, params)
+            else:
+                cursor.execute(sql)
+            conn.commit()
+            return cursor.rowcount
+
+    def fetch_query_raw(self, sql: str, params: Optional[Union[tuple, dict]] = None) -> list[sqlite3.Row]:
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            if params:
+                cursor.execute(sql, params)
+            else:
+                cursor.execute(sql)
+            return cursor.fetchall()
+
 
 @pytest.fixture
 def dal():
-    # Create a temporary file for the SQLite database
-    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tmp_db_file:
-        db_path = tmp_db_file.name
+    # Create an in-memory SQLite database
+    db_path = ":memory:"
 
     mock_pearl_client = MockPearlClient(db_path)
     data_access = DataAccess(db_path, "", mock_pearl_client) # sql_dir not needed for raw sql
 
-    # Manually create the alarms table for testing
-    conn = sqlite3.connect(db_path)
+    # Manually create the alarms table for testing using the mock_pearl_client's connection
+    conn = mock_pearl_client._get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        CREATE TABLE alarms (
+        CREATE TABLE Alarms (
             alarm_id TEXT PRIMARY KEY,
             pearl_id TEXT NOT NULL,
             job_id TEXT,
@@ -38,22 +60,23 @@ def dal():
             start_date TEXT NOT NULL,
             end_date TEXT,
             is_active INTEGER NOT NULL,
-            created_at TEXT NOT NULL
+            created_at TEXT NOT NULL,
+            snooze_until TEXT,
+            dismissed_at TEXT
         );
     """)
     conn.commit()
-    conn.close()
 
     yield data_access
+    mock_pearl_client._get_connection().close()
 
-    # Clean up the temporary database file after tests
-    os.remove(db_path)
 
-def test_get_due_alarms_once(dal):
+
+def test_get_due_alarms_once(dal):\
     # Insert a 'once' alarm
     alarm_time = (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S")
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm1", "pearl1", "job1", "task1", "Once alarm", alarm_time, "once", "2023-01-01", None, 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -62,13 +85,13 @@ def test_get_due_alarms_once(dal):
     assert len(due_alarms) == 1
     assert due_alarms[0]["alarm_id"] == "alarm1"
 
-def test_get_due_alarms_daily(dal):
+def test_get_due_alarms_daily(dal):\
     # Insert a 'daily' alarm set for 10 minutes ago, starting yesterday, ending tomorrow
     alarm_time_str = (datetime.now() - timedelta(minutes=10)).strftime("%H:%M:%S")
     alarm_datetime_str = (datetime.now().replace(hour=int(alarm_time_str[:2]), minute=int(alarm_time_str[3:5]), second=int(alarm_time_str[6:]))).strftime("%Y-%m-%d %H:%M:%S")
 
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm2", "pearl2", "job2", "task2", "Daily alarm", alarm_datetime_str, "daily", (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"), (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"), 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -83,13 +106,13 @@ def test_get_due_alarms_daily(dal):
     due_alarms_before = dal.get_due_alarms(current_time_before)
     assert len(due_alarms_before) == 0
 
-def test_get_due_alarms_weekly(dal):
+def test_get_due_alarms_weekly(dal):\
     # Insert a 'weekly' alarm for today's day of the week, 10 minutes ago
     alarm_time_dt = datetime.now() - timedelta(minutes=10)
     alarm_time_str = alarm_time_dt.strftime("%Y-%m-%d %H:%M:%S")
-    
+
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm3", "pearl3", "job3", "task3", "Weekly alarm", alarm_time_str, "weekly", (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d"), (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d"), 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -104,13 +127,13 @@ def test_get_due_alarms_weekly(dal):
     due_alarms_diff_day = dal.get_due_alarms(current_time_diff_day)
     assert len(due_alarms_diff_day) == 0
 
-def test_get_due_alarms_monthly(dal):
+def test_get_due_alarms_monthly(dal):\
     # Insert a 'monthly' alarm for today's day of the month, 10 minutes ago
     alarm_time_dt = datetime.now() - timedelta(minutes=10)
     alarm_time_str = alarm_time_dt.strftime("%Y-%m-%d %H:%M:%S")
 
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm4", "pearl4", "job4", "task4", "Monthly alarm", alarm_time_str, "monthly", (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"), (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d"), 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -125,11 +148,11 @@ def test_get_due_alarms_monthly(dal):
     due_alarms_diff_day = dal.get_due_alarms(current_time_diff_day)
     assert len(due_alarms_diff_day) == 0
 
-def test_get_due_alarms_inactive(dal):
+def test_get_due_alarms_inactive(dal):\
     # Insert an inactive alarm
     alarm_time = (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S")
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm5", "pearl5", "job5", "task5", "Inactive alarm", alarm_time, "once", "2023-01-01", None, 0, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -137,12 +160,12 @@ def test_get_due_alarms_inactive(dal):
     due_alarms = dal.get_due_alarms(current_time)
     assert len(due_alarms) == 0
 
-def test_snooze_alarm(dal):
+def test_snooze_alarm(dal):\
     # Insert an alarm
     initial_alarm_time = datetime.now()
     initial_alarm_time_str = initial_alarm_time.strftime("%Y-%m-%d %H:%M:%S")
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm10", "pearl10", "job10", "task10", "Snooze alarm", initial_alarm_time_str, "once", "2023-01-01", None, 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -151,23 +174,22 @@ def test_snooze_alarm(dal):
     dal.snooze_alarm("alarm10", snooze_duration)
 
     # Fetch the updated alarm and check its time
-    updated_alarm = dal._fetch_raw_sql_one("SELECT alarm_time FROM alarms WHERE alarm_id = :alarm_id;", {"alarm_id": "alarm10"})
-    updated_alarm_time = datetime.strptime(updated_alarm["alarm_time"], "%Y-%m-%d %H:%M:%S")
+    updated_alarm = dal._fetch_raw_sql_one("SELECT snooze_until FROM Alarms WHERE alarm_id = :alarm_id;", {"alarm_id": "alarm10"})
+    updated_snooze_until = datetime.strptime(updated_alarm["snooze_until"], "%Y-%m-%d %H:%M:%S")
 
-    expected_alarm_time = initial_alarm_time + timedelta(minutes=snooze_duration)
-    # Allow for a small time difference due to execution time
-    assert abs((updated_alarm_time - expected_alarm_time).total_seconds()) < 5
+    expected_snooze_until = initial_alarm_time + timedelta(minutes=snooze_duration)
+    assert abs((updated_snooze_until - expected_snooze_until).total_seconds()) < 5
 
     # Check that it's no longer due immediately
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     due_alarms = dal.get_due_alarms(current_time)
     assert "alarm10" not in {a["alarm_id"] for a in due_alarms}
 
-def test_dismiss_alarm(dal):
+def test_dismiss_alarm(dal):\
     # Insert an alarm
     alarm_time = (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S")
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm9", "pearl9", "job9", "task9", "Dismissible alarm", alarm_time, "once", "2023-01-01", None, 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -179,11 +201,11 @@ def test_dismiss_alarm(dal):
     due_alarms = dal.get_due_alarms(current_time)
     assert len(due_alarms) == 0
 
-def test_get_due_alarms_outside_date_range(dal):
+def test_get_due_alarms_outside_date_range(dal):\
     # Insert an alarm that is active but outside its date range
     alarm_time = (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S")
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm6", "pearl6", "job6", "task6", "Outside date range alarm", alarm_time, "once", (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"), (datetime.now() + timedelta(days=2)).strftime("%Y-%m-%d"), 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 
@@ -191,18 +213,18 @@ def test_get_due_alarms_outside_date_range(dal):
     due_alarms = dal.get_due_alarms(current_time)
     assert len(due_alarms) == 0
 
-def test_get_due_alarms_multiple_due(dal):
+def test_get_due_alarms_multiple_due(dal):\
     # Insert multiple alarms that should be due
     alarm_time_once = (datetime.now() - timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
     alarm_time_daily = (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S")
     alarm_datetime_daily_str = (datetime.now().replace(hour=int(alarm_time_daily[11:13]), minute=int(alarm_time_daily[14:16]), second=int(alarm_time_daily[17:19]))).strftime("%Y-%m-%d %H:%M:%S")
 
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm7", "pearl7", "job7", "task7", "Multiple alarm 1", alarm_time_once, "once", "2023-01-01", None, 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
     dal._execute_raw_sql(
-        "INSERT INTO alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Alarms (alarm_id, pearl_id, job_id, task_id, alarm_message, alarm_time, recurrence, start_date, end_date, is_active, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         ("alarm8", "pearl8", "job8", "task8", "Multiple alarm 2", alarm_datetime_daily_str, "daily", (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"), (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"), 1, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     )
 

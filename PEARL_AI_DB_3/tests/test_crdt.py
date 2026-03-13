@@ -1,9 +1,10 @@
 import sys
 import os
-import time
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import unittest
+from unittest.mock import patch, MagicMock
 import os
 from datetime import datetime, timedelta
 from App.src.core.database.pearl_qlite.pearl_qlite import PearlClient
@@ -11,32 +12,26 @@ from App.src.agent_pearl.agent_pearl import AgentPearl
 
 class TestCRDT(unittest.TestCase):
     def setUp(self):
-        db_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'App', 'src', 'core', 'database', 'databases')
-        os.makedirs(db_dir, exist_ok=True)
-        self.test_db_name = "test_crdt.db"
-        self.full_test_db_path = os.path.join(db_dir, self.test_db_name)
+        self.pearl_client = PearlClient(default_db=":memory:")
 
-        # Ensure any previous test database is removed before starting
-        if os.path.exists(self.full_test_db_path):
-            try:
-                os.remove(self.full_test_db_path)
-                time.sleep(1) # Give the OS a moment to release the file lock
-            except PermissionError:
-                print(f"Warning: Could not remove {self.full_test_db_path}. It might be in use.", file=sys.stderr)
+        # Patch _initialize_text_to_sql to prevent SQLiteConnector issues
+        self.initialize_text_to_sql_patch = patch('App.src.agent_pearl.agent_pearl.AgentPearl._initialize_text_to_sql')
+        self.mock_initialize_text_to_sql = self.initialize_text_to_sql_patch.start()
+        self.mock_text_to_sql_converter = MagicMock()
+        self.mock_text_to_sql_converter.convert.return_value = ""
+        self.mock_initialize_text_to_sql.return_value = self.mock_text_to_sql_converter
 
-        self.pearl_client = PearlClient(default_db=self.test_db_name)
-        self.agent_pearl = AgentPearl(db_name=self.test_db_name)
-
+        self.agent_pearl = AgentPearl(pearl_client=self.pearl_client)
 
     def tearDown(self):
-        self.pearl_client.close_connection()
-        self.agent_pearl.pearl_client.close_connection()
-        time.sleep(2) # Give the OS a moment to release the file lock
-        if os.path.exists(self.full_test_db_path):
-            try:
-                os.remove(self.full_test_db_path)
-            except PermissionError:
-                print(f"Warning: Could not remove {self.full_test_db_path}. It might be in use.", file=sys.stderr)
+        self.initialize_text_to_sql_patch.stop()
+
+
+
+
+
+
+
 
     def test_add_and_get_crdt_log(self):
         # Test adding a log entry

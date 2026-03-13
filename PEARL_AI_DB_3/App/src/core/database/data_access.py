@@ -106,13 +106,7 @@ class DataAccess:
         """
         self._active_group_id = group_id
 
-    def _get_db_connection(self):
-        """
-        Establishes and returns a database connection.
-        """
-        conn = sqlite3.connect(self.db_path, check_same_thread=False)
-        conn.row_factory = sqlite3.Row  # Allows accessing columns by name
-        return conn
+
 
     def execute_query(self, query_name: str, params: Optional[dict] = None) -> int:
         """
@@ -141,7 +135,7 @@ class DataAccess:
 
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             cursor.execute(sql, current_params)
             conn.commit()
@@ -151,8 +145,7 @@ class DataAccess:
                 conn.rollback()
             raise RuntimeError(f"Database error during query execution: {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient/fixture
 
     def _infer_column_types_from_dataframe(self, df: pd.DataFrame) -> dict[str, str]:
         """
@@ -373,7 +366,7 @@ class DataAccess:
         sql = self._load_sql_query(script_name)
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             cursor.execute(sql)
             conn.commit()
@@ -394,7 +387,7 @@ class DataAccess:
         """
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
             return [row['name'] for row in cursor.fetchall()]
@@ -416,7 +409,7 @@ class DataAccess:
 
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             for table_name in table_names:
                 # Special handling for the 'pearl_ids' table where the ID column is named 'id'
@@ -548,7 +541,7 @@ class DataAccess:
         """
         sql = """
             SELECT *
-            FROM alarms
+            FROM Alarms
             WHERE is_active = 1
               AND (snooze_until IS NULL OR snooze_until <= :current_time)
               AND dismissed_at IS NULL
@@ -598,7 +591,7 @@ class DataAccess:
             alarm_id (str): The ID of the alarm to dismiss.
         """
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        sql = "UPDATE alarms SET dismissed_at = :current_time WHERE alarm_id = :alarm_id;"
+        sql = "UPDATE Alarms SET dismissed_at = :current_time WHERE alarm_id = :alarm_id;"
         params = {"current_time": current_time, "alarm_id": alarm_id}
         self._execute_raw_sql(sql, params)
 
@@ -611,7 +604,7 @@ class DataAccess:
             snooze_duration_minutes (int): The number of minutes to snooze the alarm.
         """
         # First, get the current alarm_time
-        sql_select = "SELECT alarm_time, snooze_until FROM alarms WHERE alarm_id = :alarm_id;"
+        sql_select = "SELECT alarm_time, snooze_until FROM Alarms WHERE alarm_id = :alarm_id;"
         result = self._fetch_raw_sql_one(sql_select, {"alarm_id": alarm_id})
 
         if result:
@@ -619,7 +612,7 @@ class DataAccess:
             new_snooze_until = current_time + timedelta(minutes=snooze_duration_minutes)
             new_snooze_until_str = new_snooze_until.strftime("%Y-%m-%d %H:%M:%S")
 
-            sql_update = "UPDATE alarms SET snooze_until = :new_snooze_until WHERE alarm_id = :alarm_id;"
+            sql_update = "UPDATE Alarms SET snooze_until = :new_snooze_until WHERE alarm_id = :alarm_id;"
             params_update = {"new_snooze_until": new_snooze_until_str, "alarm_id": alarm_id}
             self._execute_raw_sql(sql_update, params_update)
         else:
@@ -844,15 +837,14 @@ class DataAccess:
 
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             cursor.execute(modified_sql, current_params)
             return cursor.fetchone()
         except sqlite3.Error as e:
             raise RuntimeError(f"Database error during raw fetch_one: {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient/fixture
 
     def get_table_columns(self, table_name: str) -> list[str]:
         """
@@ -866,7 +858,7 @@ class DataAccess:
         """
         conn = None
         try:
-            conn = self._get_db_connection()
+            conn = self.pearl_client._get_connection()
             cursor = conn.cursor()
             cursor.execute(f"PRAGMA table_info({table_name});")
             columns = [row['name'] for row in cursor.fetchall()]
@@ -874,11 +866,9 @@ class DataAccess:
         except sqlite3.Error as e:
             # If table does not exist, PRAGMA will return an empty result set, not an error.
             # So, this error handling is for other potential DB errors.
-            print(f"Database error retrieving columns for table {table_name}: {e}")
-            return []
+            raise RuntimeError(f"Database error during get_table_columns: {e}")
         finally:
-            if conn:
-                conn.close()
+            pass # Connection is managed by PearlClient/fixture
 
     def delete_all_user_data(self, pearl_id: str):
         """
