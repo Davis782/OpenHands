@@ -742,7 +742,7 @@ def main():
     elif page_selection == "Job Cost Tracking":
         render_job_costing_page(dal)
     elif page_selection == "CSV Import":
-        render_csv_import_page()
+        render_csv_import_page(dal)
     elif page_selection == "Contact Management":
         render_contacts_page(dal)
     elif page_selection == "Accounting":
