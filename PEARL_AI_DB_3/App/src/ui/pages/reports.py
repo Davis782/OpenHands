@@ -172,7 +172,7 @@ def render_csv_import_page(dal):
             st.write(f"DEBUG: First 50 raw bytes: {raw_bytes[:50]}")
 
             # Use TextIOWrapper to handle encoding explicitly
-            text_io_wrapper = io.TextIOWrapper(io.BytesIO(raw_bytes), encoding=selected_encoding, errors='replace')
+            text_io_wrapper = TextIOWrapper(BytesIO(raw_bytes), encoding=selected_encoding, errors='replace')
 
             if uploaded_file.name.endswith('.txt'):
                 # Assuming .txt files are also comma-separated for now.
