@@ -27,7 +27,7 @@ from App.src.ui.streamlit_cache_utils import (
     get_data_access_cached,
     get_agent_pearl_cached
 )
-from App.src.ui.pages.csv_import import render_csv_import_page
+from App.src.ui.pages.reports import render_csv_import_page
 from App.src.ui.db_management_utils import export_user_data_to_new_db, verify_exported_db
 from App.config.sql_categories import SQL_CATEGORIES
 
