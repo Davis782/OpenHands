@@ -161,7 +161,7 @@ def render_csv_import_page(dal):
     st.subheader("CSV Data Import")
     st.write("Upload a CSV file to import data into your database.")
 
-    uploaded_file = st.file_uploader("Choose a data file", type=["csv", "txt"])
+    uploaded_file = st.file_uploader("Choose a data file", type=["csv", "txt", "xlsx", "xls"])
     selected_encoding = st.selectbox("Select file encoding", ["utf-8", "latin-1", "cp1252"], index=0)
 
     if uploaded_file is not None:
@@ -171,15 +171,24 @@ def render_csv_import_page(dal):
             raw_bytes = uploaded_file.getvalue()
             st.write(f"DEBUG: First 50 raw bytes: {raw_bytes[:50]}")
 
-            # Use TextIOWrapper to handle encoding explicitly
-            text_io_wrapper = TextIOWrapper(BytesIO(raw_bytes), encoding=selected_encoding, errors='replace')
+            # Detect file type by magic bytes
+            file_signature = raw_bytes[:4]
+            is_excel = file_signature == b'PK\x03\x04'  # Excel files start with ZIP signature
 
-            if uploaded_file.name.endswith('.txt'):
-                # Assuming .txt files are also comma-separated for now.
-                # A more robust solution would allow the user to specify a delimiter.
-                df = pd.read_csv(text_io_wrapper, sep=',')
-            else: # Default to CSV for .csv and other types
-                df = pd.read_csv(text_io_wrapper)
+            if is_excel:
+                # It's an Excel file - use read_excel
+                st.info("Detected Excel file. Processing as spreadsheet...")
+                df = pd.read_excel(BytesIO(raw_bytes))
+            else:
+                # Use TextIOWrapper to handle encoding explicitly for CSV/TXT
+                text_io_wrapper = TextIOWrapper(BytesIO(raw_bytes), encoding=selected_encoding, errors='replace')
+
+                if uploaded_file.name.endswith('.txt'):
+                    # Assuming .txt files are also comma-separated for now.
+                    # A more robust solution would allow the user to specify a delimiter.
+                    df = pd.read_csv(text_io_wrapper, sep=',')
+                else: # Default to CSV for .csv and other types
+                    df = pd.read_csv(text_io_wrapper)
             st.success("CSV file loaded successfully!")
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())
