@@ -4,6 +4,9 @@ import os
 # Add the project root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 
+# Add PEARL_AI_DB_3 path for Public Voting module
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'PEARL_AI_DB_3')))
+
 import streamlit as st
 import sqlite3
 import json
@@ -30,6 +33,15 @@ from App.src.ui.streamlit_cache_utils import (
 from App.src.ui.pages.reports import render_csv_import_page
 from App.src.ui.db_management_utils import export_user_data_to_new_db, verify_exported_db
 from App.config.sql_categories import SQL_CATEGORIES
+
+# Import Public Voting 2026 module
+from Public_Voting_2026.integration import init_voting_system
+from Public_Voting_2026.src.ui.pages import (
+    render_election_management_page,
+    render_voting_page,
+    render_results_page,
+    render_verify_page
+)
 
 # --- Absolute Path Setup ---
 # Define the absolute path to the databases directory
@@ -600,6 +612,9 @@ def main():
     dal = get_data_access(current_db_path)
     st.session_state.sql_dir = st.session_state.pearl_client.sql_dir
 
+    # Initialize Public Voting 2026 system
+    voting_dal = init_voting_system(st.session_state.db_path)
+
     # Sidebar for navigation
     st.sidebar.title("Navigation")
     page_selection = st.sidebar.radio("Go to", [
@@ -610,7 +625,11 @@ def main():
         "Contact Management",
         "Accounting",
         "Reports",
-        "Query Builder"
+        "Query Builder",
+        "Election Management",
+        "Cast Vote",
+        "View Results",
+        "Verify Vote"
     ])
 
     st.sidebar.markdown("---")
@@ -751,6 +770,14 @@ def main():
         render_reports_page(dal)
     elif page_selection == "Query Builder":
         render_query_builder_page(st.session_state.agent_pearl, st.session_state.sql_dir)
+    elif page_selection == "Election Management":
+        render_election_management_page(voting_dal)
+    elif page_selection == "Cast Vote":
+        render_voting_page(voting_dal)
+    elif page_selection == "View Results":
+        render_results_page(voting_dal)
+    elif page_selection == "Verify Vote":
+        render_verify_page(voting_dal)
 
 if __name__ == "__main__":
     main()

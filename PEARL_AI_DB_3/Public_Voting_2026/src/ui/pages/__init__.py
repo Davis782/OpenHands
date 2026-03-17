@@ -5,6 +5,8 @@ Public Voting 2026 - Election Management UI Page
 import streamlit as st
 from datetime import datetime, timedelta
 from Public_Voting_2026.src.core import VotingDataAccess
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def render_election_management_page(voting_dal: VotingDataAccess):
@@ -282,7 +284,7 @@ def render_voting_page(voting_dal: VotingDataAccess):
 
 
 def render_results_page(voting_dal: VotingDataAccess):
-    """Render the results page"""
+    """Render the results page with charts"""
     st.title("📊 Election Results")
     
     elections = voting_dal.get_all_elections()
@@ -313,15 +315,45 @@ def render_results_page(voting_dal: VotingDataAccess):
         total_votes = sum(r['vote_count'] for r in results)
         st.metric("Total Votes", total_votes)
         
-        for result in results:
-            col1, col2 = st.columns([3, 1])
-            with col1:
-                st.progress(result['percentage'] / 100)
-            with col2:
-                st.write(f"**{result['vote_count']}** ({result['percentage']:.1f}%)")
+        # Prepare data for charts
+        df = pd.DataFrame(results)
+        
+        # Create tabs for different views
+        tab1, tab2, tab3 = st.tabs(["📊 Bar Chart", "🥧 Pie Chart", "📋 Table"])
+        
+        with tab1:
+            # Bar Chart
+            st.bar_chart(data=df, x='candidate_name', y='vote_count', horizontal=False)
             
-            st.write(f"  {result['candidate_name']}")
-            st.markdown("")
+            # Also show with progress bars
+            st.write("### Vote Breakdown")
+            for result in results:
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    st.progress(result['percentage'] / 100)
+                with col2:
+                    st.write(f"**{result['vote_count']}** ({result['percentage']:.1f}%)")
+                st.write(f"  {result['candidate_name']}")
+        
+        with tab2:
+            # Pie Chart using Streamlit's pyplot
+            if total_votes > 0:
+                fig, ax = plt.subplots()
+                ax.pie(
+                    df['vote_count'], 
+                    labels=df['candidate_name'], 
+                    autopct='%1.1f%%',
+                    startangle=90,
+                    colors=plt.cm.Set3.colors[:len(df)]
+                )
+                ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+                st.pyplot(fig)
+            else:
+                st.info("No votes to display")
+        
+        with tab3:
+            # Table view
+            st.table(df)
 
 
 def render_verify_page(voting_dal: VotingDataAccess):
