@@ -59,9 +59,9 @@ def init_voting_system(db_path: str, sql_dir: str = None) -> VotingDataAccess:
     """
     # Determine the SQL directory
     if sql_dir is None:
-        # Get the directory of this integration module
+        # Get the directory of this integration module - go up to PEARL_AI_DB_3 folder
         module_dir = Path(__file__).parent.parent
-        sql_dir = str(module_dir / 'sql')
+        sql_dir = str(module_dir / 'Public_Voting_2026' / 'sql')
     
     # Create database schema if needed
     _ensure_voting_schema(db_path, sql_dir)
@@ -77,20 +77,15 @@ def _ensure_voting_schema(db_path: str, sql_dir: str):
     import sqlite3
     
     conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
     
     try:
-        # Execute each schema file
+        # Execute each schema file using executescript for multi-line statements
         for schema_file in SCHEMA_FILES:
             schema_path = os.path.join(sql_dir, schema_file)
             if os.path.exists(schema_path):
                 with open(schema_path, 'r') as f:
                     schema_sql = f.read()
-                    # Split by semicolons to handle multiple statements
-                    for statement in schema_sql.split(';'):
-                        statement = statement.strip()
-                        if statement:
-                            cursor.execute(statement)
+                    conn.executescript(schema_sql)
         
         conn.commit()
     except Exception as e:
