@@ -238,6 +238,11 @@ def render_voting_page(voting_dal: VotingDataAccess):
             if election.get('require_pearl_id_verification'):
                 is_eligible = voting_dal.check_voter_eligibility(voter['voter_id'], election['election_id'])
                 if not is_eligible:
+                    # Auto-eligible verified PEARL ID voters for public elections
+                    voting_dal.set_voter_eligibility(voter['voter_id'], election['election_id'], True, "Auto-eligible: PEARL ID verified")
+                    is_eligible = True
+                    
+                if not is_eligible:
                     st.warning("You are not eligible to vote in this election")
                     continue
             
