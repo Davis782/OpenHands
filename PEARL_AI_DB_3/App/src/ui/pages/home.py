@@ -20,6 +20,11 @@ def render_home_page(dal: DataAccess):
     - **Accounting**: Keep track of your financial entries.
     - **Reports**: Generate various business reports.
     - **Query Builder**: Build and execute custom database queries.
+    - **Notary Dashboard**: Manage notarization sessions and view statistics.
+    - **Create Session**: Create new notarization sessions with signers and documents.
+    - **Manage Sessions**: View and manage existing notary sessions.
+    - **Audit Logs**: View immutable audit logs for all notary operations.
+    - **State Rules**: Configure multi-state RON compliance rules.
     - **Election Management**: Create and manage public elections and voting.
     - **Cast Vote**: Participate in active elections.
     - **View Results**: View election results with charts and analytics.

@@ -43,6 +43,16 @@ from Public_Voting_2026.src.ui.pages import (
     render_verify_page
 )
 
+# Import PEARL AI Notary module
+from PEARL_AI_Notary.integration import init_notary_system
+from PEARL_AI_Notary.src.ui.pages import (
+    render_notary_dashboard_page,
+    render_create_session_page,
+    render_manage_sessions_page,
+    render_audit_logs_page,
+    render_state_rules_page
+)
+
 # --- Absolute Path Setup ---
 # Define the absolute path to the databases directory
 db_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'core', 'database', 'databases'))
@@ -614,6 +624,9 @@ def main():
 
     # Initialize Public Voting 2026 system
     voting_dal = init_voting_system(st.session_state.db_path)
+    
+    # Initialize PEARL AI Notary system
+    notary_dal = init_notary_system(st.session_state.db_path)
 
     # Sidebar for navigation
     st.sidebar.title("Navigation")
@@ -626,6 +639,11 @@ def main():
         "Accounting",
         "Reports",
         "Query Builder",
+        "Notary Dashboard",
+        "Create Session",
+        "Manage Sessions",
+        "Audit Logs",
+        "State Rules",
         "Election Management",
         "Cast Vote",
         "View Results",
@@ -770,6 +788,16 @@ def main():
         render_reports_page(dal)
     elif page_selection == "Query Builder":
         render_query_builder_page(st.session_state.agent_pearl, st.session_state.sql_dir)
+    elif page_selection == "Notary Dashboard":
+        render_notary_dashboard_page(notary_dal)
+    elif page_selection == "Create Session":
+        render_create_session_page(notary_dal)
+    elif page_selection == "Manage Sessions":
+        render_manage_sessions_page(notary_dal)
+    elif page_selection == "Audit Logs":
+        render_audit_logs_page(notary_dal)
+    elif page_selection == "State Rules":
+        render_state_rules_page(notary_dal)
     elif page_selection == "Election Management":
         render_election_management_page(voting_dal)
     elif page_selection == "Cast Vote":
