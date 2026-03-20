@@ -1,0 +1,198 @@
+Product overview
+Product name: OneShot Video
+Purpose: Allow a user to record/upload a short video, generate a one-time view link, and guarantee that the backend will serve it at most once, then delete it.
+
+Core promise:
+
+“This video can be viewed once via this link. After that, it’s gone from our system.”
+
+2. Goals and non‑goals
+Goals:
+
+G1: Support upload of short video messages (e.g., ≤ 100 MB).
+
+G2: Generate a one‑time token URL for each uploaded video.
+
+G3: Enforce single‑view semantics at the backend.
+
+G4: Delete video and metadata immediately after first successful view or after expiration.
+
+Non‑goals:
+
+NG1: Prevent screen recording or external capture.
+
+NG2: Provide user accounts, auth, or contact lists.
+
+NG3: Provide rich UI; initial version is minimal HTML or API‑only.
+
+3. Primary user stories
+As a sender, I want to upload a video and get back a one‑time link I can share.
+
+As a recipient, I want to open the link, watch the video once, and understand that it won’t be available again.
+
+As the system owner, I want videos and tokens to be deleted automatically after first view or after a time limit.
+
+4. Functional requirements
+4.1 Endpoints
+1. POST /upload
+
+Input:
+
+Multipart form:
+
+file: video file
+
+Optional: expires_in_seconds (default e.g. 86400)
+
+Behavior:
+
+Validate file type/size.
+
+Store file in configured storage (local or S3‑like).
+
+Create DB record:
+
+id
+
+storage_path
+
+token (random, URL‑safe)
+
+viewed (bool, default false)
+
+expires_at (now + expires_in_seconds)
+
+created_at
+
+Return JSON:
+
+view_url: https://host/v/{token}
+
+expires_at
+
+2. GET /v/<token> (one‑view playback)
+
+Behavior:
+
+Look up record by token.
+
+If not found → 404 “Message not found or already viewed.”
+
+If expires_at < now → delete record + file, return 410 “Message expired.”
+
+If viewed == true → 410 “Message already viewed.”
+
+If valid:
+
+Stream video to client (e.g., send_file/send_from_directory or signed URL redirect).
+
+Mark viewed = true.
+
+Trigger deletion:
+
+Option A: delete file + record immediately after response is sent.
+
+Option B: mark for deletion and let a background job clean up.
+
+3. GET /status/<token> (optional)
+
+Behavior:
+
+Returns minimal status:
+
+exists (bool)
+
+viewed (bool)
+
+expired (bool)
+
+For debugging or sender UI; not required for v1.
+
+5. Data model
+Table: videos
+
+id: UUID or integer PK
+
+token: unique, random string (indexed)
+
+storage_path: string (path or key in storage)
+
+viewed: boolean
+
+created_at: datetime
+
+expires_at: datetime
+
+Optional fields:
+
+viewed_at: datetime
+
+uploader_ip: string (for rate limiting / abuse detection)
+
+6. Core flows
+6.1 Upload flow
+Sender hits POST /upload with video.
+
+Backend:
+
+Validates file.
+
+Stores file.
+
+Creates DB record with token + expiry.
+
+Backend returns view_url to sender.
+
+6.2 View flow (first view)
+Recipient opens view_url.
+
+Backend resolves token:
+
+If invalid/expired/viewed → error page.
+
+Else:
+
+Streams video.
+
+Sets viewed = true, viewed_at = now.
+
+Deletes file + record (immediate or via job).
+
+6.3 Expiration flow
+Background job (e.g., cron) runs periodically:
+
+Finds records where expires_at < now OR viewed = true and file_exists.
+
+Deletes file from storage.
+
+Deletes DB record (or marks as archived).
+
+7. Non‑functional requirements
+Security:
+
+Tokens must be high‑entropy, unguessable.
+
+No directory listing or direct file URLs without token.
+
+Performance:
+
+Optimized for small/medium videos; no need for adaptive streaming in v1.
+
+Privacy:
+
+No logging of video content.
+
+Minimal metadata retention.
+
+Reliability:
+
+If deletion fails, system should retry; worst case, video becomes inaccessible via token but may linger in storage until cleanup.
+
+8. Risks and constraints
+Copy risk: Recipient can still capture video externally.
+
+Network issues: If connection drops mid‑view, define behavior:
+
+v1 simple rule: first successful response counts as “viewed,” even if user didn’t finish watching.
+
+Storage cost: Need cleanup job to avoid orphaned files.
