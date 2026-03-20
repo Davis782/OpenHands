@@ -450,3 +450,46 @@ class AgentPearl:
             return self.vault.get_metadata()
         except ValueError as e:
             return str(e)
+
+    def create_limited_access_entry(self, limited_access_id: str, limited_access_password: str, master_pearl_id_seed: str) -> dict:
+        """
+        Creates a limited access entry in the limited access key store.
+        
+        Args:
+            limited_access_id: The ID for the limited access entry
+            limited_access_password: The password for the limited access entry
+            master_pearl_id_seed: The master PEARL ID seed (from the vault)
+        
+        Returns:
+            dict: Status and message
+        """
+        try:
+            # Get the vault credentials from the currently unlocked vault
+            vault_door_password = self.vault.vault_door_password
+            identity_password = self.vault.identity_password
+            metadata_password = self.vault.metadata_password
+            
+            if not vault_door_password or not identity_password or not metadata_password:
+                return {"status": "error", "message": "Vault is not fully unlocked. Cannot create limited access entry."}
+            
+            # Initialize the limited access key store if needed
+            if self.limited_access_key_store is None:
+                self._initialize_limited_access_key_store(self.vault.get_master_pearl_id())
+            
+            # Add the entry to the limited access key store
+            self.limited_access_key_store.add_entry(
+                limited_access_id=limited_access_id,
+                limited_access_password=limited_access_password,
+                vault_door_password=vault_door_password,
+                identity_password=identity_password,
+                metadata_password=metadata_password
+            )
+            
+            # Save the store
+            self.limited_access_key_store.save_store()
+            
+            return {"status": "success", "message": f"Limited access entry '{limited_access_id}' created successfully."}
+            
+        except Exception as e:
+            logger.error(f"Error creating limited access entry: {e}")
+            return {"status": "error", "message": f"Failed to create limited access entry: {str(e)}"}
