@@ -190,13 +190,13 @@ def render_create_session_page(notary_dal: NotaryDataAccess):
                 with col2:
                     doc_options = ["Upload New Document"] + [d.get('filename', 'Unknown') for d in documents]
                     selected_document = st.selectbox("Select Document", doc_options)
-                    
-                    # Handle file upload when "Upload New Document" is selected
-                    uploaded_file = None
-                    if selected_document == "Upload New Document":
-                        uploaded_file = st.file_uploader("Upload Document (PDF)", type=['pdf'])
-                        if uploaded_file is not None:
-                            st.write(f"Selected: {uploaded_file.name}")
+                
+                # Handle file upload OUTSIDE the form - Streamlit requirement
+                uploaded_file = None
+                if selected_document == "Upload New Document":
+                    uploaded_file = st.file_uploader("Upload Document (PDF)", type=['pdf'])
+                    if uploaded_file is not None:
+                        st.write(f"Selected: {uploaded_file.name}")
                 
                 state_code = st.selectbox("Jurisdiction (State)", 
                     ["VA", "TX", "FL", "NY", "CA", "Other"],
