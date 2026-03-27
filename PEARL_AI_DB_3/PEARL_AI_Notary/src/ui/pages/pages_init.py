@@ -6,6 +6,9 @@ import streamlit as st
 from datetime import datetime
 from PEARL_AI_Notary.src.core import NotaryDataAccess
 import pandas as pd
+import os
+import hashlib
+from io import StringIO
 
 
 def render_notary_dashboard_page(notary_dal: NotaryDataAccess):
@@ -74,7 +77,102 @@ def render_create_session_page(notary_dal: NotaryDataAccess):
         signers = notary_dal.get_all_signers()
         documents = notary_dal.get_all_documents()
         
-        tab1, tab2, tab3 = st.tabs(["Create Session", "Register Notary", "Register Signer"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Create Session", "Register Notary", "Register Signer", "Manage Registry"])
+        
+        with tab4:
+            st.header("Manage Registry")
+            
+            manage_tab1, manage_tab2 = st.tabs(["Manage Notaries", "Manage Signers"])
+            
+            with manage_tab1:
+                st.subheader("Manage Notaries")
+                
+                if notaries:
+                    notary_options = [n.get('name', 'Unknown') for n in notaries]
+                    selected_notary_name = st.selectbox("Select Notary to Edit", notary_options, key="manage_notary_select")
+                    
+                    selected_notary = notaries[notary_options.index(selected_notary_name)]
+                    notary_hash = selected_notary.get('notary_hash')
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        edit_name = st.text_input("Name", value=selected_notary.get('name', ''), key="edit_notary_name")
+                        edit_commission_number = st.text_input("Commission Number", value=selected_notary.get('commission_number', ''), key="edit_notary_commission")
+                    
+                    with col2:
+                        edit_jurisdiction = st.selectbox("Jurisdiction", ["VA", "TX", "FL", "NY", "CA", "Other"], index=0, key="edit_notary_jurisdiction")
+                        edit_commission_expiry = st.date_input("Commission Expiry Date", value=datetime.strptime(selected_notary.get('commission_expiry', '2025-01-01'), '%Y-%m-%d').date() if selected_notary.get('commission_expiry') else None, key="edit_notary_expiry")
+                    
+                    action_col1, action_col2 = st.columns(2)
+                    with action_col1:
+                        if st.button("Update Notary", key="update_notary_btn"):
+                            try:
+                                success = notary_dal.update_notary(notary_hash, name=edit_name, commission_number=edit_commission_number, jurisdiction=edit_jurisdiction, commission_expiry=str(edit_commission_expiry))
+                                if success:
+                                    notary_dal.log_audit(session_hash=None, action_type="NOTARY_UPDATED", actor_hash=current_pearl_id, actor_type="user", details=f"Notary {edit_name} updated")
+                                    st.success("Notary updated successfully!")
+                                    st.rerun()
+                            except Exception as e:
+                                st.error(f"Error updating notary: {e}")
+                    
+                    with action_col2:
+                        if st.button("Delete Notary", key="delete_notary_btn"):
+                            try:
+                                success = notary_dal.delete_notary(notary_hash)
+                                if success:
+                                    notary_dal.log_audit(session_hash=None, action_type="NOTARY_DELETED", actor_hash=current_pearl_id, actor_type="user", details=f"Notary {selected_notary_name} deleted")
+                                    st.success("Notary deleted successfully!")
+                                    st.rerun()
+                            except Exception as e:
+                                st.error(f"Error deleting notary: {e}")
+                else:
+                    st.info("No registered notaries")
+            
+            with manage_tab2:
+                st.subheader("Manage Signers")
+                
+                if signers:
+                    signer_options = [s.get('name', 'Unknown') for s in signers]
+                    selected_signer_name = st.selectbox("Select Signer to Edit", signer_options, key="manage_signer_select")
+                    
+                    selected_signer = signers[signer_options.index(selected_signer_name)]
+                    signer_hash = selected_signer.get('signer_hash')
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        edit_name = st.text_input("Name", value=selected_signer.get('name', ''), key="edit_signer_name")
+                        edit_email = st.text_input("Email", value=selected_signer.get('email', ''), key="edit_signer_email")
+                        edit_phone = st.text_input("Phone", value=selected_signer.get('phone', ''), key="edit_signer_phone")
+                    
+                    with col2:
+                        edit_address = st.text_area("Address", value=selected_signer.get('address', ''), key="edit_signer_address")
+                        edit_id_type = st.selectbox("ID Type", ["Driver's License", "Passport", "State ID", "Other"], index=0, key="edit_signer_id_type")
+                        edit_id_number = st.text_input("ID Number", value=selected_signer.get('id_number', ''), key="edit_signer_id_number")
+                    
+                    action_col1, action_col2 = st.columns(2)
+                    with action_col1:
+                        if st.button("Update Signer", key="update_signer_btn"):
+                            try:
+                                success = notary_dal.update_signer(signer_hash, name=edit_name, email=edit_email, phone=edit_phone, address=edit_address, id_type=edit_id_type, id_number=edit_id_number)
+                                if success:
+                                    notary_dal.log_audit(session_hash=None, action_type="SIGNER_UPDATED", actor_hash=current_pearl_id, actor_type="user", details=f"Signer {edit_name} updated")
+                                    st.success("Signer updated successfully!")
+                                    st.rerun()
+                            except Exception as e:
+                                st.error(f"Error updating signer: {e}")
+                    
+                    with action_col2:
+                        if st.button("Delete Signer", key="delete_signer_btn"):
+                            try:
+                                success = notary_dal.delete_signer(signer_hash)
+                                if success:
+                                    notary_dal.log_audit(session_hash=None, action_type="SIGNER_DELETED", actor_hash=current_pearl_id, actor_type="user", details=f"Signer {selected_signer_name} deleted")
+                                    st.success("Signer deleted successfully!")
+                                    st.rerun()
+                            except Exception as e:
+                                st.error(f"Error deleting signer: {e}")
+                else:
+                    st.info("No registered signers")
         
         with tab1:
             st.header("New Notarization Session")
@@ -92,6 +190,13 @@ def render_create_session_page(notary_dal: NotaryDataAccess):
                 with col2:
                     doc_options = ["Upload New Document"] + [d.get('filename', 'Unknown') for d in documents]
                     selected_document = st.selectbox("Select Document", doc_options)
+                    
+                    # Handle file upload when "Upload New Document" is selected
+                    uploaded_file = None
+                    if selected_document == "Upload New Document":
+                        uploaded_file = st.file_uploader("Upload Document (PDF)", type=['pdf'])
+                        if uploaded_file is not None:
+                            st.write(f"Selected: {uploaded_file.name}")
                 
                 state_code = st.selectbox("Jurisdiction (State)", 
                     ["VA", "TX", "FL", "NY", "CA", "Other"],
@@ -103,7 +208,44 @@ def render_create_session_page(notary_dal: NotaryDataAccess):
                     try:
                         notary_hash = notaries[notary_options.index(selected_notary) - 1].get('notary_hash') if selected_notary != "Create New Notary" else None
                         signer_hash = signers[signer_options.index(selected_signer) - 1].get('signer_hash') if selected_signer != "Create New Signer" else None
-                        document_hash = documents[doc_options.index(selected_document) - 1].get('document_hash') if selected_document != "Upload New Document" else None
+                        
+                        # Handle document creation from upload
+                        document_hash = None
+                        if selected_document == "Upload New Document":
+                            if uploaded_file is not None:
+                                # Save the uploaded file
+                                upload_dir = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'uploads')
+                                os.makedirs(upload_dir, exist_ok=True)
+                                file_path = os.path.join(upload_dir, uploaded_file.name)
+                                
+                                # Read file content for hashing
+                                file_content = uploaded_file.read()
+                                pdf_hash = hashlib.sha3_512(file_content).hexdigest()
+                                
+                                # Write file to disk
+                                with open(file_path, 'wb') as f:
+                                    f.write(file_content)
+                                
+                                # Create document record
+                                document_hash = notary_dal.create_document(
+                                    filename=uploaded_file.name,
+                                    file_path=file_path,
+                                    pdf_hash=pdf_hash,
+                                    document_type='pdf'
+                                )
+                                
+                                notary_dal.log_audit(
+                                    session_hash=None,
+                                    action_type="DOCUMENT_UPLOADED",
+                                    actor_hash=current_pearl_id,
+                                    actor_type="user",
+                                    details=f"Document {uploaded_file.name} uploaded"
+                                )
+                            else:
+                                st.warning("Please upload a document")
+                                st.stop()
+                        else:
+                            document_hash = documents[doc_options.index(selected_document) - 1].get('document_hash') if selected_document != "Upload New Document" else None
                         
                         if notary_hash and signer_hash and document_hash:
                             session_hash = notary_dal.create_session(
@@ -426,5 +568,138 @@ __all__ = [
     'render_create_session_page',
     'render_manage_sessions_page',
     'render_audit_logs_page',
-    'render_state_rules_page'
+    'render_state_rules_page',
+    'render_log_book_page'
 ]
+
+
+def render_log_book_page(notary_dal: NotaryDataAccess):
+    st.title("Log Book")
+    
+    try:
+        # Get all notaries for selection
+        notaries = notary_dal.get_all_notaries()
+        
+        tab1, tab2 = st.tabs(["Registry Log Book", "Notary Log Book"])
+        
+        with tab1:
+            st.header("Registry Log Book - All Activity")
+            
+            # Get all registry logs
+            registry_logs = notary_dal.get_registry_log_book()
+            
+            if registry_logs:
+                # Convert to dataframe for display
+                log_data = []
+                for log in registry_logs:
+                    log_data.append({
+                        'Timestamp': log.get('created_at', 'N/A'),
+                        'Action': log.get('action_type', 'UNKNOWN'),
+                        'Actor Type': log.get('actor_type', 'N/A'),
+                        'Session': log.get('session_hash', '')[:16] + '...' if log.get('session_hash') else 'N/A',
+                        'Details': log.get('details', '')
+                    })
+                
+                df = pd.DataFrame(log_data)
+                st.dataframe(df, use_container_width=True)
+                
+                # Export functionality
+                st.subheader("Export Log Book")
+                
+                # Create CSV for download
+                csv_buffer = StringIO()
+                df.to_csv(csv_buffer, index=False)
+                csv_data = csv_buffer.getvalue()
+                
+                st.download_button(
+                    label="Download as CSV",
+                    data=csv_data,
+                    file_name="registry_log_book.csv",
+                    mime="text/csv"
+                )
+                
+                # Create printable text version
+                st.subheader("Print Preview")
+                st.text("=" * 80)
+                st.text("REGISTRY LOG BOOK")
+                st.text("=" * 80)
+                for log in registry_logs:
+                    st.text(f"Timestamp: {log.get('created_at', 'N/A')}")
+                    st.text(f"Action: {log.get('action_type', 'UNKNOWN')}")
+                    st.text(f"Actor Type: {log.get('actor_type', 'N/A')}")
+                    if log.get('session_hash'):
+                        st.text(f"Session: {log.get('session_hash')[:16]}...")
+                    if log.get('details'):
+                        st.text(f"Details: {log.get('details')}")
+                    st.text("-" * 40)
+            else:
+                st.info("No logs found in the registry")
+        
+        with tab2:
+            st.header("Notary Log Book")
+            
+            if notaries:
+                # Select a notary
+                notary_options = [n.get('name', 'Unknown') for n in notaries]
+                selected_notary_name = st.selectbox("Select Notary", notary_options)
+                
+                # Get the selected notary's hash
+                selected_notary = notaries[notary_options.index(selected_notary_name)]
+                notary_hash = selected_notary.get('notary_hash')
+                
+                # Get notary's log book
+                notary_logs = notary_dal.get_notary_log_book(notary_hash)
+                
+                if notary_logs:
+                    # Convert to dataframe for display
+                    log_data = []
+                    for log in notary_logs:
+                        log_data.append({
+                            'Timestamp': log.get('created_at', 'N/A'),
+                            'Action': log.get('action_type', 'UNKNOWN'),
+                            'Actor Type': log.get('actor_type', 'N/A'),
+                            'Session': log.get('session_hash', '')[:16] + '...' if log.get('session_hash') else 'N/A',
+                            'Details': log.get('details', '')
+                        })
+                    
+                    df = pd.DataFrame(log_data)
+                    st.dataframe(df, use_container_width=True)
+                    
+                    # Export functionality
+                    st.subheader("Export Log Book")
+                    
+                    # Create CSV for download
+                    csv_buffer = StringIO()
+                    df.to_csv(csv_buffer, index=False)
+                    csv_data = csv_buffer.getvalue()
+                    
+                    notary_filename = f"notary_{selected_notary_name.replace(' ', '_')}_log_book.csv"
+                    st.download_button(
+                        label="Download as CSV",
+                        data=csv_data,
+                        file_name=notary_filename,
+                        mime="text/csv"
+                    )
+                    
+                    # Create printable text version
+                    st.subheader("Print Preview")
+                    st.text("=" * 80)
+                    st.text(f"NOTARY LOG BOOK - {selected_notary_name}")
+                    st.text(f"Commission: {selected_notary.get('commission_number', 'N/A')}")
+                    st.text("=" * 80)
+                    for log in notary_logs:
+                        st.text(f"Timestamp: {log.get('created_at', 'N/A')}")
+                        st.text(f"Action: {log.get('action_type', 'UNKNOWN')}")
+                        st.text(f"Actor Type: {log.get('actor_type', 'N/A')}")
+                        if log.get('session_hash'):
+                            st.text(f"Session: {log.get('session_hash')[:16]}...")
+                        if log.get('details'):
+                            st.text(f"Details: {log.get('details')}")
+                        st.text("-" * 40)
+                else:
+                    st.info(f"No logs found for {selected_notary_name}")
+            else:
+                st.info("No registered notaries found")
+                
+    except Exception as e:
+        st.error(f"Error loading log book: {e}")

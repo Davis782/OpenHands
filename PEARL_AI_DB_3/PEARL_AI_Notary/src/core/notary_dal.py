@@ -61,6 +61,36 @@ class NotaryDataAccess:
             cursor = conn.execute("SELECT * FROM notaries ORDER BY created_at DESC")
             return [dict(row) for row in cursor.fetchall()]
     
+    def update_notary(self, notary_hash: str, **kwargs) -> bool:
+        """Update an existing notary"""
+        set_clauses = []
+        values = []
+        
+        for key in ['name', 'commission_number', 'jurisdiction', 'commission_expiry', 'seed']:
+            if key in kwargs and kwargs[key] is not None:
+                set_clauses.append(f"{key} = ?")
+                values.append(kwargs[key])
+        
+        if not set_clauses:
+            return False
+        
+        set_clauses.append("updated_at = CURRENT_TIMESTAMP")
+        
+        query = f"UPDATE notaries SET {', '.join(set_clauses)} WHERE notary_hash = ?"
+        values.append(notary_hash)
+        
+        with self.get_connection() as conn:
+            cursor = conn.execute(query, values)
+            return cursor.rowcount > 0
+    
+    def delete_notary(self, notary_hash: str) -> bool:
+        """Delete a notary"""
+        with self.get_connection() as conn:
+            cursor = conn.execute(
+                "DELETE FROM notaries WHERE notary_hash = ?", (notary_hash,)
+            )
+            return cursor.rowcount > 0
+    
     # ==================== Signer Methods ====================
     
     def create_signer(self, name: str, email: str = None, phone: str = None,
@@ -90,6 +120,36 @@ class NotaryDataAccess:
         with self.get_connection() as conn:
             cursor = conn.execute("SELECT * FROM signers ORDER BY created_at DESC")
             return [dict(row) for row in cursor.fetchall()]
+    
+    def update_signer(self, signer_hash: str, **kwargs) -> bool:
+        """Update an existing signer"""
+        set_clauses = []
+        values = []
+        
+        for key in ['name', 'email', 'phone', 'address', 'id_type', 'id_number', 'verification_score', 'seed']:
+            if key in kwargs and kwargs[key] is not None:
+                set_clauses.append(f"{key} = ?")
+                values.append(kwargs[key])
+        
+        if not set_clauses:
+            return False
+        
+        set_clauses.append("updated_at = CURRENT_TIMESTAMP")
+        
+        query = f"UPDATE signers SET {', '.join(set_clauses)} WHERE signer_hash = ?"
+        values.append(signer_hash)
+        
+        with self.get_connection() as conn:
+            cursor = conn.execute(query, values)
+            return cursor.rowcount > 0
+    
+    def delete_signer(self, signer_hash: str) -> bool:
+        """Delete a signer"""
+        with self.get_connection() as conn:
+            cursor = conn.execute(
+                "DELETE FROM signers WHERE signer_hash = ?", (signer_hash,)
+            )
+            return cursor.rowcount > 0
     
     # ==================== Document Methods ====================
     
@@ -121,6 +181,34 @@ class NotaryDataAccess:
         with self.get_connection() as conn:
             cursor = conn.execute("SELECT * FROM documents ORDER BY created_at DESC")
             return [dict(row) for row in cursor.fetchall()]
+    
+    def update_document(self, document_hash: str, **kwargs) -> bool:
+        """Update an existing document"""
+        set_clauses = []
+        values = []
+        
+        for key in ['filename', 'file_path', 'pdf_hash', 'document_type', 'classification', 'seed']:
+            if key in kwargs and kwargs[key] is not None:
+                set_clauses.append(f"{key} = ?")
+                values.append(kwargs[key])
+        
+        if not set_clauses:
+            return False
+        
+        query = f"UPDATE documents SET {', '.join(set_clauses)} WHERE document_hash = ?"
+        values.append(document_hash)
+        
+        with self.get_connection() as conn:
+            cursor = conn.execute(query, values)
+            return cursor.rowcount > 0
+    
+    def delete_document(self, document_hash: str) -> bool:
+        """Delete a document"""
+        with self.get_connection() as conn:
+            cursor = conn.execute(
+                "DELETE FROM documents WHERE document_hash = ?", (document_hash,)
+            )
+            return cursor.rowcount > 0
     
     # ==================== Session Methods ====================
     
@@ -253,6 +341,27 @@ class NotaryDataAccess:
                 """SELECT * FROM notary_audit_logs WHERE session_hash = ? 
                    ORDER BY created_at ASC""",
                 (session_hash,)
+            )
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def get_notary_log_book(self, notary_hash: str) -> List[Dict]:
+        """Get all audit logs for a specific notary (log book)"""
+        with self.get_connection() as conn:
+            cursor = conn.execute(
+                """SELECT * FROM notary_audit_logs 
+                   WHERE actor_hash = ? OR session_hash IN (
+                       SELECT session_hash FROM notary_sessions WHERE notary_hash = ?
+                   )
+                   ORDER BY created_at DESC""",
+                (notary_hash, notary_hash)
+            )
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def get_registry_log_book(self) -> List[Dict]:
+        """Get all audit logs for the registry (all activity)"""
+        with self.get_connection() as conn:
+            cursor = conn.execute(
+                """SELECT * FROM notary_audit_logs ORDER BY created_at DESC"""
             )
             return [dict(row) for row in cursor.fetchall()]
     
